@@ -35,89 +35,7 @@
     overflow-x: hidden;
   }
 
-  /* ─── KEYFRAMES ─── */
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  @keyframes slideRight {
-    from { opacity: 0; transform: translateX(-28px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-  @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.88); }
-    to   { opacity: 1; transform: scale(1); }
-  }
-  /* Golden shimmer sweep */
-  @keyframes shimmer {
-    0%   { background-position: -300% center; }
-    100% { background-position: 300% center; }
-  }
-  /* Slow gentle float */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33%       { transform: translateY(-10px) rotate(-1.5deg); }
-    66%       { transform: translateY(-5px) rotate(1deg); }
-  }
-  /* Decorative ring pulse */
-  @keyframes ringPulse {
-    0%, 100% { transform: scale(1);   opacity: 0.10; }
-    50%       { transform: scale(1.08); opacity: 0.18; }
-  }
-  /* Nav slide down */
-  @keyframes navDrop {
-    from { transform: translateY(-100%); opacity: 0; }
-    to   { transform: translateY(0);     opacity: 1; }
-  }
-  /* Trust-bar items slide in */
-  @keyframes trustSlide {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  /* Liquid ripple on add-to-cart press */
-  @keyframes ripple {
-    0%   { transform: scale(0); opacity: 0.6; }
-    100% { transform: scale(3.5); opacity: 0; }
-  }
-  /* Badge bounce-in */
-  @keyframes badgePop {
-    0%   { transform: scale(0) rotate(-8deg); }
-    70%  { transform: scale(1.12) rotate(2deg); }
-    100% { transform: scale(1) rotate(0deg); }
-  }
-  /* Gold glow pulse on hero CTA */
-  @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 0   0 rgba(200,151,58,0); }
-    50%       { box-shadow: 0 0 22px 6px rgba(200,151,58,0.45); }
-  }
-  /* Ticker scroll */
-  @keyframes tickerScroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  /* Scroll-reveal base */
-  .reveal {
-    opacity: 0;
-    transform: translateY(36px);
-    transition: opacity 0.65s cubic-bezier(.25,.8,.25,1),
-                transform 0.65s cubic-bezier(.25,.8,.25,1);
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  /* Stagger helpers */
-  .reveal-d1 { transition-delay: 0.08s; }
-  .reveal-d2 { transition-delay: 0.18s; }
-  .reveal-d3 { transition-delay: 0.28s; }
-  .reveal-d4 { transition-delay: 0.38s; }
-
-  /* ─── NAV ─── */
+  /* NAV */
   nav {
     background: var(--brown-deep);
     padding: 0 5%;
@@ -129,14 +47,12 @@
     top: 0;
     z-index: 100;
     border-bottom: 2px solid var(--gold);
-    animation: navDrop 0.55s cubic-bezier(.4,0,.2,1) both;
   }
 
   .logo {
     display: flex;
     flex-direction: column;
     line-height: 1;
-    animation: slideRight 0.6s 0.15s both;
   }
   .logo-sub {
     font-family: 'Nunito', sans-serif;
@@ -153,20 +69,12 @@
     color: #fff;
     font-weight: 700;
     letter-spacing: 1px;
-    /* shimmer sweep on the logo text */
-    background: linear-gradient(90deg, #fff 30%, var(--gold-light) 50%, #fff 70%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 4s 1.2s linear infinite;
   }
 
   .nav-right {
     display: flex;
     align-items: center;
     gap: 28px;
-    animation: fadeIn 0.6s 0.3s both;
   }
   .nav-link {
     color: var(--brown-pale);
@@ -176,18 +84,8 @@
     text-transform: uppercase;
     font-weight: 500;
     transition: color 0.2s;
-    position: relative;
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -3px; left: 0;
-    width: 0; height: 1.5px;
-    background: var(--gold);
-    transition: width 0.28s ease;
   }
   .nav-link:hover { color: var(--gold-light); }
-  .nav-link:hover::after { width: 100%; }
 
   .cart-btn {
     background: var(--gold);
@@ -203,14 +101,9 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    transition: background 0.2s, transform 0.15s;
   }
-  .cart-btn:hover {
-    background: var(--gold-light);
-    transform: scale(1.06);
-    box-shadow: 0 4px 16px rgba(200,151,58,0.4);
-  }
-  .cart-btn:active { transform: scale(0.97); }
+  .cart-btn:hover { background: var(--gold-light); transform: scale(1.04); }
   .cart-count {
     background: var(--brown-deep);
     color: var(--gold);
@@ -222,11 +115,9 @@
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    transition: transform 0.25s cubic-bezier(.34,1.56,.64,1);
   }
-  .cart-count.bump { transform: scale(1.5); }
 
-  /* ─── HERO ─── */
+  /* HERO */
   .hero {
     background: linear-gradient(135deg, var(--brown-deep) 0%, #5C3D1E 60%, #7A5230 100%);
     padding: 100px 5% 80px;
@@ -237,15 +128,13 @@
     position: relative;
     overflow: hidden;
   }
-  /* Pulsing decorative rings */
   .hero::before {
     content: '';
     position: absolute;
     top: -80px; right: -80px;
     width: 400px; height: 400px;
     border-radius: 50%;
-    border: 60px solid rgba(200, 151, 58, 0.12);
-    animation: ringPulse 5s ease-in-out infinite;
+    border: 60px solid rgba(200, 151, 58, 0.1);
   }
   .hero::after {
     content: '';
@@ -253,18 +142,7 @@
     bottom: -120px; left: 30%;
     width: 600px; height: 600px;
     border-radius: 50%;
-    border: 40px solid rgba(200, 151, 58, 0.07);
-    animation: ringPulse 7s 1.5s ease-in-out infinite;
-  }
-  /* Extra shimmer line across the hero */
-  .hero-shine {
-    position: absolute;
-    top: 0; left: -100%;
-    width: 60%; height: 100%;
-    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.04) 50%, transparent 60%);
-    animation: shimmer 6s 2s linear infinite;
-    pointer-events: none;
-    z-index: 0;
+    border: 40px solid rgba(200, 151, 58, 0.06);
   }
 
   .hero-content { flex: 1; max-width: 560px; z-index: 1; }
@@ -281,7 +159,6 @@
     border-radius: 20px;
     margin-bottom: 24px;
     font-weight: 600;
-    animation: fadeUp 0.6s 0.2s both;
   }
 
   .hero-title {
@@ -291,7 +168,6 @@
     font-weight: 700;
     line-height: 1.15;
     margin-bottom: 20px;
-    animation: fadeUp 0.7s 0.35s both;
   }
   .hero-title em { color: var(--gold); font-style: italic; }
 
@@ -301,7 +177,6 @@
     line-height: 1.8;
     margin-bottom: 36px;
     font-weight: 300;
-    animation: fadeUp 0.7s 0.5s both;
   }
 
   .hero-cta {
@@ -317,30 +192,17 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
     cursor: pointer;
     border: none;
-    animation: fadeUp 0.7s 0.65s both, glowPulse 2.8s 1.8s ease-in-out infinite;
-    transition: background 0.2s, transform 0.18s;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-cta::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
-    transform: translateX(-100%);
-    transition: transform 0.5s;
   }
   .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .hero-cta:hover::after { transform: translateX(100%); }
 
   .hero-visual {
     flex: 0 0 auto;
     display: flex;
     gap: 16px;
     z-index: 1;
-    animation: fadeIn 0.9s 0.8s both;
   }
   .hero-pill {
     background: rgba(255,255,255,0.07);
@@ -350,67 +212,36 @@
     text-align: center;
     backdrop-filter: blur(6px);
     min-width: 100px;
-    transition: transform 0.3s, background 0.3s;
   }
-  .hero-pill:hover {
-    background: rgba(200,151,58,0.12);
-    transform: translateY(-6px) scale(1.04);
-  }
-  .hero-pill:nth-child(1) { animation: fadeUp 0.6s 0.9s  both; }
-  .hero-pill:nth-child(2) { animation: fadeUp 0.6s 1.05s both; }
-  .hero-pill:nth-child(3) { animation: fadeUp 0.6s 1.2s  both; }
-
-  .hero-pill-icon {
-    font-size: 36px;
-    margin-bottom: 8px;
-    display: block;
-    animation: float 5s ease-in-out infinite;
-  }
-  .hero-pill:nth-child(2) .hero-pill-icon { animation-delay: 0.8s; }
-  .hero-pill:nth-child(3) .hero-pill-icon { animation-delay: 1.6s; }
-
+  .hero-pill-icon { font-size: 36px; margin-bottom: 8px; display: block; }
   .hero-pill-text { font-size: 12px; color: var(--gold-light); font-weight: 600; letter-spacing: 0.5px; }
 
-  /* ─── TRUST TICKER ─── */
+  /* TRUST BAR */
   .trust-bar {
     background: var(--brown-softest);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    gap: 0;
     overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-  }
-  /* Fade edges */
-  .trust-bar::before,
-  .trust-bar::after {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 80px;
-    z-index: 2;
-    pointer-events: none;
-  }
-  .trust-bar::before { left: 0;  background: linear-gradient(to right, var(--brown-softest), transparent); }
-  .trust-bar::after  { right: 0; background: linear-gradient(to left,  var(--brown-softest), transparent); }
-
-  .trust-ticker {
-    display: inline-flex;
-    animation: tickerScroll 18s linear infinite;
   }
   .trust-item {
-    display: inline-flex;
+    flex: 1;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    padding: 18px 40px;
+    padding: 18px 20px;
+    border-right: 1px solid var(--border);
     font-size: 13px;
     color: var(--text-mid);
     font-weight: 500;
-    flex-shrink: 0;
   }
-  .trust-icon { font-size: 18px; }
-  .trust-sep { color: var(--gold); opacity: 0.5; padding: 0 8px; }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 20px; }
 
-  /* ─── SECTIONS ─── */
+  /* SECTION */
   section { padding: 80px 5%; }
 
   .section-label {
@@ -439,7 +270,7 @@
     margin-bottom: 50px;
   }
 
-  /* ─── PRODUCTS ─── */
+  /* PRODUCTS */
   .products-section { background: var(--warm-white); }
   .product-grid {
     display: grid;
@@ -452,16 +283,13 @@
     border: 1px solid var(--border);
     border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.3s cubic-bezier(.25,.8,.25,1),
-                box-shadow 0.3s ease,
-                border-color 0.3s;
+    transition: transform 0.25s, box-shadow 0.25s;
     cursor: pointer;
     position: relative;
   }
   .product-card:hover {
-    transform: translateY(-8px) scale(1.012);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
-    border-color: rgba(200,151,58,0.3);
   }
 
   .product-img-wrap {
@@ -472,35 +300,17 @@
     position: relative;
     overflow: hidden;
   }
-  /* Radial shimmer on card hover */
-  .product-img-wrap::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.22), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.35s;
-  }
-  .product-card:hover .product-img-wrap::after { opacity: 1; }
 
   .groundnut-bg { background: linear-gradient(160deg, #F5E6C8 0%, #E8CFA0 100%); }
-  .sesame-bg    { background: linear-gradient(160deg, #F0E8D0 0%, #D4B878 100%); }
-  .coconut-bg   { background: linear-gradient(160deg, #EAF2E8 0%, #C8DFC0 100%); }
+  .sesame-bg { background: linear-gradient(160deg, #F0E8D0 0%, #D4B878 100%); }
+  .coconut-bg { background: linear-gradient(160deg, #EAF2E8 0%, #C8DFC0 100%); }
 
   .oil-bottle-svg {
     width: 110px;
     filter: drop-shadow(0 8px 20px rgba(0,0,0,0.18));
-    transition: transform 0.4s cubic-bezier(.25,.8,.25,1),
-                filter 0.4s;
-    animation: float 6s ease-in-out infinite;
+    transition: transform 0.3s;
   }
-  .product-card:nth-child(2) .oil-bottle-svg { animation-delay: 1s; }
-  .product-card:nth-child(3) .oil-bottle-svg { animation-delay: 2s; }
-  .product-card:hover .oil-bottle-svg {
-    transform: scale(1.1) rotate(-3deg) translateY(-6px);
-    filter: drop-shadow(0 16px 28px rgba(0,0,0,0.28));
-    animation-play-state: paused;
-  }
+  .product-card:hover .oil-bottle-svg { transform: scale(1.06) rotate(-2deg); }
 
   .product-badge {
     position: absolute;
@@ -513,7 +323,6 @@
     text-transform: uppercase;
     padding: 5px 12px;
     border-radius: 20px;
-    animation: badgePop 0.5s 1.2s both;
   }
 
   .product-info { padding: 20px 22px 22px; }
@@ -547,11 +356,6 @@
     padding: 4px 10px;
     border-radius: 20px;
     letter-spacing: 0.3px;
-    transition: background 0.2s, color 0.2s;
-  }
-  .product-card:hover .feat-tag {
-    background: rgba(200,151,58,0.12);
-    color: var(--brown-deep);
   }
 
   .product-footer {
@@ -573,21 +377,15 @@
     border-radius: 8px;
     cursor: pointer;
     outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .size-select:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(200,151,58,0.18);
-  }
+  .size-select:focus { border-color: var(--gold); }
 
   .price {
     font-family: 'Playfair Display', serif;
     font-size: 22px;
     color: var(--brown-deep);
     font-weight: 700;
-    transition: transform 0.25s cubic-bezier(.34,1.56,.64,1);
   }
-  .price.bump { transform: scale(1.18); }
   .price span {
     font-family: 'Nunito', sans-serif;
     font-size: 13px;
@@ -595,7 +393,6 @@
     font-weight: 400;
   }
 
-  /* Add button with ripple */
   .add-btn {
     background: var(--brown-deep);
     color: #fff;
@@ -610,31 +407,12 @@
     display: flex;
     align-items: center;
     gap: 7px;
-    transition: background 0.22s, transform 0.15s, box-shadow 0.22s;
-    position: relative;
-    overflow: hidden;
+    transition: background 0.2s, transform 0.15s;
   }
-  .add-btn:hover {
-    background: var(--gold);
-    color: var(--brown-deep);
-    transform: scale(1.05);
-    box-shadow: 0 4px 14px rgba(200,151,58,0.35);
-  }
-  .add-btn:active { transform: scale(0.96); }
-  .add-btn.added  { background: #2d7a3a; }
+  .add-btn:hover { background: var(--gold); color: var(--brown-deep); transform: scale(1.04); }
+  .add-btn.added { background: #2d7a3a; }
 
-  /* Ripple element */
-  .btn-ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.38);
-    width: 24px; height: 24px;
-    margin-top: -12px; margin-left: -12px;
-    pointer-events: none;
-    animation: ripple 0.55s linear forwards;
-  }
-
-  /* ─── WHY US ─── */
+  /* WHY US */
   .why-section { background: var(--cream); }
   .why-grid {
     display: grid;
@@ -648,20 +426,14 @@
     border-radius: 16px;
     padding: 28px 24px;
     text-align: center;
-    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    transition: box-shadow 0.2s;
   }
-  .why-card:hover {
-    box-shadow: var(--shadow-soft);
-    transform: translateY(-4px);
-    border-color: rgba(200,151,58,0.28);
-  }
+  .why-card:hover { box-shadow: var(--shadow-soft); }
   .why-icon {
     font-size: 40px;
     margin-bottom: 14px;
     display: block;
-    transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
   }
-  .why-card:hover .why-icon { transform: scale(1.2) rotate(-5deg); }
   .why-title {
     font-family: 'Playfair Display', serif;
     font-size: 17px;
@@ -676,7 +448,7 @@
     font-weight: 400;
   }
 
-  /* ─── CART SIDEBAR ─── */
+  /* CART SIDEBAR */
   .cart-overlay {
     position: fixed;
     inset: 0;
@@ -684,8 +456,7 @@
     z-index: 200;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.35s;
-    backdrop-filter: blur(2px);
+    transition: opacity 0.3s;
   }
   .cart-overlay.open { opacity: 1; pointer-events: all; }
 
@@ -698,7 +469,7 @@
     box-shadow: -8px 0 48px rgba(0,0,0,0.18);
     z-index: 201;
     transform: translateX(100%);
-    transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1);
     display: flex;
     flex-direction: column;
   }
@@ -725,9 +496,9 @@
     cursor: pointer;
     line-height: 1;
     padding: 2px;
-    transition: color 0.2s, transform 0.25s;
+    transition: color 0.2s;
   }
-  .cart-close:hover { color: var(--gold); transform: rotate(90deg) scale(1.2); }
+  .cart-close:hover { color: var(--gold); }
 
   .cart-body {
     flex: 1;
@@ -739,15 +510,8 @@
     text-align: center;
     padding: 60px 20px;
     color: var(--text-muted);
-    animation: fadeIn 0.4s both;
   }
-  .cart-empty-icon {
-    font-size: 56px;
-    margin-bottom: 16px;
-    display: block;
-    opacity: 0.5;
-    animation: float 4s ease-in-out infinite;
-  }
+  .cart-empty-icon { font-size: 56px; margin-bottom: 16px; display: block; opacity: 0.5; }
   .cart-empty-text { font-size: 15px; font-weight: 400; }
 
   .cart-item {
@@ -759,17 +523,8 @@
     display: flex;
     gap: 14px;
     align-items: center;
-    animation: fadeUp 0.35s both;
-    transition: transform 0.2s, box-shadow 0.2s;
   }
-  .cart-item:hover { transform: scale(1.012); box-shadow: var(--shadow-soft); }
-  .cart-item-emoji {
-    font-size: 30px;
-    flex: 0 0 44px;
-    text-align: center;
-    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
-  }
-  .cart-item:hover .cart-item-emoji { transform: scale(1.25) rotate(-5deg); }
+  .cart-item-emoji { font-size: 30px; flex: 0 0 44px; text-align: center; }
   .cart-item-info { flex: 1; }
   .cart-item-name { font-size: 14px; font-weight: 700; color: var(--brown-deep); margin-bottom: 2px; }
   .cart-item-size { font-size: 12px; color: var(--text-muted); }
@@ -790,19 +545,18 @@
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     font-weight: 700;
-    transition: background 0.15s, transform 0.15s;
+    transition: background 0.15s;
   }
-  .qty-btn:hover { background: var(--brown-pale); transform: scale(1.12); }
-  .qty-btn:active { transform: scale(0.9); }
+  .qty-btn:hover { background: var(--brown-pale); }
   .qty-num { font-size: 14px; font-weight: 700; color: var(--brown-deep); min-width: 20px; text-align: center; }
 
   .cart-item-price { font-size: 15px; font-weight: 700; color: var(--brown-deep); flex: 0 0 auto; text-align: right; }
   .cart-item-remove {
     background: none; border: none; font-size: 16px; cursor: pointer;
     color: var(--text-muted); padding: 4px; margin-left: 4px;
-    transition: color 0.2s, transform 0.2s;
+    transition: color 0.2s;
   }
-  .cart-item-remove:hover { color: #c0392b; transform: rotate(90deg) scale(1.2); }
+  .cart-item-remove:hover { color: #c0392b; }
 
   .cart-footer {
     border-top: 1px solid var(--border);
@@ -821,10 +575,7 @@
     font-size: 24px;
     color: var(--brown-deep);
     font-weight: 700;
-    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
   }
-  .cart-total-amount.bump { transform: scale(1.14); }
-
   .checkout-btn {
     width: 100%;
     background: var(--gold);
@@ -838,26 +589,11 @@
     letter-spacing: 0.5px;
     cursor: pointer;
     text-transform: uppercase;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
+    transition: background 0.2s, transform 0.15s;
   }
-  .checkout-btn::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.5s;
-  }
-  .checkout-btn:hover {
-    background: var(--gold-light);
-    transform: scale(1.02);
-    box-shadow: 0 4px 20px rgba(200,151,58,0.4);
-  }
-  .checkout-btn:hover::after { transform: translateX(100%); }
+  .checkout-btn:hover { background: var(--gold-light); transform: scale(1.02); }
 
-  /* ─── TOAST ─── */
+  /* TOAST */
   .toast {
     position: fixed;
     bottom: 28px; left: 50%;
@@ -870,17 +606,13 @@
     font-weight: 600;
     border-left: 4px solid var(--gold);
     z-index: 300;
-    transition: transform 0.38s cubic-bezier(.34,1.56,.64,1), opacity 0.38s;
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1);
     white-space: nowrap;
     box-shadow: 0 6px 24px rgba(0,0,0,0.25);
-    opacity: 0;
   }
-  .toast.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* ─── FOOTER ─── */
+  /* FOOTER */
   footer {
     background: var(--brown-deep);
     color: var(--brown-pale);
@@ -888,26 +620,16 @@
     padding: 40px 5% 30px;
     border-top: 2px solid var(--gold);
   }
-  footer .logo-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    color: #fff;
-    margin-bottom: 8px;
-    display: block;
-    background: linear-gradient(90deg, #fff 30%, var(--gold-light) 50%, #fff 70%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 5s linear infinite;
-  }
+  footer .logo-name { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; margin-bottom: 8px; display: block; }
   footer p { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; font-weight: 400; }
   footer .footer-gold { color: var(--gold); font-weight: 600; }
 
-  /* ─── RESPONSIVE ─── */
   @media (max-width: 700px) {
     .hero { flex-direction: column; padding: 60px 5% 50px; gap: 36px; }
     .hero-visual { flex-direction: row; justify-content: center; }
+    .trust-bar { flex-direction: column; }
+    .trust-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .trust-item:last-child { border-bottom: none; }
     nav { padding: 0 4%; }
     .nav-link { display: none; }
   }
@@ -933,7 +655,6 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-shine"></div>
   <div class="hero-content">
     <div class="hero-badge">✦ Traditional Cold Press Method</div>
     <h1 class="hero-title">
@@ -964,32 +685,34 @@
   </div>
 </section>
 
-<!-- TRUST TICKER -->
+<!-- TRUST BAR -->
 <div class="trust-bar">
-  <div class="trust-ticker" id="trust-ticker">
-    <div class="trust-item"><span class="trust-icon">🌿</span> 100% Natural &amp; Chemical-Free <span class="trust-sep">✦</span></div>
-    <div class="trust-item"><span class="trust-icon">⚙️</span> Traditional Wooden Ghani Press <span class="trust-sep">✦</span></div>
-    <div class="trust-item"><span class="trust-icon">🚚</span> Free Delivery over ₹500 <span class="trust-sep">✦</span></div>
-    <div class="trust-item"><span class="trust-icon">⭐</span> 4.9 / 5 – 2,000+ Happy Customers <span class="trust-sep">✦</span></div>
-    <div class="trust-item"><span class="trust-icon">🌿</span> 100% Natural &amp; Chemical-Free <span class="trust-sep">✦</span></div>
-    <div class="trust-item"><span class="trust-icon">⚙️</span> Traditional Wooden Ghani Press <span class="trust-sep">✦</span></div>
-    <div class="trust-item"><span class="trust-icon">🚚</span> Free Delivery over ₹500 <span class="trust-sep">✦</span></div>
-    <div class="trust-item"><span class="trust-icon">⭐</span> 4.9 / 5 – 2,000+ Happy Customers <span class="trust-sep">✦</span></div>
+  <div class="trust-item">
+    <span class="trust-icon">🌿</span> 100% Natural & Chemical-Free
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">⚙️</span> Traditional Wooden Ghani Press
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">🚚</span> Free Delivery over ₹500
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">⭐</span> 4.9 / 5 – 2,000+ Happy Customers
   </div>
 </div>
 
 <!-- PRODUCTS -->
 <section class="products-section" id="products">
-  <span class="section-label reveal">Our Collection</span>
-  <h2 class="section-title reveal reveal-d1">Wood Pressed Oils</h2>
-  <p class="section-desc reveal reveal-d2">
+  <span class="section-label">Our Collection</span>
+  <h2 class="section-title">Wood Pressed Oils</h2>
+  <p class="section-desc">
     Three sacred oils, pressed the old way — slow, cold, and pure. No bleaching, no refining, no shortcuts. Just golden goodness in every drop.
   </p>
 
   <div class="product-grid">
 
     <!-- Groundnut Oil -->
-    <div class="product-card reveal reveal-d1">
+    <div class="product-card">
       <div class="product-img-wrap groundnut-bg">
         <span class="product-badge">Bestseller</span>
         <svg class="oil-bottle-svg" viewBox="0 0 80 180" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1020,7 +743,7 @@
             <option value="2000">2 Litres</option>
           </select>
           <div class="price" id="price-groundnut">₹280 <span>/ 500ml</span></div>
-          <button class="add-btn" id="btn-groundnut" onclick="addToCart('groundnut', event)">
+          <button class="add-btn" id="btn-groundnut" onclick="addToCart('groundnut')">
             <span>+</span> Add
           </button>
         </div>
@@ -1028,7 +751,7 @@
     </div>
 
     <!-- Sesame Oil -->
-    <div class="product-card reveal reveal-d2">
+    <div class="product-card">
       <div class="product-img-wrap sesame-bg">
         <span class="product-badge">Rich Flavour</span>
         <svg class="oil-bottle-svg" viewBox="0 0 80 180" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1059,7 +782,7 @@
             <option value="2000">2 Litres</option>
           </select>
           <div class="price" id="price-sesame">₹320 <span>/ 500ml</span></div>
-          <button class="add-btn" id="btn-sesame" onclick="addToCart('sesame', event)">
+          <button class="add-btn" id="btn-sesame" onclick="addToCart('sesame')">
             <span>+</span> Add
           </button>
         </div>
@@ -1067,9 +790,9 @@
     </div>
 
     <!-- Coconut Oil -->
-    <div class="product-card reveal reveal-d3">
+    <div class="product-card">
       <div class="product-img-wrap coconut-bg">
-        <span class="product-badge">Pure &amp; White</span>
+        <span class="product-badge">Pure & White</span>
         <svg class="oil-bottle-svg" viewBox="0 0 80 180" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="30" y="2" width="20" height="18" rx="4" fill="#4A7A50"/>
           <rect x="32" y="4" width="16" height="14" rx="3" fill="#70A870"/>
@@ -1085,7 +808,7 @@
       </div>
       <div class="product-info">
         <h3 class="product-name">Coconut Oil</h3>
-        <p class="product-tagline">Virgin pressed, tropical freshness. Ideal for cooking, skin &amp; hair care.</p>
+        <p class="product-tagline">Virgin pressed, tropical freshness. Ideal for cooking, skin & hair care.</p>
         <div class="product-features">
           <span class="feat-tag">Virgin Cold Pressed</span>
           <span class="feat-tag">MCT Rich</span>
@@ -1098,7 +821,7 @@
             <option value="2000">2 Litres</option>
           </select>
           <div class="price" id="price-coconut">₹350 <span>/ 500ml</span></div>
-          <button class="add-btn" id="btn-coconut" onclick="addToCart('coconut', event)">
+          <button class="add-btn" id="btn-coconut" onclick="addToCart('coconut')">
             <span>+</span> Add
           </button>
         </div>
@@ -1110,25 +833,25 @@
 
 <!-- WHY US -->
 <section class="why-section" id="why">
-  <span class="section-label reveal">Why Choose Us</span>
-  <h2 class="section-title reveal reveal-d1">The Sale Pandrom Difference</h2>
+  <span class="section-label">Why Choose Us</span>
+  <h2 class="section-title">The Sale Pandrom Difference</h2>
   <div class="why-grid">
-    <div class="why-card reveal reveal-d1">
+    <div class="why-card">
       <span class="why-icon">🪵</span>
       <div class="why-title">Traditional Wooden Press</div>
       <p class="why-text">Our ghani is made of solid wood — no metal contamination, preserving every nutrient and flavour molecule.</p>
     </div>
-    <div class="why-card reveal reveal-d2">
+    <div class="why-card">
       <span class="why-icon">🌡️</span>
       <div class="why-title">Cold Pressed Below 40°C</div>
       <p class="why-text">Heat destroys goodness. Our slow extraction never exceeds 40°C, locking in all vitamins and antioxidants.</p>
     </div>
-    <div class="why-card reveal reveal-d3">
+    <div class="why-card">
       <span class="why-icon">🌾</span>
       <div class="why-title">Farm-Direct Seeds</div>
       <p class="why-text">We source directly from local organic farms — every batch is traceable, fresh, and free from pesticides.</p>
     </div>
-    <div class="why-card reveal reveal-d4">
+    <div class="why-card">
       <span class="why-icon">📦</span>
       <div class="why-title">No Additives, Ever</div>
       <p class="why-text">No preservatives, no artificial colour, no deodorising. Pure oil — exactly as nature intended it to be.</p>
@@ -1172,7 +895,6 @@
 </footer>
 
 <script>
-/* ─── DATA ─── */
 const products = {
   groundnut: {
     name: 'Groundnut Oil', emoji: '🥜',
@@ -1193,35 +915,20 @@ const products = {
 
 let cart = [];
 
-/* ─── PRICE UPDATE with bump ─── */
 function updatePrice(id, size) {
   const p = products[id];
   const price = p.prices[size];
   const label = p.labels[size];
-  const el = document.getElementById('price-' + id);
-  el.innerHTML = '₹' + price + ' <span>/ ' + label + '</span>';
-  el.classList.add('bump');
-  setTimeout(() => el.classList.remove('bump'), 350);
+  document.getElementById('price-' + id).innerHTML = '₹' + price + ' <span>/ ' + label + '</span>';
 }
 
-/* ─── ADD TO CART with ripple ─── */
-function addToCart(id, event) {
+function addToCart(id) {
   const p = products[id];
   const sizeEl = document.getElementById('size-' + id);
   const size = parseInt(sizeEl.value);
   const price = p.prices[size];
   const sizeLabel = p.labels[size];
   const key = id + '_' + size;
-
-  // Ripple effect
-  const btn = event.currentTarget;
-  const rect = btn.getBoundingClientRect();
-  const rippleEl = document.createElement('span');
-  rippleEl.className = 'btn-ripple';
-  rippleEl.style.top  = (event.clientY - rect.top)  + 'px';
-  rippleEl.style.left = (event.clientX - rect.left) + 'px';
-  btn.appendChild(rippleEl);
-  setTimeout(() => rippleEl.remove(), 600);
 
   const existing = cart.find(i => i.key === key);
   if (existing) {
@@ -1230,6 +937,7 @@ function addToCart(id, event) {
     cart.push({ key, id, name: p.name, emoji: p.emoji, size: sizeLabel, price, qty: 1 });
   }
 
+  const btn = document.getElementById('btn-' + id);
   btn.classList.add('added');
   btn.textContent = '✓ Added';
   setTimeout(() => {
@@ -1237,27 +945,13 @@ function addToCart(id, event) {
     btn.innerHTML = '<span>+</span> Add';
   }, 1500);
 
-  // Bounce the cart count
-  const countEl = document.getElementById('cart-count');
-  countEl.classList.add('bump');
-  setTimeout(() => countEl.classList.remove('bump'), 300);
-
   showToast(p.emoji + ' ' + p.name + ' (' + sizeLabel + ') added to cart!');
   renderCart();
 }
 
-/* ─── CART MANAGEMENT ─── */
 function removeFromCart(key) {
-  const item = document.querySelector('[data-key="' + key + '"]');
-  if (item) {
-    item.style.transform = 'translateX(40px)';
-    item.style.opacity   = '0';
-    item.style.transition = 'transform 0.28s ease, opacity 0.28s ease';
-    setTimeout(() => {
-      cart = cart.filter(i => i.key !== key);
-      renderCart();
-    }, 280);
-  }
+  cart = cart.filter(i => i.key !== key);
+  renderCart();
 }
 
 function changeQty(key, delta) {
@@ -1265,41 +959,33 @@ function changeQty(key, delta) {
   if (!item) return;
   item.qty += delta;
   if (item.qty <= 0) {
-    removeFromCart(key);
-    return;
+    cart = cart.filter(i => i.key !== key);
   }
   renderCart();
 }
 
 function renderCart() {
-  const body     = document.getElementById('cart-body');
-  const countEl  = document.getElementById('cart-count');
-  const totalEl  = document.getElementById('cart-total');
+  const body = document.getElementById('cart-body');
+  const empty = document.getElementById('cart-empty');
+  const countEl = document.getElementById('cart-count');
+  const totalEl = document.getElementById('cart-total');
 
   const totalQty = cart.reduce((s, i) => s + i.qty, 0);
   const totalAmt = cart.reduce((s, i) => s + i.price * i.qty, 0);
 
   countEl.textContent = totalQty;
-
-  // Bounce total
   totalEl.textContent = '₹' + totalAmt.toLocaleString('en-IN');
-  totalEl.classList.add('bump');
-  setTimeout(() => totalEl.classList.remove('bump'), 350);
 
   if (cart.length === 0) {
     body.innerHTML = '';
-    const empty = document.createElement('div');
-    empty.className = 'cart-empty';
-    empty.id = 'cart-empty';
-    empty.innerHTML = '<span class="cart-empty-icon">🛒</span><p class="cart-empty-text">Your cart is empty.<br>Add some pure oils!</p>';
     body.appendChild(empty);
     return;
   }
 
   let html = '';
-  cart.forEach((item, idx) => {
+  cart.forEach(item => {
     html += `
-      <div class="cart-item" data-key="${item.key}" style="animation-delay:${idx * 0.07}s">
+      <div class="cart-item">
         <div class="cart-item-emoji">${item.emoji}</div>
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
@@ -1319,13 +1005,13 @@ function renderCart() {
   body.innerHTML = html;
 }
 
-/* ─── CART TOGGLE ─── */
 function toggleCart() {
-  document.getElementById('cart-sidebar').classList.toggle('open');
-  document.getElementById('cart-overlay').classList.toggle('open');
+  const sidebar = document.getElementById('cart-sidebar');
+  const overlay = document.getElementById('cart-overlay');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
 }
 
-/* ─── TOAST ─── */
 let toastTimer;
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -1335,7 +1021,6 @@ function showToast(msg) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-/* ─── CHECKOUT ─── */
 function checkout() {
   if (cart.length === 0) {
     showToast('Your cart is empty! Add some oils first.');
@@ -1348,19 +1033,6 @@ function checkout() {
   toggleCart();
 }
 
-/* ─── SCROLL REVEAL ─── */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-/* ─── INIT ─── */
 renderCart();
 </script>
 </body>
