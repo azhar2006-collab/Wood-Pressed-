@@ -325,7 +325,6 @@
   .cart-total-label { font-size: 13px; color: var(--text-mid); }
   .cart-total-val { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--forest); }
 
-  /* ── WhatsApp checkout button (replaces old checkout-btn) ── */
   .checkout-btn {
     width: 100%;
     background: var(--wa-green);
@@ -353,295 +352,126 @@
   .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--forest); color: var(--cream); padding: 12px 20px; border-radius: 10px; font-size: 13.5px; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 999; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 4px 20px rgba(0,0,0,0.2); white-space: nowrap; }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* ═══════════════════════════════════════════
-     WHATSAPP ORDER MODAL
-  ═══════════════════════════════════════════ */
+  /* ═══ WHATSAPP ORDER MODAL ═══ */
   .wa-modal-overlay {
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background: rgba(0,0,0,0.55);
     z-index: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     padding: 16px;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0; pointer-events: none;
     transition: opacity 0.3s;
     backdrop-filter: blur(4px);
   }
-  .wa-modal-overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
+  .wa-modal-overlay.open { opacity: 1; pointer-events: all; }
 
   .wa-modal {
     background: var(--white);
     border-radius: 20px;
-    width: 100%;
-    max-width: 480px;
+    width: 100%; max-width: 480px;
     box-shadow: 0 24px 80px rgba(0,0,0,0.22);
     overflow: hidden;
     transform: scale(0.94) translateY(16px);
     transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
   }
-  .wa-modal-overlay.open .wa-modal {
-    transform: scale(1) translateY(0);
-  }
+  .wa-modal-overlay.open .wa-modal { transform: scale(1) translateY(0); }
 
-  /* Modal header — WhatsApp green gradient */
   .wa-modal-header {
     background: linear-gradient(135deg, var(--wa-dark) 0%, #128C7E 60%, var(--wa-green) 100%);
-    padding: 22px 24px 18px;
-    position: relative;
+    padding: 22px 24px 18px; position: relative;
   }
   .wa-modal-close {
-    position: absolute;
-    top: 14px; right: 14px;
+    position: absolute; top: 14px; right: 14px;
     width: 30px; height: 30px;
-    background: rgba(255,255,255,0.15);
-    border: none; border-radius: 50%;
-    color: white; font-size: 15px;
-    cursor: pointer;
+    background: rgba(255,255,255,0.15); border: none; border-radius: 50%;
+    color: white; font-size: 15px; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     transition: background 0.2s;
   }
   .wa-modal-close:hover { background: rgba(255,255,255,0.28); }
+  .wa-modal-brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .wa-modal-brand-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+  .wa-modal-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #fff; }
+  .wa-modal-brand-sub { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; }
+  .wa-modal-headline { font-size: 13px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 7px; margin-top: 4px; }
+  .wa-modal-headline::before { content: ''; width: 6px; height: 6px; background: var(--wa-green); border-radius: 50%; box-shadow: 0 0 0 3px rgba(37,211,102,0.3); flex-shrink: 0; }
 
-  .wa-modal-brand-row {
-    display: flex; align-items: center; gap: 12px; margin-bottom: 6px;
-  }
-  .wa-modal-brand-icon {
-    width: 44px; height: 44px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
-  }
-  .wa-modal-brand-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px; font-weight: 600;
-    color: #fff;
-  }
-  .wa-modal-brand-sub {
-    font-size: 11px;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.05em;
-  }
-  .wa-modal-headline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.85);
-    display: flex; align-items: center; gap: 7px;
-    margin-top: 4px;
-  }
-  .wa-modal-headline::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--wa-green);
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(37,211,102,0.3);
-    flex-shrink: 0;
-  }
-
-  /* Modal body */
   .wa-modal-body { padding: 20px 24px 0; }
-  .wa-order-title {
-    font-size: 12px; font-weight: 600;
-    color: var(--text-light);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .wa-order-items {
-    display: flex; flex-direction: column; gap: 8px;
-    max-height: 220px;
-    overflow-y: auto;
-    padding-right: 4px;
-    margin-bottom: 14px;
-  }
+  .wa-order-title { font-size: 12px; font-weight: 600; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .wa-order-items { display: flex; flex-direction: column; gap: 8px; max-height: 220px; overflow-y: auto; padding-right: 4px; margin-bottom: 14px; }
   .wa-order-items::-webkit-scrollbar { width: 4px; }
   .wa-order-items::-webkit-scrollbar-track { background: var(--cream); border-radius: 4px; }
   .wa-order-items::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 4px; }
-
-  .wa-order-item {
-    display: flex; align-items: center; gap: 10px;
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 12px;
-  }
+  .wa-order-item { display: flex; align-items: center; gap: 10px; background: var(--cream); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }
   .wa-order-item-emoji { font-size: 22px; flex-shrink: 0; }
-  .wa-order-item-name {
-    flex: 1;
-    font-size: 12.5px; font-weight: 500;
-    color: var(--text-dark);
-    line-height: 1.3;
-  }
-  .wa-order-item-qty {
-    font-size: 11px;
-    color: var(--text-light);
-    margin-top: 1px;
-  }
-  .wa-order-item-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px; font-weight: 600;
-    color: var(--forest);
-    flex-shrink: 0;
-  }
+  .wa-order-item-name { flex: 1; font-size: 12.5px; font-weight: 500; color: var(--text-dark); line-height: 1.3; }
+  .wa-order-item-qty { font-size: 11px; color: var(--text-light); margin-top: 1px; }
+  .wa-order-item-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--forest); flex-shrink: 0; }
 
   .wa-divider { height: 1px; background: var(--border); margin: 0 0 14px; }
+  .wa-total-row { display: flex; justify-content: space-between; align-items: center; padding: 0 2px; margin-bottom: 16px; }
+  .wa-total-label { font-size: 13px; font-weight: 500; color: var(--text-mid); }
+  .wa-total-val { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--forest); }
 
-  .wa-total-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0 2px;
-    margin-bottom: 16px;
-  }
-  .wa-total-label {
-    font-size: 13px; font-weight: 500; color: var(--text-mid);
-  }
-  .wa-total-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 600;
-    color: var(--forest);
-  }
-
-  /* Info note inside modal */
-  .wa-info-note {
-    background: rgba(37,211,102,0.08);
-    border: 1px solid rgba(37,211,102,0.25);
-    border-radius: 10px;
-    padding: 11px 14px;
-    font-size: 12px;
-    color: #075E54;
-    display: flex; gap: 9px; align-items: flex-start;
-    margin-bottom: 16px;
-    line-height: 1.55;
-  }
+  .wa-info-note { background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.25); border-radius: 10px; padding: 11px 14px; font-size: 12px; color: #075E54; display: flex; gap: 9px; align-items: flex-start; margin-bottom: 16px; line-height: 1.55; }
   .wa-info-note-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
-  /* Modal footer actions */
-  .wa-modal-footer {
-    padding: 0 24px 24px;
-    display: flex; flex-direction: column; gap: 10px;
-  }
+  .wa-modal-footer { padding: 0 24px 24px; display: flex; flex-direction: column; gap: 10px; }
 
   .wa-send-btn {
-    width: 100%;
-    background: var(--wa-green);
-    color: #fff;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px; font-weight: 700;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    letter-spacing: 0.03em;
+    width: 100%; background: var(--wa-green); color: #fff; border: none;
+    padding: 15px 20px; border-radius: 12px;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.03em;
     box-shadow: 0 4px 18px rgba(37,211,102,0.35);
   }
   .wa-send-btn:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
 
-  /* WhatsApp SVG icon inline */
-  .wa-icon {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px; flex-shrink: 0;
-  }
+  .wa-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
 
   .wa-cancel-btn {
-    width: 100%;
-    background: transparent;
-    color: var(--text-light);
-    border: 1px solid var(--border);
-    padding: 11px;
-    border-radius: 10px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
-    letter-spacing: 0.02em;
+    width: 100%; background: transparent; color: var(--text-light);
+    border: 1px solid var(--border); padding: 11px; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer;
+    transition: border-color 0.2s, color 0.2s; letter-spacing: 0.02em;
   }
   .wa-cancel-btn:hover { border-color: var(--border-hover); color: var(--text-dark); }
 
   /* ── Payment Steps ── */
-  .pay-steps {
-    display: flex; flex-direction: column; gap: 0;
-    background: rgba(37,211,102,0.06);
-    border: 1px solid rgba(37,211,102,0.2);
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin-bottom: 16px;
-  }
-  .pay-step {
-    display: flex; align-items: center; gap: 10px;
-  }
-  .pay-step-num {
-    width: 24px; height: 24px; flex-shrink: 0;
-    background: var(--wa-green); color: white;
-    border-radius: 50%; font-size: 12px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-  }
+  .pay-steps { display: flex; flex-direction: column; gap: 0; background: rgba(37,211,102,0.06); border: 1px solid rgba(37,211,102,0.2); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
+  .pay-step { display: flex; align-items: center; gap: 10px; }
+  .pay-step-num { width: 24px; height: 24px; flex-shrink: 0; background: var(--wa-green); color: white; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
   .pay-step-text { font-size: 12.5px; color: #075E54; font-weight: 500; line-height: 1.4; }
   .pay-step-arrow { font-size: 16px; color: rgba(37,211,102,0.5); text-align: center; margin: 4px 0 4px 8px; }
 
-  /* ── Button labels ── */
-  .pay-btn-label {
-    font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--text-light);
-    margin-bottom: 7px; margin-top: 2px;
-  }
+  .pay-btn-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 7px; margin-top: 2px; }
 
   /* ── UPI Pay Button ── */
   .upi-pay-btn {
     width: 100%;
     background: linear-gradient(135deg, var(--upi-purple) 0%, #7b2fbe 100%);
-    color: #fff;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px; font-weight: 700;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
-    letter-spacing: 0.02em;
-    box-shadow: 0 4px 18px rgba(95,37,159,0.35);
-    margin-bottom: 10px;
+    color: #fff; border: none; padding: 14px 20px; border-radius: 12px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: filter 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.02em;
+    box-shadow: 0 4px 18px rgba(95,37,159,0.35); margin-bottom: 10px;
   }
   .upi-pay-btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 26px rgba(95,37,159,0.45); }
 
   /* ── UPI ID row ── */
-  .upi-id-row {
-    display: flex; align-items: center; gap: 8px;
-    background: var(--cream); border: 1px solid var(--border);
-    border-radius: 9px; padding: 9px 12px;
-    margin-bottom: 12px;
-  }
+  .upi-id-row { display: flex; align-items: center; gap: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; margin-bottom: 12px; }
   .upi-id-label { font-size: 11px; color: var(--text-light); font-weight: 500; flex-shrink: 0; }
   .upi-id-val { font-size: 13px; font-weight: 600; color: var(--upi-purple); flex: 1; letter-spacing: 0.01em; }
-  .upi-copy-btn {
-    background: var(--upi-purple); color: white;
-    border: none; border-radius: 6px;
-    padding: 5px 12px; font-size: 11.5px; font-weight: 600;
-    cursor: pointer; transition: background 0.2s; flex-shrink: 0;
-    font-family: 'DM Sans', sans-serif;
-  }
+  .upi-copy-btn { background: var(--upi-purple); color: white; border: none; border-radius: 6px; padding: 5px 12px; font-size: 11.5px; font-weight: 600; cursor: pointer; transition: background 0.2s; flex-shrink: 0; font-family: 'DM Sans', sans-serif; }
   .upi-copy-btn:hover { background: var(--upi-purple-dark); }
   .upi-copy-btn.copied { background: var(--wa-green); }
 
   /* ── OR Divider ── */
-  .pay-or-divider {
-    display: flex; align-items: center; gap: 10px;
-    margin: 4px 0 14px; color: var(--text-light); font-size: 11px; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .pay-or-divider::before, .pay-or-divider::after {
-    content: ''; flex: 1; height: 1px; background: var(--border);
-  }
+  .pay-or-divider { display: flex; align-items: center; gap: 10px; margin: 4px 0 14px; color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pay-or-divider::before, .pay-or-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* ════════════════════════════════════════
-     RESPONSIVE BREAKPOINTS
-  ════════════════════════════════════════ */
+  /* ════ RESPONSIVE ════ */
   @media (max-width: 1200px) {
     .product-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
@@ -756,7 +586,6 @@
     .section-title { font-size: 24px; }
   }
 
-  /* Mobile nav overlay */
   .mobile-nav { display: flex; }
   .mobile-nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 299; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
   .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
@@ -1307,9 +1136,7 @@
       <span class="cart-total-label">Total</span>
       <span class="cart-total-val" id="cartTotal">₹0</span>
     </div>
-    <!-- WhatsApp checkout button -->
     <button class="checkout-btn" onclick="openWaModal()">
-      <!-- WhatsApp logo SVG -->
       <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
       </svg>
@@ -1319,13 +1146,10 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     WHATSAPP ORDER CONFIRMATION MODAL
-═══════════════════════════════════════ -->
+<!-- WHATSAPP ORDER CONFIRMATION MODAL -->
 <div class="wa-modal-overlay" id="waModalOverlay" onclick="closeWaModalOnOverlay(event)">
   <div class="wa-modal" id="waModal">
 
-    <!-- Modal Header -->
     <div class="wa-modal-header">
       <button class="wa-modal-close" onclick="closeWaModal()">✕</button>
       <div class="wa-modal-brand-row">
@@ -1338,18 +1162,14 @@
       <div class="wa-modal-headline">Pay via UPI, then confirm order on WhatsApp</div>
     </div>
 
-    <!-- Modal Body -->
     <div class="wa-modal-body">
       <div class="wa-order-title">Order Summary</div>
-      <div class="wa-order-items" id="waOrderItems">
-        <!-- Populated by JS -->
-      </div>
+      <div class="wa-order-items" id="waOrderItems"></div>
       <div class="wa-divider"></div>
       <div class="wa-total-row">
         <span class="wa-total-label">Total Amount</span>
         <span class="wa-total-val" id="waTotalVal">₹0</span>
       </div>
-      <!-- Payment steps -->
       <div class="pay-steps">
         <div class="pay-step">
           <div class="pay-step-num">1</div>
@@ -1363,29 +1183,25 @@
       </div>
     </div>
 
-    <!-- Modal Footer -->
     <div class="wa-modal-footer">
 
-      <!-- STEP 1: UPI Payment button -->
       <div class="pay-btn-label">Step 1 — Pay Now</div>
       <button class="upi-pay-btn" onclick="openUpiPayment()">
-        <!-- UPI logo -->
         <svg class="wa-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="48" height="48" rx="10" fill="white" fill-opacity="0.15"/>
           <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-size="11" font-weight="800" font-family="Arial,sans-serif" fill="white" letter-spacing="0.5">UPI</text>
         </svg>
         Pay ₹<span id="upiAmountSpan">0</span> via GPay / PhonePe / Paytm
       </button>
+
       <div class="upi-id-row">
         <span class="upi-id-label">UPI ID:</span>
         <span class="upi-id-val" id="upiIdDisplay">8925387731@upi</span>
         <button class="upi-copy-btn" onclick="copyUpiId()" id="upiCopyBtn">Copy</button>
       </div>
 
-      <!-- Divider -->
       <div class="pay-or-divider"><span>then</span></div>
 
-      <!-- STEP 2: WhatsApp Order button -->
       <div class="pay-btn-label">Step 2 — Send Order on WhatsApp</div>
       <button class="wa-send-btn" onclick="sendWhatsAppOrder()">
         <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -1411,6 +1227,11 @@
      CART STATE
   ═══════════════════════════════════ */
   let cart = [];
+
+  // ─ UPI / WhatsApp constants ─
+  const UPI_ID   = '8925387731@upi';
+  const UPI_NAME = "Aadhif's Oils";
+  const WA_PHONE = '918925387731'; // +91 8925387731
 
   // ─ Mobile Nav ─
   function openMobileNav() {
@@ -1451,7 +1272,7 @@
     document.getElementById('cartCount').textContent = count;
     document.getElementById('cartTotal').textContent = '₹' + total.toLocaleString('en-IN');
 
-    const empty = document.getElementById('cartEmpty');
+    const empty  = document.getElementById('cartEmpty');
     const footer = document.getElementById('cartFooter');
     const itemsEl = document.getElementById('cartItems');
     [...itemsEl.querySelectorAll('.cart-item')].forEach(el => el.remove());
@@ -1512,14 +1333,12 @@
   /* ═══════════════════════════════════
      WHATSAPP ORDER MODAL
   ═══════════════════════════════════ */
-
-  // Open modal: populate order summary then show
   function openWaModal() {
     if (cart.length === 0) return;
 
     const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
 
-    // Populate order items in modal
+    // Populate order items
     const container = document.getElementById('waOrderItems');
     container.innerHTML = '';
     cart.forEach(item => {
@@ -1537,9 +1356,9 @@
     });
 
     document.getElementById('waTotalVal').textContent = '₹' + total.toLocaleString('en-IN');
+    // FIX: use raw number (no commas) in the amount span for the UPI button label
     document.getElementById('upiAmountSpan').textContent = total.toLocaleString('en-IN');
 
-    // Show modal
     document.getElementById('waModalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -1549,60 +1368,71 @@
     document.body.style.overflow = '';
   }
 
-  // Close only when clicking the dark overlay itself, not the modal card
   function closeWaModalOnOverlay(e) {
-    if (e.target === document.getElementById('waModalOverlay')) {
-      closeWaModal();
+    if (e.target === document.getElementById('waModalOverlay')) closeWaModal();
+  }
+
+  /* ═══════════════════════════════════
+     UPI PAYMENT  ← FIXED
+     Uses an <a> click so the page is
+     NOT navigated away from. Works on
+     mobile (opens GPay/PhonePe/Paytm)
+     and silently fails on desktop
+     (where upi:// isn't registered).
+  ═══════════════════════════════════ */
+  function openUpiPayment() {
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+    // Raw integer amount — NO toLocaleString (commas break the UPI URL)
+    const upiURL = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('Aadhifs Oils Order')}`;
+
+    // Create a temporary anchor and click it — keeps the page open
+    const a = document.createElement('a');
+    a.href = upiURL;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    showToast('📲 Opening UPI app…');
+  }
+
+  /* ─── Copy UPI ID ─── */
+  function copyUpiId() {
+    const btn = document.getElementById('upiCopyBtn');
+    const copy = () => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(UPI_ID).then(copy).catch(() => fallbackCopy());
+    } else {
+      fallbackCopy();
+    }
+    function fallbackCopy() {
+      const ta = document.createElement('textarea');
+      ta.value = UPI_ID;
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+      copy();
     }
   }
 
   /* ═══════════════════════════════════
-     UPI PAYMENT — opens GPay/PhonePe/Paytm
+     WHATSAPP ORDER MESSAGE
   ═══════════════════════════════════ */
-  const UPI_ID   = '8925387731@upi';
-  const UPI_NAME = "Aadhif's Oils";
-
-  function openUpiPayment() {
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-    // Standard UPI deep-link: opens GPay / PhonePe / Paytm / any UPI app
-    const upiURL = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent("Aadhifs Oils Order")}`;
-    window.location.href = upiURL;
-    showToast('📲 Opening UPI app...');
-  }
-
-  function copyUpiId() {
-    navigator.clipboard.writeText(UPI_ID).then(() => {
-      const btn = document.getElementById('upiCopyBtn');
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-    }).catch(() => {
-      // fallback for older browsers
-      const ta = document.createElement('textarea');
-      ta.value = UPI_ID;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      const btn = document.getElementById('upiCopyBtn');
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-    });
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     BUILD THE WHATSAPP MESSAGE AND OPEN wa.me LINK
-  ───────────────────────────────────────────────────────────── */
   function sendWhatsAppOrder() {
     if (cart.length === 0) return;
 
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-    const now   = new Date();
+    const total  = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const now    = new Date();
     const dateStr = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
     const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
 
-    // Build a nicely formatted order message
     let msg = '';
     msg += '🛒 *New Order — Aadhif\'s Wood Pressed Oils*\n';
     msg += '─────────────────────────\n';
@@ -1619,23 +1449,16 @@
     msg += `💰 *Total Amount: ₹${total.toLocaleString('en-IN')}*\n`;
     msg += '─────────────────────────\n\n';
     msg += 'Please find my payment screenshot attached. Kindly confirm my order and share delivery details. Thank you! 🙏\n\n';
-    msg += '💳 *Paid via UPI to: 8925387731@upi*\n\n';
+    msg += `💳 *Paid via UPI to: ${UPI_ID}*\n\n`;
     msg += '_Ordered via aadhifsoils.in_';
 
-    // WhatsApp number: 8925387731 (India +91)
-    const phone = '918925387731';
-    const encodedMsg = encodeURIComponent(msg);
-    const waURL = `https://wa.me/${phone}?text=${encodedMsg}`;
-
-    // Open WhatsApp in new tab
+    const waURL = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`;
     window.open(waURL, '_blank');
 
-    // Close modal & cart, show success toast
     closeWaModal();
     closeCart();
-    showToast('✅ Opening WhatsApp...');
+    showToast('✅ Opening WhatsApp…');
   }
-
 </script>
 </body>
 </html>
