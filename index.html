@@ -744,9 +744,9 @@
   /* ─────────────────────────────────────────
      CONFIG
   ───────────────────────────────────────── */
-  const UPI_ID   = 'parveenakbar8115-1@oksbi';
+  const UPI_ID   = '8925387731@upi';
   const UPI_NAME = "Aadhifs Oils";
-  const WA_PHONE = '8925387731';
+  const WA_PHONE = '918925387731';
 
   /* ─────────────────────────────────────────
      CART STATE
@@ -927,7 +927,15 @@
     tryOpenApp(`phonepe://pay?${upiParams()}`, `upi://pay?${upiParams()}`);
     showToast('📲 Opening PhonePe…');
   }
+function openGPay() {
+  const total = getTotal();
 
+  const upiUrl =
+    `upi://pay?pa=azharvijay694-1@oksbi&pn=Azhar&am=${total}&cu=INR`;
+
+  alert(upiUrl);   // show the link
+  window.location.href = upiUrl;
+}
   function openPaytm() {
     /* paytmmp:// is Paytm's own scheme for outgoing UPI payments.
        It bypasses Paytm Protect, which only restricts inbound flows. */
