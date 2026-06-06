@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +25,7 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     --border-hover: rgba(27,67,50,0.28);
     --wa-green: #25D366;
     --wa-dark: #075E54;
-    --upi-purple: #5F259F;
-    --upi-purple-dark: #4a1a80;
-    --gpay-blue: #1a73e8;
+    --wa-pay: #128C7E;
   }
 
   html { scroll-behavior: smooth; }
@@ -54,7 +51,6 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     top: 0;
     z-index: 100;
   }
-
   .header-inner {
     max-width: 1280px;
     margin: 0 auto;
@@ -65,21 +61,8 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     height: 64px;
     gap: 16px;
   }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .logo-mark {
-    width: 40px; height: 40px;
-    background: var(--forest);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; font-size: 20px;
-  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+  .logo-mark { width: 40px; height: 40px; background: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
   .logo-text-block { display: flex; flex-direction: column; line-height: 1.15; }
   .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--forest); letter-spacing: 0.02em; }
   .logo-sub { font-size: 10px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
@@ -91,13 +74,7 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   nav a:hover::after { width: 100%; }
 
   .header-actions { display: flex; align-items: center; gap: 4px; }
-
-  .search-bar {
-    display: flex; align-items: center;
-    border: 1px solid var(--border); border-radius: 8px;
-    overflow: hidden; background: var(--cream);
-    transition: border-color 0.2s;
-  }
+  .search-bar { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--cream); transition: border-color 0.2s; }
   .search-bar:focus-within { border-color: var(--forest); }
   .search-bar input { border: none; background: transparent; padding: 8px 12px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: var(--text-dark); outline: none; width: 160px; }
   .search-bar button { background: var(--forest); border: none; padding: 8px 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
@@ -105,13 +82,12 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
 
   .icon-btn { width: 40px; height: 40px; border-radius: 8px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-mid); transition: background 0.2s, color 0.2s; position: relative; }
   .icon-btn:hover { background: var(--cream-dark); color: var(--forest); }
-
   .cart-count { position: absolute; top: 4px; right: 4px; width: 16px; height: 16px; background: var(--gold); color: white; border-radius: 50%; font-size: 9.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; }
 
   .mobile-menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
-  .mobile-menu-btn span { width: 20px; height: 1.8px; background: var(--text-mid); border-radius: 2px; display: block; transition: transform 0.25s; }
+  .mobile-menu-btn span { width: 20px; height: 1.8px; background: var(--text-mid); border-radius: 2px; display: block; }
 
-  .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 300; flex-direction: column; padding: 24px; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .mobile-nav { display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 300; flex-direction: column; padding: 24px; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
   .mobile-nav.open { transform: translateX(0); }
   .mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
   .mobile-nav-close { width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-mid); }
@@ -159,21 +135,16 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
 
   /* ─── PRODUCT GRID ─── */
   .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-
   .product-card { background: var(--white); border-radius: 14px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s; cursor: pointer; position: relative; }
   .product-card:hover { box-shadow: 0 12px 40px rgba(27,67,50,0.11); border-color: var(--border-hover); transform: translateY(-3px); }
-
   .product-badge-strip { position: absolute; top: 0; left: 0; right: 0; height: 26px; background: var(--forest); display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; padding: 0 10px; z-index: 2; white-space: nowrap; overflow: hidden; }
-
   .product-img-wrap { background: var(--cream); height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 26px; }
   .product-emoji { font-size: 72px; position: relative; z-index: 1; transition: transform 0.3s; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08)); }
   .product-card:hover .product-emoji { transform: scale(1.08) translateY(-4px); }
-
   .wishlist-btn { position: absolute; top: 34px; right: 10px; width: 30px; height: 30px; background: white; border: 1px solid var(--border); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s, border-color 0.2s; z-index: 3; }
   .product-card:hover .wishlist-btn { opacity: 1; }
   .wishlist-btn:hover { border-color: #e53e3e; }
   .wishlist-btn.active { opacity: 1; background: #fff5f5; border-color: #e53e3e; }
-
   .product-info { padding: 14px 14px 16px; }
   .product-tags { display: flex; gap: 5px; margin-bottom: 8px; flex-wrap: wrap; }
   .tag { font-size: 10px; padding: 3px 8px; border-radius: 100px; font-weight: 500; letter-spacing: 0.04em; }
@@ -248,7 +219,6 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
   .cart-overlay.open { opacity: 1; pointer-events: all; }
   .cart-drawer { position: fixed; right: 0; top: 0; bottom: 0; width: 380px; max-width: 100vw; background: var(--white); z-index: 201; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; box-shadow: -8px 0 40px rgba(0,0,0,0.12); }
-  .cart-drawer.open { transform: translateX(0); }
   .cart-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; border-bottom: 1px solid var(--border); }
   .cart-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--text-dark); }
   .close-btn { width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-mid); transition: background 0.2s; }
@@ -269,26 +239,27 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   .cart-total-label { font-size: 13px; color: var(--text-mid); }
   .cart-total-val { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--forest); }
 
+  /* WhatsApp Pay checkout button */
   .checkout-btn {
     width: 100%;
-    background: var(--wa-green);
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     color: #fff;
     border: none;
-    padding: 14px;
-    border-radius: 10px;
+    padding: 16px;
+    border-radius: 12px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.03em;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
   }
-  .checkout-btn:hover { background: #1ebe5c; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+  .checkout-btn:hover { opacity: 0.93; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
   .cart-note { font-size: 11.5px; color: var(--text-light); text-align: center; margin-top: 9px; }
 
   /* ─── TOAST ─── */
@@ -296,11 +267,11 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   .toast.show { transform: translateX(-50%) translateY(0); }
 
   /* ══════════════════════════════════════════
-     PAYMENT MODAL — full redesign
+     WHATSAPP PAY MODAL
   ══════════════════════════════════════════ */
   .pay-modal-overlay {
     position: fixed; inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.65);
     z-index: 500;
     display: flex; align-items: center; justify-content: center;
     padding: 16px;
@@ -312,9 +283,9 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
 
   .pay-modal {
     background: var(--white);
-    border-radius: 22px;
-    width: 100%; max-width: 500px;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.28);
+    border-radius: 24px;
+    width: 100%; max-width: 440px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.3);
     overflow: hidden;
     transform: scale(0.93) translateY(20px);
     transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
@@ -323,48 +294,57 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   }
   .pay-modal-overlay.open .pay-modal { transform: scale(1) translateY(0); }
 
-  /* Header */
+  /* Header — WhatsApp green gradient */
   .pay-modal-header {
-    background: var(--forest);
-    padding: 20px 22px 16px;
+    background: linear-gradient(160deg, #128C7E 0%, #075E54 100%);
+    padding: 22px 22px 20px;
     position: relative; flex-shrink: 0;
   }
   .pay-modal-close {
     position: absolute; top: 14px; right: 14px;
     width: 30px; height: 30px;
-    background: rgba(255,255,255,0.12); border: none; border-radius: 50%;
+    background: rgba(255,255,255,0.15); border: none; border-radius: 50%;
     color: white; font-size: 15px; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     transition: background 0.2s;
   }
-  .pay-modal-close:hover { background: rgba(255,255,255,0.25); }
-  .pay-modal-brand-row { display: flex; align-items: center; gap: 11px; margin-bottom: 8px; }
-  .pay-modal-brand-icon { width: 42px; height: 42px; background: rgba(255,255,255,0.12); border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
-  .pay-modal-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #fff; }
-  .pay-modal-brand-sub { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; text-transform: uppercase; }
-  .pay-modal-total-pill {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--gold); color: var(--forest);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 700;
-    padding: 7px 20px; border-radius: 100px;
-    letter-spacing: 0.01em;
+  .pay-modal-close:hover { background: rgba(255,255,255,0.28); }
+
+  /* Brand row inside modal header */
+  .pm-brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .pm-brand-icon {
+    width: 46px; height: 46px;
+    background: rgba(255,255,255,0.12); border-radius: 13px;
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
   }
-  .pay-modal-total-pill span { font-size: 12px; font-family: 'DM Sans', sans-serif; font-weight: 600; letter-spacing: 0.08em; color: rgba(27,67,50,0.75); }
+  .pm-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; color: #fff; }
+  .pm-brand-sub { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Total pill */
+  .pm-total-pill {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.22);
+    border-radius: 12px;
+    padding: 10px 18px;
+  }
+  .pm-total-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+  .pm-total-amt { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: #fff; }
 
   /* Scrollable body */
-  .pay-modal-scroll { flex: 1; overflow-y: auto; padding: 18px 22px 0; }
+  .pay-modal-scroll { flex: 1; overflow-y: auto; padding: 20px 22px; }
   .pay-modal-scroll::-webkit-scrollbar { width: 4px; }
-  .pay-modal-scroll::-webkit-scrollbar-track { background: var(--cream); border-radius: 4px; }
   .pay-modal-scroll::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 4px; }
 
-  /* Order summary */
-  .pm-section-label {
+  /* Section label */
+  .pm-label {
     font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--text-light);
     margin-bottom: 10px;
   }
-  .pm-order-items { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+
+  /* Order items */
+  .pm-order-items { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
   .pm-order-item {
     display: flex; align-items: center; gap: 10px;
     background: var(--cream); border: 1px solid var(--border);
@@ -375,136 +355,102 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   .pm-item-qty { font-size: 11px; color: var(--text-light); margin-top: 1px; }
   .pm-item-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--forest); flex-shrink: 0; }
 
-  /* Divider */
-  .pm-divider { height: 1px; background: var(--border); margin: 4px 0 16px; }
+  .pm-divider { height: 1px; background: var(--border); margin: 4px 0 18px; }
 
-  /* ── STEP TABS ── */
-  .pm-steps-row {
-    display: flex; gap: 0; margin-bottom: 18px;
-    border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden;
+  /* ── WhatsApp Pay info card ── */
+  .pm-wa-pay-card {
+    background: linear-gradient(135deg, #e7f9f1 0%, #d4f4e7 100%);
+    border: 2px solid rgba(37,211,102,0.35);
+    border-radius: 16px;
+    padding: 18px 18px 14px;
+    margin-bottom: 18px;
+    text-align: center;
   }
-  .pm-step-tab {
-    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
-    padding: 11px 8px; background: var(--cream);
-    border: none; cursor: default; position: relative;
-    transition: background 0.2s;
+  .pm-wa-pay-logo { font-size: 44px; display: block; margin-bottom: 6px; }
+  .pm-wa-pay-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600;
+    color: #065f46; margin-bottom: 4px;
   }
-  .pm-step-tab.active { background: var(--forest); }
-  .pm-step-tab + .pm-step-tab { border-left: 1.5px solid var(--border); }
-  .pm-step-num {
-    width: 22px; height: 22px; border-radius: 50%;
-    background: rgba(27,67,50,0.15); color: var(--forest);
-    font-size: 11px; font-weight: 700;
+  .pm-wa-pay-sub {
+    font-size: 12.5px; color: #047857; line-height: 1.55;
+  }
+  .pm-wa-pay-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3);
+    color: #064e3b; font-size: 11px; font-weight: 700;
+    padding: 4px 12px; border-radius: 100px;
+    margin-top: 10px; letter-spacing: 0.04em;
+  }
+
+  /* Steps guide */
+  .pm-steps-guide { margin-bottom: 18px; }
+  .pm-step-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pm-step-item:last-child { border-bottom: none; }
+  .pm-step-num-circle {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--wa-pay); color: #fff;
+    font-size: 12px; font-weight: 700;
     display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0; margin-top: 1px;
   }
-  .pm-step-tab.active .pm-step-num { background: var(--gold); color: var(--forest); }
-  .pm-step-label { font-size: 10.5px; font-weight: 600; color: var(--text-light); letter-spacing: 0.04em; text-align: center; transition: color 0.2s; }
-  .pm-step-tab.active .pm-step-label { color: rgba(245,240,232,0.85); }
-  .pm-step-check { font-size: 13px; }
+  .pm-step-text { font-size: 12.5px; color: var(--text-dark); line-height: 1.55; }
+  .pm-step-text strong { color: var(--forest); }
 
-  /* ── STEP PANELS ── */
-  .pm-panel { display: none; }
-  .pm-panel.active { display: block; }
-
-  /* Step 1 — UPI */
-  .pm-upi-amount-display {
-    background: linear-gradient(135deg, #0f3321 0%, #1B4332 100%);
-    border-radius: 14px; padding: 18px 20px; margin-bottom: 14px;
-    display: flex; align-items: center; justify-content: space-between;
-    border: 1.5px solid rgba(240,192,64,0.3);
+  /* Phone number display */
+  .pm-phone-row {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--cream); border: 1.5px solid rgba(37,211,102,0.35);
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 18px;
   }
-  .pm-upi-amount-label { font-size: 12px; color: rgba(245,240,232,0.6); letter-spacing: 0.06em; margin-bottom: 4px; }
-  .pm-upi-amount-val { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--gold-bright); }
-  .pm-upi-qr-placeholder {
-    width: 64px; height: 64px; background: rgba(255,255,255,0.08);
-    border-radius: 8px; border: 1.5px dashed rgba(240,192,64,0.3);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 3px;
-  }
-  .pm-upi-qr-placeholder span { font-size: 9px; color: rgba(245,240,232,0.4); text-align: center; line-height: 1.3; }
-
-  /* UPI ID copy row */
-  .pm-upi-id-row {
-    display: flex; align-items: center; gap: 8px;
-    background: var(--cream); border: 1.5px solid var(--border);
-    border-radius: 10px; padding: 10px 14px; margin-bottom: 12px;
-  }
-  .pm-upi-id-label { font-size: 10px; color: var(--text-light); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0; }
-  .pm-upi-id-val { font-size: 13.5px; font-weight: 700; color: var(--upi-purple); flex: 1; letter-spacing: 0.01em; }
-  .pm-copy-btn {
-    background: var(--upi-purple); color: white; border: none;
+  .pm-phone-icon { font-size: 20px; }
+  .pm-phone-label { font-size: 10px; color: var(--text-light); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pm-phone-val { font-size: 16px; font-weight: 700; color: var(--wa-dark); }
+  .pm-phone-copy {
+    margin-left: auto; background: var(--wa-pay); color: white; border: none;
     border-radius: 7px; padding: 6px 14px;
     font-size: 11.5px; font-weight: 700; cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    font-family: 'DM Sans', sans-serif; flex-shrink: 0;
+    transition: background 0.2s; font-family: 'DM Sans', sans-serif; flex-shrink: 0;
   }
-  .pm-copy-btn:hover { background: var(--upi-purple-dark); transform: scale(1.04); }
-  .pm-copy-btn.copied { background: #16a34a; }
+  .pm-phone-copy:hover { background: var(--wa-dark); }
+  .pm-phone-copy.copied { background: #16a34a; }
 
-  /* UPI app buttons */
-  .pm-upi-apps-label { font-size: 10.5px; color: var(--text-light); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 9px; }
-  .pm-upi-apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-bottom: 16px; }
-  .pm-app-btn {
-    display: flex; flex-direction: column; align-items: center; gap: 6px;
-    padding: 12px 8px; border-radius: 12px; border: 1.5px solid var(--border);
-    background: var(--white); cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  /* The big WhatsApp Pay button */
+  .pm-wa-pay-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #fff; border: none;
+    padding: 18px 20px; border-radius: 14px;
     font-family: 'DM Sans', sans-serif;
+    font-size: 16px; font-weight: 800;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    margin-bottom: 10px;
   }
-  .pm-app-btn:hover { border-color: var(--forest); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(27,67,50,0.1); }
-  .pm-app-btn:active { transform: translateY(0); }
-  .pm-app-icon { font-size: 30px; line-height: 1; }
-  .pm-app-name { font-size: 11px; font-weight: 600; color: var(--text-mid); letter-spacing: 0.03em; }
-  .pm-app-sub { font-size: 9.5px; color: var(--text-light); }
+  .pm-wa-pay-btn:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,0.5); }
+  .pm-wa-pay-btn:active { transform: translateY(0); }
 
-  /* GPay specific color on hover */
-  .pm-app-btn.gpay:hover { border-color: #1a73e8; box-shadow: 0 6px 18px rgba(26,115,232,0.15); }
-  .pm-app-btn.phonepe:hover { border-color: #5f259f; box-shadow: 0 6px 18px rgba(95,37,159,0.15); }
-  .pm-app-btn.paytm:hover { border-color: #00baf2; box-shadow: 0 6px 18px rgba(0,186,242,0.15); }
+  .pm-wa-pay-btn-sub {
+    font-size: 11px; color: rgba(255,255,255,0.75);
+    font-weight: 400; display: block; margin-top: 2px; letter-spacing: 0.03em;
+  }
 
-  /* Error banner */
-  .pm-blocked-note {
-    display: flex; gap: 10px; align-items: flex-start;
-    background: #fff7ed; border: 1.5px solid #fed7aa;
-    border-radius: 10px; padding: 11px 14px; margin-bottom: 14px;
+  /* Secure note */
+  .pm-secure-note {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 11.5px; color: var(--text-light);
+    margin-bottom: 4px; text-align: center;
   }
-  .pm-blocked-icon { font-size: 18px; flex-shrink: 0; }
-  .pm-blocked-text { font-size: 12px; color: #92400e; line-height: 1.55; }
-  .pm-blocked-text strong { color: #78350f; display: block; margin-bottom: 2px; }
-
-  /* Fallback apps */
-  .pm-fallback-apps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; margin-bottom: 16px; }
-  .pm-fallback-btn {
-    display: flex; align-items: center; gap: 9px;
-    padding: 11px 14px; border-radius: 10px;
-    border: 1.5px solid var(--border); background: var(--cream);
-    cursor: pointer; transition: border-color 0.2s, background 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .pm-fallback-btn:hover { border-color: var(--forest); background: var(--white); }
-  .pm-fallback-icon { font-size: 22px; }
-  .pm-fallback-name { font-size: 12px; font-weight: 600; color: var(--text-dark); }
-  .pm-fallback-sub { font-size: 10px; color: var(--text-light); }
-
-  /* Step 2 — Screenshot */
-  .pm-screenshot-info {
-    background: rgba(37,211,102,0.07); border: 1.5px solid rgba(37,211,102,0.25);
-    border-radius: 12px; padding: 14px 16px; margin-bottom: 14px;
-  }
-  .pm-screenshot-info p { font-size: 12.5px; color: #065f46; line-height: 1.6; }
-  .pm-screenshot-info strong { color: #064e3b; }
-  .pm-wa-send-btn {
-    width: 100%; background: var(--wa-green); color: #fff; border: none;
-    padding: 15px 20px; border-radius: 12px;
-    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
-    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.02em;
-    box-shadow: 0 4px 18px rgba(37,211,102,0.35); margin-bottom: 14px;
-  }
-  .pm-wa-send-btn:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(37,211,102,0.45); }
 
   /* Footer */
-  .pay-modal-footer { padding: 12px 22px 20px; flex-shrink: 0; border-top: 1px solid var(--border); background: var(--white); }
+  .pay-modal-footer { padding: 12px 22px 20px; flex-shrink: 0; border-top: 1px solid var(--border); }
   .pm-cancel-btn {
     width: 100%; background: transparent; color: var(--text-light);
     border: 1px solid var(--border); padding: 11px; border-radius: 10px;
@@ -512,24 +458,6 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     transition: border-color 0.2s, color 0.2s; letter-spacing: 0.02em;
   }
   .pm-cancel-btn:hover { border-color: var(--border-hover); color: var(--text-dark); }
-
-  /* Step nav btns */
-  .pm-nav-btns { display: flex; gap: 9px; margin-bottom: 10px; }
-  .pm-next-btn {
-    flex: 1; background: var(--forest); color: var(--cream); border: none;
-    padding: 13px; border-radius: 10px;
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
-    cursor: pointer; transition: background 0.2s, transform 0.15s;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-  .pm-next-btn:hover { background: var(--forest-mid); transform: translateY(-1px); }
-  .pm-back-btn {
-    background: transparent; color: var(--text-mid); border: 1.5px solid var(--border);
-    padding: 13px 16px; border-radius: 10px;
-    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
-    cursor: pointer; transition: border-color 0.2s, color 0.2s;
-  }
-  .pm-back-btn:hover { border-color: var(--border-hover); color: var(--text-dark); }
 
   /* ════ RESPONSIVE ════ */
   @media (max-width: 1200px) {
@@ -572,18 +500,15 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     .footer-bottom { padding: 16px; flex-direction: column; text-align: center; }
     .cart-drawer { width: 100%; max-width: 100vw; }
     .toast { bottom: 16px; font-size: 12.5px; padding: 10px 16px; max-width: calc(100vw - 32px); white-space: normal; text-align: center; justify-content: center; }
-    .pm-upi-apps { grid-template-columns: repeat(3, 1fr); }
-    .pm-fallback-apps { grid-template-columns: 1fr; }
-    .pay-modal { border-radius: 16px; }
-    .pay-modal-header { padding: 16px 16px 14px; }
-    .pay-modal-scroll { padding: 14px 16px 0; }
+    .pay-modal { border-radius: 18px; }
+    .pay-modal-header { padding: 18px 16px 16px; }
+    .pay-modal-scroll { padding: 16px 16px; }
     .pay-modal-footer { padding: 10px 16px 18px; }
-    .pm-upi-amount-val { font-size: 28px; }
+    .pm-total-amt { font-size: 26px; }
     .bb-brand-name { font-size: 34px; }
     .price-old { display: none; }
   }
 
-  .mobile-nav { display: flex; }
   .mobile-nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 299; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
   .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
 </style>
@@ -631,7 +556,7 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   </div>
 </header>
 
-<!-- MOBILE NAV OVERLAY -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()"></div>
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-header">
@@ -695,7 +620,7 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     <div class="trust-item"><div class="trust-icon">🌿</div> No Additives</div>
     <div class="trust-item"><div class="trust-icon">🏭</div> FSSAI Certified</div>
     <div class="trust-item"><div class="trust-icon">🚚</div> Ships Across Tamil Nadu</div>
-    <div class="trust-item"><div class="trust-icon">🛒</div> Retail &amp; Wholesale</div>
+    <div class="trust-item"><div class="trust-icon">💚</div> Pay via WhatsApp</div>
   </div>
 </div>
 
@@ -939,15 +864,16 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
       <span class="cart-total-val" id="cartTotal">₹0</span>
     </div>
     <button class="checkout-btn" onclick="openPayModal()">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      Pay &amp; Order via WhatsApp
+      <!-- WhatsApp Pay icon -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Pay via WhatsApp Pay
     </button>
-    <p class="cart-note">🚚 Free shipping across Tamil Nadu on orders above ₹499</p>
+    <p class="cart-note">💚 Secure payment · Free shipping on orders above ₹499</p>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     PAYMENT MODAL  (2-step: Pay → WhatsApp)
+     WHATSAPP PAY MODAL
 ══════════════════════════════════════════ -->
 <div class="pay-modal-overlay" id="payModalOverlay" onclick="closePayModalOnOverlay(event)">
   <div class="pay-modal" id="payModal">
@@ -955,129 +881,84 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     <!-- Header -->
     <div class="pay-modal-header">
       <button class="pay-modal-close" onclick="closePayModal()">✕</button>
-      <div class="pay-modal-brand-row">
-        <div class="pay-modal-brand-icon">💧</div>
+      <div class="pm-brand-row">
+        <div class="pm-brand-icon">💧</div>
         <div>
-          <div class="pay-modal-brand-name">Aadhif's Oils</div>
-          <div class="pay-modal-brand-sub">COIMBATORE · WOOD PRESSED</div>
+          <div class="pm-brand-name">Aadhif's Oils</div>
+          <div class="pm-brand-sub">COIMBATORE · WOOD PRESSED</div>
         </div>
       </div>
-      <div class="pay-modal-total-pill">
-        <span>TOTAL</span>
-        <span id="pmTotalDisplay">₹0</span>
-      </div>
-    </div>
-
-    <!-- Step tabs -->
-    <div style="padding:14px 22px 0; flex-shrink:0; background:var(--white); border-bottom:1px solid var(--border);">
-      <div class="pm-steps-row">
-        <div class="pm-step-tab active" id="tab1">
-          <div class="pm-step-num">1</div>
-          <div class="pm-step-label">Pay via UPI</div>
-        </div>
-        <div class="pm-step-tab" id="tab2">
-          <div class="pm-step-num">2</div>
-          <div class="pm-step-label">Send on WhatsApp</div>
-        </div>
+      <div class="pm-total-pill">
+        <span class="pm-total-label">ORDER TOTAL</span>
+        <span class="pm-total-amt" id="pmTotalDisplay">₹0</span>
       </div>
     </div>
 
     <!-- Scrollable body -->
-    <div class="pay-modal-scroll" id="payModalScroll">
+    <div class="pay-modal-scroll">
 
-      <!-- ORDER SUMMARY (shown on both steps) -->
-      <div style="margin-top:14px;">
-        <div class="pm-section-label">Order Summary</div>
+      <!-- Order summary -->
+      <div style="margin-bottom:4px;">
+        <div class="pm-label">Your Order</div>
         <div class="pm-order-items" id="pmOrderItems"></div>
         <div class="pm-divider"></div>
       </div>
 
-      <!-- ── STEP 1 PANEL ── -->
-      <div class="pm-panel active" id="panel1">
-
-        <!-- UPI amount display -->
-        <div class="pm-upi-amount-display">
-          <div>
-            <div class="pm-upi-amount-label">AMOUNT TO PAY</div>
-            <div class="pm-upi-amount-val" id="pmUpiAmount">₹0</div>
-          </div>
-          <div class="pm-upi-qr-placeholder">
-            <span style="font-size:20px;">📱</span>
-            <span>Scan QR<br>in app</span>
-          </div>
+      <!-- WhatsApp Pay hero card -->
+      <div class="pm-wa-pay-card">
+        <span class="pm-wa-pay-logo">💚</span>
+        <div class="pm-wa-pay-title">Pay with WhatsApp Pay</div>
+        <div class="pm-wa-pay-sub">
+          Tap the button below to open WhatsApp and pay securely using <strong>WhatsApp Pay</strong> — India's UPI-powered payment inside WhatsApp.
         </div>
-
-        <!-- UPI ID row -->
-        <div class="pm-upi-id-row">
-          <span class="pm-upi-id-label">UPI ID</span>
-          <span class="pm-upi-id-val" id="pmUpiIdDisplay">8925387731@upi</span>
-          <button class="pm-copy-btn" id="pmCopyBtn" onclick="copyUpiId()">Copy</button>
-        </div>
-
-        <!-- Primary UPI app buttons -->
-        <div class="pm-upi-apps-label">Open your UPI app &amp; pay</div>
-        <div class="pm-upi-apps">
-          <button class="pm-app-btn gpay" onclick="launchUpi('gpay')">
-            <span class="pm-app-icon">🔵</span>
-            <span class="pm-app-name">GPay</span>
-            <span class="pm-app-sub">Google Pay</span>
-          </button>
-          <button class="pm-app-btn phonepe" onclick="launchUpi('phonepe')">
-            <span class="pm-app-icon">🟣</span>
-            <span class="pm-app-name">PhonePe</span>
-            <span class="pm-app-sub">Phone Pay</span>
-          </button>
-          <button class="pm-app-btn paytm" onclick="launchUpi('paytm')">
-            <span class="pm-app-icon">🔷</span>
-            <span class="pm-app-name">Paytm</span>
-            <span class="pm-app-sub">Wallet / UPI</span>
-          </button>
-        </div>
-
-        <!-- Blocked notice + fallback options -->
-        <div class="pm-blocked-note">
-          <span class="pm-blocked-icon">⚠️</span>
-          <div class="pm-blocked-text">
-            <strong>GPay / Paytm blocking your payment?</strong>
-            Try BHIM or your bank's app — they use the same UPI rails but have fewer restrictions. Or simply copy the UPI ID above and paste it manually inside any app.
-          </div>
-        </div>
-
-        <div class="pm-upi-apps-label">Alternate apps (no restrictions)</div>
-        <div class="pm-fallback-apps">
-          <button class="pm-fallback-btn" onclick="launchUpi('bhim')">
-            <span class="pm-fallback-icon">🇮🇳</span>
-            <div><div class="pm-fallback-name">BHIM UPI</div><div class="pm-fallback-sub">Official NPCI app — works everywhere</div></div>
-          </button>
-          <button class="pm-fallback-btn" onclick="launchUpi('bank')">
-            <span class="pm-fallback-icon">🏦</span>
-            <div><div class="pm-fallback-name">Your Bank App</div><div class="pm-fallback-sub">iMobile, YONO, Kotak, Axis etc.</div></div>
-          </button>
-        </div>
-
-      </div><!-- /panel1 -->
-
-      <!-- ── STEP 2 PANEL ── -->
-      <div class="pm-panel" id="panel2">
-        <div class="pm-screenshot-info">
-          <p>✅ Payment done? Now send your order details + <strong>payment screenshot</strong> on WhatsApp so we can confirm and dispatch your order.</p>
-        </div>
-        <button class="pm-wa-send-btn" onclick="sendWhatsAppOrder()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          Send Order + Screenshot on WhatsApp
-        </button>
-        <div style="font-size:11px;color:var(--text-light);text-align:center;margin-bottom:4px;">
-          WhatsApp: <strong style="color:var(--forest);">+91 89253 87731</strong> · Mon–Sat 9am–7pm
-        </div>
-      </div><!-- /panel2 -->
-
-    </div><!-- /pay-modal-scroll -->
-
-    <!-- Footer nav -->
-    <div class="pay-modal-footer">
-      <div class="pm-nav-btns" id="pmNavBtns">
-        <!-- dynamically shown -->
+        <div class="pm-wa-pay-badge">🔒 Powered by NPCI · 100% Secure</div>
       </div>
+
+      <!-- WhatsApp number -->
+      <div class="pm-label">Pay to WhatsApp number</div>
+      <div class="pm-phone-row">
+        <span class="pm-phone-icon">📱</span>
+        <div>
+          <div class="pm-phone-label">WhatsApp Pay No.</div>
+          <div class="pm-phone-val">+91 89253 87731</div>
+        </div>
+        <button class="pm-phone-copy" id="pmPhoneCopy" onclick="copyPhone()">Copy</button>
+      </div>
+
+      <!-- How it works steps -->
+      <div class="pm-label">How to pay</div>
+      <div class="pm-steps-guide">
+        <div class="pm-step-item">
+          <div class="pm-step-num-circle">1</div>
+          <div class="pm-step-text">Tap <strong>"Pay via WhatsApp Pay"</strong> below — it opens a WhatsApp chat with your order details pre-filled.</div>
+        </div>
+        <div class="pm-step-item">
+          <div class="pm-step-num-circle">2</div>
+          <div class="pm-step-text">In WhatsApp, tap the <strong>₹ (Rupee / Pay)</strong> icon and send <strong>₹<span id="pmStepAmt">0</span></strong> using WhatsApp Pay to this number.</div>
+        </div>
+        <div class="pm-step-item">
+          <div class="pm-step-num-circle">3</div>
+          <div class="pm-step-text">Send a <strong>payment screenshot</strong> in the same chat so we can confirm and dispatch your order quickly.</div>
+        </div>
+      </div>
+
+      <!-- Big WhatsApp Pay button -->
+      <button class="pm-wa-pay-btn" onclick="sendWhatsAppOrder()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <div>
+          Pay via WhatsApp Pay
+          <span class="pm-wa-pay-btn-sub">Opens WhatsApp · Use ₹ Pay button inside chat</span>
+        </div>
+      </button>
+
+      <div class="pm-secure-note">
+        🔒 Secured by WhatsApp &amp; NPCI · Mon–Sat 9am–7pm
+      </div>
+
+    </div><!-- /scroll -->
+
+    <!-- Footer -->
+    <div class="pay-modal-footer">
       <button class="pm-cancel-btn" onclick="closePayModal()">Cancel — go back to cart</button>
     </div>
 
@@ -1091,18 +972,11 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
 </div>
 
 <script>
-  /* ══════════════════════════════
-     CONSTANTS
-  ══════════════════════════════ */
-  const UPI_ID   = '8925387731@upi';        // ← Aadhif's actual UPI
-  const UPI_NAME = "Aadhif's Oils";
-  const WA_PHONE = '918925387731';           // +91 89253 87731
+  /* ── CONSTANTS ── */
+  const WA_PHONE = '918925387731'; // +91 89253 87731
 
-  /* ══════════════════════════════
-     CART STATE
-  ══════════════════════════════ */
+  /* ── CART STATE ── */
   let cart = [];
-  let payStep = 1;
 
   /* ── Mobile Nav ── */
   function openMobileNav() {
@@ -1117,9 +991,7 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   }
   document.getElementById('menuBtn').onclick = openMobileNav;
 
-  /* ══════════════════════════════
-     CART FUNCTIONS
-  ══════════════════════════════ */
+  /* ── CART FUNCTIONS ── */
   function addToCart(btn) {
     const card = btn.closest('.product-card');
     addByName(card.dataset.name, parseInt(card.dataset.price), card.dataset.emoji);
@@ -1201,15 +1073,13 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     document.body.style.overflow = '';
   }
 
-  /* ══════════════════════════════
-     PAYMENT MODAL
-  ══════════════════════════════ */
+  /* ── PAYMENT MODAL ── */
   function openPayModal() {
     if (cart.length === 0) return;
 
     const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
 
-    // Populate order summary
+    // Order summary
     const container = document.getElementById('pmOrderItems');
     container.innerHTML = '';
     cart.forEach(item => {
@@ -1225,13 +1095,10 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
       container.appendChild(el);
     });
 
-    // Set amounts
-    document.getElementById('pmTotalDisplay').textContent = '₹' + total.toLocaleString('en-IN');
-    document.getElementById('pmUpiAmount').textContent    = '₹' + total.toLocaleString('en-IN');
-    document.getElementById('pmUpiIdDisplay').textContent = UPI_ID;
-
-    // Reset to step 1
-    goToStep(1);
+    // Totals
+    const totalFmt = '₹' + total.toLocaleString('en-IN');
+    document.getElementById('pmTotalDisplay').textContent = totalFmt;
+    document.getElementById('pmStepAmt').textContent = total.toLocaleString('en-IN');
 
     document.getElementById('payModalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1246,94 +1113,22 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
     if (e.target === document.getElementById('payModalOverlay')) closePayModal();
   }
 
-  /* ── Step navigation ── */
-  function goToStep(n) {
-    payStep = n;
-
-    // Tabs
-    document.getElementById('tab1').classList.toggle('active', n === 1);
-    document.getElementById('tab2').classList.toggle('active', n === 2);
-
-    // Panels
-    document.getElementById('panel1').classList.toggle('active', n === 1);
-    document.getElementById('panel2').classList.toggle('active', n === 2);
-
-    // Nav buttons
-    const nav = document.getElementById('pmNavBtns');
-    if (n === 1) {
-      nav.innerHTML = `
-        <button class="pm-next-btn" onclick="goToStep(2)">
-          I've paid — Next: Send Order →
-        </button>`;
-    } else {
-      nav.innerHTML = `
-        <button class="pm-back-btn" onclick="goToStep(1)">← Back</button>
-        <button class="pm-next-btn" onclick="sendWhatsAppOrder()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          Open WhatsApp
-        </button>`;
-    }
-
-    // Scroll top
-    document.getElementById('payModalScroll').scrollTop = 0;
-  }
-
-  /* ══════════════════════════════
-     UPI LAUNCH  — the fixed version
-     Uses a hidden <a> click so the
-     page stays open (no window.location).
-     Each app gets its own deep-link;
-     falls back to generic upi:// which
-     opens the system UPI chooser.
-  ══════════════════════════════ */
-  function launchUpi(app) {
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-    // amount must be a plain number — NO toLocaleString (commas break UPI URLs)
-    const amt  = total;
-    const note = encodeURIComponent('Aadhifs Oils Order');
-    const pa   = encodeURIComponent(UPI_ID);
-    const pn   = encodeURIComponent(UPI_NAME);
-
-    // Base UPI intent URL (works for all apps that support upi://)
-    const baseUpi = `upi://pay?pa=${pa}&pn=${pn}&am=${amt}&cu=INR&tn=${note}`;
-
-    // App-specific intent URLs
-    const urls = {
-      gpay    : `gpay://upi/pay?pa=${pa}&pn=${pn}&am=${amt}&cu=INR&tn=${note}`,
-      phonepe : `phonepe://pay?pa=${pa}&pn=${pn}&am=${amt}&cu=INR&tn=${note}`,
-      paytm   : `paytmmp://pay?pa=${pa}&pn=${pn}&am=${amt}&cu=INR&tn=${note}`,
-      bhim    : `upi://pay?pa=${pa}&pn=${pn}&am=${amt}&cu=INR&tn=${note}&referralCode=BHIM`,
-      bank    : baseUpi,
-    };
-
-    const url = urls[app] || baseUpi;
-
-    // Hidden anchor click — keeps the page open, triggers native app if installed
-    const a = document.createElement('a');
-    a.href = url;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    showToast('📲 Opening ' + (app === 'bhim' ? 'BHIM' : app === 'bank' ? 'UPI app' : app.charAt(0).toUpperCase() + app.slice(1)) + '…');
-  }
-
-  /* ── Copy UPI ID ── */
-  function copyUpiId() {
-    const btn = document.getElementById('pmCopyBtn');
+  /* ── Copy phone number ── */
+  function copyPhone() {
+    const btn = document.getElementById('pmPhoneCopy');
+    const number = '+918925387731';
     const done = () => {
       btn.textContent = '✓ Copied!';
       btn.classList.add('copied');
-      showToast('UPI ID copied!');
+      showToast('Number copied!');
       setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2200);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(UPI_ID).then(done).catch(fallback);
+      navigator.clipboard.writeText(number).then(done).catch(fallback);
     } else { fallback(); }
     function fallback() {
       const ta = document.createElement('textarea');
-      ta.value = UPI_ID; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      ta.value = number; ta.style.position = 'fixed'; ta.style.opacity = '0';
       document.body.appendChild(ta); ta.focus(); ta.select();
       try { document.execCommand('copy'); } catch(e) {}
       document.body.removeChild(ta); done();
@@ -1341,7 +1136,10 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
   }
 
   /* ══════════════════════════════
-     WHATSAPP ORDER MESSAGE
+     WHATSAPP ORDER + PAY MESSAGE
+     Opens WhatsApp with order details
+     so the customer uses the ₹ Pay
+     button directly inside the chat.
   ══════════════════════════════ */
   function sendWhatsAppOrder() {
     if (cart.length === 0) return;
@@ -1359,24 +1157,23 @@ cat > /mnt/user-data/outputs/aadhifs_oils.html << 'HTMLEOF'
 
     cart.forEach((item, i) => {
       msg += `${i+1}. ${item.emoji} *${item.name}*\n`;
-      msg += `   Qty: ${item.qty} × ₹${item.price.toLocaleString('en-IN')} = *₹${(item.price*item.qty).toLocaleString('en-IN')}*\n\n`;
+      msg += `   Qty: ${item.qty} × ₹${item.price.toLocaleString('en-IN')} = *₹${(item.price * item.qty).toLocaleString('en-IN')}*\n\n`;
     });
 
     msg += '─────────────────────────\n';
     msg += `💰 *Total: ₹${total.toLocaleString('en-IN')}*\n`;
     msg += '─────────────────────────\n\n';
-    msg += '📸 *Payment screenshot attached.*\n';
-    msg += `💳 Paid to UPI: ${UPI_ID}\n\n`;
-    msg += 'Please confirm my order and share delivery details. Thank you! 🙏\n';
+    msg += '💚 *I\'d like to pay via WhatsApp Pay.*\n';
+    msg += '_(After sending this message, please use the ₹ Pay button inside this chat to complete the payment.)_\n\n';
+    msg += 'Please confirm my order once payment is received. Thank you! 🙏\n';
     msg += '_Ordered via aadhifsoils.in_';
 
     window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
 
     closePayModal();
     closeCart();
-    showToast('✅ Opening WhatsApp…');
+    showToast('✅ Opening WhatsApp Pay…');
   }
 </script>
 </body>
 </html>
-HTMLEOF
