@@ -225,9 +225,7 @@
   .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--forest); color: var(--cream); padding: 12px 20px; border-radius: 10px; font-size: 13.5px; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 999; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 4px 20px rgba(0,0,0,0.2); white-space: nowrap; }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* ═══════════════════════════════════════════
-     WHATSAPP ORDER MODAL
-  ═══════════════════════════════════════════ */
+  /* WHATSAPP ORDER MODAL */
   .wa-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 500; display: flex; align-items: center; justify-content: center; padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(4px); }
   .wa-modal-overlay.open { opacity: 1; pointer-events: all; }
   .wa-modal { background: var(--white); border-radius: 20px; width: 100%; max-width: 480px; max-height: 92vh; overflow-y: auto; box-shadow: 0 24px 80px rgba(0,0,0,0.22); transform: scale(0.94) translateY(16px); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
@@ -275,30 +273,33 @@
   .upi-copy-btn:hover { background: var(--upi-purple-dark); }
   .upi-copy-btn.copied { background: var(--wa-green); }
 
-  /* Section label */
   .pay-section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px; margin-top: 2px; }
 
-  /* ── 3-App UPI grid — THE FIX ── */
+  /* UPI app anchor buttons — KEY FIX: <a> tags, not <button> */
   .upi-apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
-  .upi-app-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 2px solid transparent; border-radius: 12px; padding: 14px 8px 11px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; color: #fff; }
+  .upi-app-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px; border: 2px solid transparent; border-radius: 12px; padding: 14px 8px 11px;
+    font-family: 'DM Sans', sans-serif; cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+    color: #fff; text-decoration: none;
+  }
   .upi-app-btn:hover { transform: translateY(-3px); }
   .upi-app-btn .app-emoji { font-size: 26px; line-height: 1; }
   .upi-app-btn .app-name { font-size: 12px; font-weight: 700; letter-spacing: 0.03em; }
 
   .btn-gpay    { background: linear-gradient(135deg, #1a73e8 0%, #0d5dbf 100%); box-shadow: 0 3px 10px rgba(26,115,232,0.35); }
   .btn-phonepe { background: linear-gradient(135deg, #5f259f 0%, #4a1a80 100%); box-shadow: 0 3px 10px rgba(95,37,159,0.35); }
-  .btn-paytm   { background: linear-gradient(135deg, #00BAF2 0%, #0099cc 100%); box-shadow: 0 3px 10px rgba(0,186,242,0.35); }
+  .btn-bhim    { background: linear-gradient(135deg, #F37021 0%, #c75a15 100%); box-shadow: 0 3px 10px rgba(243,112,33,0.35); }
   .btn-gpay:hover    { box-shadow: 0 7px 20px rgba(26,115,232,0.45); }
   .btn-phonepe:hover { box-shadow: 0 7px 20px rgba(95,37,159,0.45); }
-  .btn-paytm:hover   { box-shadow: 0 7px 20px rgba(0,186,242,0.45); }
+  .btn-bhim:hover    { box-shadow: 0 7px 20px rgba(243,112,33,0.45); }
 
   .pay-hint { font-size: 11px; color: var(--text-light); text-align: center; line-height: 1.5; }
 
-  /* OR divider */
   .pay-or-divider { display: flex; align-items: center; gap: 10px; margin: 4px 0; color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
   .pay-or-divider::before, .pay-or-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* WhatsApp send button */
   .wa-send-btn { width: 100%; background: var(--wa-green); color: #fff; border: none; padding: 15px 20px; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.03em; box-shadow: 0 4px 18px rgba(37,211,102,0.35); }
   .wa-send-btn:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
   .wa-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
@@ -690,7 +691,7 @@
         <span class="wa-total-val" id="waTotalVal">₹0</span>
       </div>
       <div class="pay-steps">
-        <div class="pay-step"><div class="pay-step-num">1</div><div class="pay-step-text">Tap GPay, PhonePe, or Paytm below to pay — each opens its own app directly</div></div>
+        <div class="pay-step"><div class="pay-step-num">1</div><div class="pay-step-text">Tap GPay, PhonePe, or BHIM below — it opens the app directly with the amount pre-filled</div></div>
         <div class="pay-step-arrow">↓</div>
         <div class="pay-step"><div class="pay-step-num">2</div><div class="pay-step-text">Send your order + payment screenshot on WhatsApp</div></div>
       </div>
@@ -703,23 +704,27 @@
         <button class="upi-copy-btn" onclick="copyUpiId()" id="upiCopyBtn">Copy</button>
       </div>
 
-      <!-- Step 1: 3 app buttons -->
+      <!-- Step 1: 3 UPI app anchor links -->
       <div class="pay-section-label">Step 1 — Pay ₹<span id="upiAmountSpan">0</span> via your UPI app</div>
       <div class="upi-apps-grid">
-        <button class="upi-app-btn btn-gpay" onclick="openGPay()">
+        <!-- KEY FIX: these are <a> tags, not <button>s.
+             Android only allows custom URL schemes (gpay://, phonepe://, upi://)
+             when navigation comes from a real user tap on an anchor tag.
+             JS-triggered redirects (window.location.href) are blocked since Chrome 83. -->
+        <a class="upi-app-btn btn-gpay" id="gpayLink" href="#">
           <span class="app-emoji">🔵</span>
           <span class="app-name">GPay</span>
-        </button>
-        <button class="upi-app-btn btn-phonepe" onclick="openPhonePe()">
+        </a>
+        <a class="upi-app-btn btn-phonepe" id="phonepeLink" href="#">
           <span class="app-emoji">💜</span>
           <span class="app-name">PhonePe</span>
-        </button>
-        <button class="upi-app-btn btn-paytm" onclick="openPaytm()">
-          <span class="app-emoji">🔷</span>
-          <span class="app-name">Paytm</span>
-        </button>
+        </a>
+        <a class="upi-app-btn btn-bhim" id="bhimLink" href="#">
+          <span class="app-emoji">🏦</span>
+          <span class="app-name">BHIM / Any</span>
+        </a>
       </div>
-      <p class="pay-hint">Each button opens that app directly using its own URL scheme — bypassing any cross-app restrictions.</p>
+      <p class="pay-hint">Tap your preferred app — it will open with the amount pre-filled. Or copy the UPI ID above and pay manually.</p>
 
       <div class="pay-or-divider"><span>then</span></div>
 
@@ -741,19 +746,15 @@
 </div>
 
 <script>
-  /* ─────────────────────────────────────────
-     CONFIG
-  ───────────────────────────────────────── */
+  /* CONFIG */
   const UPI_ID   = '8925387731@upi';
-  const UPI_NAME = "Aadhifs Oils";
+  const UPI_NAME = 'Aadhifs Oils';
   const WA_PHONE = '918925387731';
 
-  /* ─────────────────────────────────────────
-     CART STATE
-  ───────────────────────────────────────── */
+  /* CART STATE */
   let cart = [];
 
-  /* ─ Mobile Nav ─ */
+  /* Mobile Nav */
   function openMobileNav() {
     document.getElementById('mobileNav').classList.add('open');
     document.getElementById('mobileNavOverlay').classList.add('open');
@@ -766,7 +767,7 @@
   }
   document.getElementById('menuBtn').onclick = openMobileNav;
 
-  /* ─ Cart ─ */
+  /* Cart */
   function addToCart(btn) {
     const card = btn.closest('.product-card');
     addByName(card.dataset.name, parseInt(card.dataset.price), card.dataset.emoji);
@@ -848,11 +849,38 @@
   }
 
   /* ─────────────────────────────────────────
-     WA MODAL
+     UPI HELPERS
+     
+     WHY <a> TAGS INSTEAD OF <button> + JS REDIRECT:
+     Android Chrome (v83+) blocks custom URL scheme navigation
+     triggered by JavaScript (window.location.href = 'gpay://...').
+     It only allows it when the navigation comes from a genuine
+     user tap on an <a href> element. So we:
+       1. Pre-set the href on each anchor when the modal opens
+       2. Let the user tap the link naturally — Android then
+          opens the right app without any JS redirect needed.
   ───────────────────────────────────────── */
+  function getTotal() {
+    return cart.reduce((s, i) => s + i.price * i.qty, 0);
+  }
+
+  function buildUpiUrl(scheme) {
+    const total = getTotal();
+    const params = `pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('Aadhifs Oils Order')}`;
+    return scheme + params;
+  }
+
+  function updateUpiLinks() {
+    /* Called every time the modal opens so the amount is always fresh */
+    document.getElementById('gpayLink').href    = buildUpiUrl('gpay://upi/pay?');
+    document.getElementById('phonepeLink').href = buildUpiUrl('phonepe://pay?');
+    document.getElementById('bhimLink').href    = buildUpiUrl('upi://pay?');
+  }
+
+  /* WA MODAL */
   function openWaModal() {
     if (cart.length === 0) return;
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const total = getTotal();
 
     const container = document.getElementById('waOrderItems');
     container.innerHTML = '';
@@ -871,6 +899,9 @@
 
     document.getElementById('waTotalVal').textContent    = '₹' + total.toLocaleString('en-IN');
     document.getElementById('upiAmountSpan').textContent = total.toLocaleString('en-IN');
+
+    updateUpiLinks(); /* pre-set all three href values with the current total */
+
     document.getElementById('waModalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -883,70 +914,7 @@
     if (e.target === document.getElementById('waModalOverlay')) closeWaModal();
   }
 
-  /* ═══════════════════════════════════════════════════════════════
-     UPI DEEP-LINKS — per-app URL schemes
-     
-     WHY THIS FIXES THE PAYTM PROTECT ISSUE:
-     The old code used a single generic  upi://pay?...  link.
-     Android hands that to whatever app is set as the default UPI
-     handler. If Paytm is the default, Paytm Protect can block
-     payments to non-Paytm UPI IDs like 8925387731@upi.
-
-     The fix: each button uses its OWN app's custom scheme:
-       GPay    →  gpay://upi/pay?...
-       PhonePe →  phonepe://pay?...
-       Paytm   →  paytmmp://pay?...   (Paytm's own outbound UPI;
-                                       bypasses Protect for sends)
-
-     We use an invisible iframe trick to attempt the deep-link.
-     If the app is not installed, the browser ignores it and we
-     fall back to the standard upi:// link after 1.5 seconds.
-  ═══════════════════════════════════════════════════════════════ */
-
-  function getTotal() {
-    return cart.reduce((s, i) => s + i.price * i.qty, 0);
-  }
-
-  function upiParams() {
-    const total = getTotal();
-    return `pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('Aadhifs Oils Order')}`;
-  }
-
-  function openGPay() {
-    tryOpenApp(`gpay://upi/pay?${upiParams()}`, `upi://pay?${upiParams()}`);
-    showToast('📲 Opening Google Pay…');
-  }
-
-  function openPhonePe() {
-    tryOpenApp(`phonepe://pay?${upiParams()}`, `upi://pay?${upiParams()}`);
-    showToast('📲 Opening PhonePe…');
-  }
-
-  function openPaytm() {
-    /* paytmmp:// is Paytm's own scheme for outgoing UPI payments.
-       It bypasses Paytm Protect, which only restricts inbound flows. */
-    tryOpenApp(`paytmmp://pay?${upiParams()}`, `upi://pay?${upiParams()}`);
-    showToast('📲 Opening Paytm…');
-  }
-
-  function tryOpenApp(primaryUrl, fallbackUrl) {
-    /* Hidden iframe: trigger the custom scheme without navigating away.
-       If the app opens, great. If not, fall through to the generic upi:// link. */
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    const start = Date.now();
-    iframe.src = primaryUrl;
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-      /* The app opened if the page lost focus — elapsed time will be < 1800ms.
-         If no focus change was detected we assume the app isn't installed. */
-      if (Date.now() - start < 1800) {
-        window.location.href = fallbackUrl;
-      }
-    }, 1500);
-  }
-
+  /* Copy UPI ID */
   function copyUpiId() {
     const doSet = () => {
       const btn = document.getElementById('upiCopyBtn');
@@ -954,7 +922,9 @@
       btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     };
-    navigator.clipboard ? navigator.clipboard.writeText(UPI_ID).then(doSet).catch(() => legacyCopy(doSet)) : legacyCopy(doSet);
+    navigator.clipboard
+      ? navigator.clipboard.writeText(UPI_ID).then(doSet).catch(() => legacyCopy(doSet))
+      : legacyCopy(doSet);
   }
   function legacyCopy(cb) {
     const ta = document.createElement('textarea');
@@ -966,7 +936,7 @@
     cb();
   }
 
-  /* ─ WhatsApp order message ─ */
+  /* WhatsApp order message */
   function sendWhatsAppOrder() {
     if (cart.length === 0) return;
     const total = getTotal();
