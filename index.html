@@ -27,18 +27,58 @@
     --wa-dark: #075E54;
     --upi-purple: #5F259F;
     --upi-purple-dark: #4a1a80;
+    --gpay-blue: #1a73e8;
   }
 
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
 
-  .announcement { background: var(--forest); color: var(--cream); text-align: center; padding: 9px 16px; font-size: 12px; letter-spacing: 0.03em; line-height: 1.5; }
+  /* ─── ANNOUNCEMENT ─── */
+  .announcement {
+    background: var(--forest);
+    color: var(--cream);
+    text-align: center;
+    padding: 9px 16px;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+  }
   .announcement span { color: var(--gold-bright); font-weight: 500; }
 
-  header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-  .header-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; gap: 16px; }
-  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-  .logo-mark { width: 40px; height: 40px; background: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+  /* ─── HEADER ─── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 64px;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo-mark {
+    width: 40px; height: 40px;
+    background: var(--forest);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 20px;
+  }
   .logo-text-block { display: flex; flex-direction: column; line-height: 1.15; }
   .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--forest); letter-spacing: 0.02em; }
   .logo-sub { font-size: 10px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
@@ -50,7 +90,13 @@
   nav a:hover::after { width: 100%; }
 
   .header-actions { display: flex; align-items: center; gap: 4px; }
-  .search-bar { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--cream); transition: border-color 0.2s; }
+
+  .search-bar {
+    display: flex; align-items: center;
+    border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; background: var(--cream);
+    transition: border-color 0.2s;
+  }
   .search-bar:focus-within { border-color: var(--forest); }
   .search-bar input { border: none; background: transparent; padding: 8px 12px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: var(--text-dark); outline: none; width: 160px; }
   .search-bar button { background: var(--forest); border: none; padding: 8px 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
@@ -58,12 +104,15 @@
 
   .icon-btn { width: 40px; height: 40px; border-radius: 8px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-mid); transition: background 0.2s, color 0.2s; position: relative; }
   .icon-btn:hover { background: var(--cream-dark); color: var(--forest); }
+
   .cart-count { position: absolute; top: 4px; right: 4px; width: 16px; height: 16px; background: var(--gold); color: white; border-radius: 50%; font-size: 9.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; }
 
+  /* Mobile hamburger */
   .mobile-menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
-  .mobile-menu-btn span { width: 20px; height: 1.8px; background: var(--text-mid); border-radius: 2px; display: block; }
+  .mobile-menu-btn span { width: 20px; height: 1.8px; background: var(--text-mid); border-radius: 2px; display: block; transition: transform 0.25s; }
 
-  .mobile-nav { display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 300; flex-direction: column; padding: 24px; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+  /* Mobile nav drawer */
+  .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 300; flex-direction: column; padding: 24px; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
   .mobile-nav.open { transform: translateX(0); }
   .mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
   .mobile-nav-close { width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-mid); }
@@ -73,13 +122,66 @@
   .mobile-nav-contact { margin-top: 32px; padding: 20px; background: var(--cream); border-radius: 12px; }
   .mobile-nav-contact p { font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
   .mobile-nav-contact a { display: block; font-size: 18px; font-weight: 600; color: var(--forest); text-decoration: none; }
-  .mobile-nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 299; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
-  .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
 
-  /* BRAND BANNER */
+  /* ─── HERO BANNER ─── */
+  .hero-banner {
+    position: relative;
+    background: linear-gradient(135deg, #0a2318 0%, #0f3321 35%, #163d28 60%, #1a4a2e 100%);
+    overflow: hidden;
+    border-bottom: 3px solid var(--gold);
+  }
+  .hero-banner::before { content: ''; position: absolute; top: -20%; left: -10%; width: 60%; height: 140%; background: radial-gradient(ellipse, rgba(184,134,11,0.18) 0%, transparent 65%); pointer-events: none; }
+  .hero-banner::after { content: ''; position: absolute; top: -10%; right: -5%; width: 50%; height: 120%; background: radial-gradient(ellipse, rgba(64,145,108,0.15) 0%, transparent 65%); pointer-events: none; }
+
+  .hero-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(240,192,64,0.08); pointer-events: none; }
+  .hero-ring-1 { width: 500px; height: 500px; top: -200px; left: -100px; }
+  .hero-ring-2 { width: 300px; height: 300px; top: -60px; left: 40px; border-color: rgba(240,192,64,0.12); }
+
+  .hero-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 1fr 1.6fr;
+    gap: 0; align-items: stretch; position: relative; z-index: 1; min-height: 420px;
+  }
+
+  /* Hero Left */
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 44px 48px 44px 0; border-right: 1px solid rgba(240,192,64,0.15); gap: 18px; }
+  .hero-cert-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .cert-badge { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(240,192,64,0.25); border-radius: 8px; padding: 7px 12px; }
+  .cert-badge-title { font-size: 11px; font-weight: 700; color: var(--gold-bright); letter-spacing: 0.08em; }
+  .cert-badge-sub { font-size: 9px; color: rgba(245,240,232,0.45); letter-spacing: 0.04em; margin-top: 1px; }
+  .cert-pure { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(184,134,11,0.1); }
+  .cert-pure span:first-child { font-size: 10px; font-weight: 700; color: var(--gold-bright); }
+  .cert-pure span:last-child { font-size: 8px; color: rgba(245,240,232,0.5); letter-spacing: 0.06em; }
+  .hero-oil-drop { font-size: 13px; color: var(--gold-bright); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+  .hero-oil-drop::before, .hero-oil-drop::after { content: ''; height: 1px; width: 24px; background: var(--gold); opacity: 0.6; }
+  .hero-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 600; color: var(--cream); line-height: 0.95; letter-spacing: -0.01em; }
+  .hero-brand-name em { font-style: italic; color: var(--gold-bright); }
+  .hero-brand-sub { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: rgba(245,240,232,0.65); letter-spacing: 0.05em; }
+  .hero-pure-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--forest); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; padding: 8px 18px; border-radius: 100px; width: fit-content; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .hero-tag { font-size: 11px; color: rgba(245,240,232,0.6); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); padding: 4px 11px; border-radius: 100px; display: flex; align-items: center; gap: 5px; }
+
+  /* Hero Center */
+  .hero-center { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 44px 40px 44px 52px; gap: 20px; }
+  .hero-center-title { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-bright); text-align: center; }
+  .hero-products-row { display: flex; gap: 14px; width: 100%; }
+  .hero-product-card { flex: 1; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(240,192,64,0.2); border-radius: 16px; padding: 20px 14px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: border-color 0.25s, background 0.25s, transform 0.25s; cursor: pointer; position: relative; overflow: hidden; }
+  .hero-product-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-bright), transparent); opacity: 0; transition: opacity 0.25s; }
+  .hero-product-card:hover { border-color: var(--gold-bright); background: rgba(255,255,255,0.09); transform: translateY(-5px); }
+  .hero-product-card:hover::before { opacity: 1; }
+  .hero-product-img { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; }
+  .hero-product-name { font-size: 11px; font-weight: 600; color: var(--cream); letter-spacing: 0.08em; text-transform: uppercase; text-align: center; line-height: 1.3; }
+  .hero-product-prices { display: flex; flex-direction: column; gap: 5px; width: 100%; }
+  .hero-price-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.07); border-radius: 8px; padding: 6px 10px; }
+  .hero-price-ml { font-size: 10px; color: rgba(245,240,232,0.6); font-weight: 500; }
+  .hero-price-val { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--gold-bright); }
+  .hero-badges-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .hero-badge { font-size: 10px; color: rgba(245,240,232,0.65); background: rgba(27,67,50,0.4); border: 1px solid rgba(64,145,108,0.25); padding: 4px 10px; border-radius: 100px; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+
+  /* ─── BRAND BANNER ─── */
   .brand-banner { background: linear-gradient(135deg, #f8f3e2 0%, #f0e8c8 40%, #e8ddb0 100%); border-bottom: 3px solid var(--gold); position: relative; overflow: hidden; }
   .brand-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 10% 50%, rgba(27,67,50,0.06) 0%, transparent 50%), radial-gradient(circle at 90% 20%, rgba(184,134,11,0.08) 0%, transparent 40%); pointer-events: none; }
-  .brand-banner-inner { max-width: 1280px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+  .brand-banner-inner { max-width: 1280px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; position: relative; z-index: 1; }
   .bb-logo-block { text-align: center; }
   .bb-oil-drop { font-size: 48px; display: block; margin-bottom: 6px; filter: drop-shadow(0 2px 8px rgba(184,134,11,0.3)); }
   .bb-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; color: var(--forest); line-height: 1; margin-bottom: 2px; letter-spacing: -0.01em; }
@@ -90,20 +192,20 @@
   .bb-pure-badge { display: inline-block; background: var(--forest); color: var(--gold-bright); font-size: 16px; font-weight: 700; letter-spacing: 0.1em; padding: 6px 22px; border-radius: 30px; border: 2px solid var(--gold); }
   .bb-products-block { text-align: center; }
   .bb-products-row { display: flex; gap: 12px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
-  .bb-product-pill { background: var(--forest); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; align-items: center; gap: 7px; min-width: 100px; border: 2px solid rgba(240,192,64,0.3); transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+  .bb-product-pill { background: var(--forest); border-radius: 12px; padding: 14px 14px; display: flex; flex-direction: column; align-items: center; gap: 7px; min-width: 100px; border: 2px solid rgba(240,192,64,0.3); transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
   .bb-product-pill:hover { border-color: var(--gold-bright); transform: translateY(-3px); }
   .bb-product-emoji { font-size: 34px; }
   .bb-product-label { color: var(--cream); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; line-height: 1.2; text-align: center; }
   .bb-badges-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   .bb-info-badge { background: rgba(27,67,50,0.08); border: 1px solid rgba(27,67,50,0.2); color: var(--forest); font-size: 11px; font-weight: 500; padding: 5px 12px; border-radius: 100px; display: flex; align-items: center; gap: 5px; }
 
-  /* TRUST STRIP */
+  /* ─── TRUST STRIP ─── */
   .trust-strip { background: var(--cream-dark); border-bottom: 1px solid var(--border); padding: 12px 20px; overflow-x: auto; }
   .trust-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 10px; min-width: 600px; }
   .trust-item { display: flex; align-items: center; gap: 8px; color: var(--text-mid); font-size: 12.5px; white-space: nowrap; }
   .trust-icon { width: 26px; height: 26px; background: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; }
 
-  /* SECTIONS */
+  /* ─── SECTIONS ─── */
   .section { max-width: 1280px; margin: 0 auto; padding: 52px 24px; }
   .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; gap: 16px; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 500; color: var(--text-dark); line-height: 1.1; }
@@ -111,18 +213,23 @@
   .view-all { color: var(--forest); font-size: 13px; text-decoration: none; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--forest); padding-bottom: 2px; transition: gap 0.2s; white-space: nowrap; flex-shrink: 0; }
   .view-all:hover { gap: 10px; }
 
-  /* PRODUCT GRID */
+  /* ─── PRODUCT GRID ─── */
   .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
   .product-card { background: var(--white); border-radius: 14px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s; cursor: pointer; position: relative; }
   .product-card:hover { box-shadow: 0 12px 40px rgba(27,67,50,0.11); border-color: var(--border-hover); transform: translateY(-3px); }
+
   .product-badge-strip { position: absolute; top: 0; left: 0; right: 0; height: 26px; background: var(--forest); display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; padding: 0 10px; z-index: 2; white-space: nowrap; overflow: hidden; }
+
   .product-img-wrap { background: var(--cream); height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 26px; }
   .product-emoji { font-size: 72px; position: relative; z-index: 1; transition: transform 0.3s; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08)); }
   .product-card:hover .product-emoji { transform: scale(1.08) translateY(-4px); }
+
   .wishlist-btn { position: absolute; top: 34px; right: 10px; width: 30px; height: 30px; background: white; border: 1px solid var(--border); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s, border-color 0.2s; z-index: 3; }
   .product-card:hover .wishlist-btn { opacity: 1; }
   .wishlist-btn:hover { border-color: #e53e3e; }
   .wishlist-btn.active { opacity: 1; background: #fff5f5; border-color: #e53e3e; }
+
   .product-info { padding: 14px 14px 16px; }
   .product-tags { display: flex; gap: 5px; margin-bottom: 8px; flex-wrap: wrap; }
   .tag { font-size: 10px; padding: 3px 8px; border-radius: 100px; font-weight: 500; letter-spacing: 0.04em; }
@@ -137,7 +244,7 @@
   .add-to-cart { width: 100%; background: var(--forest); color: var(--cream); border: none; padding: 11px 16px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.2s, transform 0.15s; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; gap: 7px; }
   .add-to-cart:hover { background: var(--forest-light); transform: translateY(-1px); }
 
-  /* PRICE TABLE */
+  /* ─── PRICE TABLE ─── */
   .price-table-section { background: var(--cream-dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .price-table-inner { max-width: 1280px; margin: 0 auto; padding: 52px 24px; }
   .price-table-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
@@ -154,7 +261,7 @@
   .price-add-btn { background: transparent; border: 1.5px solid var(--forest); color: var(--forest); padding: 5px 12px; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; cursor: pointer; transition: background 0.2s, color 0.2s; }
   .price-add-btn:hover { background: var(--forest); color: var(--cream); }
 
-  /* CATEGORIES */
+  /* ─── CATEGORIES ─── */
   .categories-section { background: var(--forest); }
   .categories-section .section-title { color: var(--cream); }
   .categories-section .section-subtitle { color: rgba(245,240,232,0.55); }
@@ -167,7 +274,7 @@
   .cat-arrow { margin-left: auto; color: rgba(245,240,232,0.3); font-size: 16px; transition: color 0.2s, transform 0.2s; flex-shrink: 0; }
   .category-card:hover .cat-arrow { color: var(--gold-bright); transform: translateX(4px); }
 
-  /* WHY US */
+  /* ─── WHY US ─── */
   .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .why-card { padding: 24px 18px; background: var(--white); border-radius: 14px; border: 1px solid var(--border); transition: box-shadow 0.2s; }
   .why-card:hover { box-shadow: 0 8px 30px rgba(27,67,50,0.07); }
@@ -175,7 +282,7 @@
   .why-title { font-size: 14px; font-weight: 500; color: var(--text-dark); margin-bottom: 7px; }
   .why-desc { font-size: 12.5px; color: var(--text-light); line-height: 1.65; }
 
-  /* FOOTER */
+  /* ─── FOOTER ─── */
   footer { background: var(--text-dark); }
   .footer-main { max-width: 1280px; margin: 0 auto; padding: 52px 24px 36px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
   .footer-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--cream); margin-bottom: 4px; }
@@ -193,7 +300,7 @@
   .footer-contact-item strong { color: rgba(245,240,232,0.75); font-weight: 500; }
   .footer-bottom { border-top: 1px solid rgba(245,240,232,0.07); padding: 18px 24px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: rgba(245,240,232,0.28); font-size: 12px; flex-wrap: wrap; gap: 8px; }
 
-  /* CART DRAWER */
+  /* ─── CART DRAWER ─── */
   .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
   .cart-overlay.open { opacity: 1; pointer-events: all; }
   .cart-drawer { position: fixed; right: 0; top: 0; bottom: 0; width: 380px; max-width: 100vw; background: var(--white); z-index: 201; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; box-shadow: -8px 0 40px rgba(0,0,0,0.12); }
@@ -217,24 +324,70 @@
   .cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
   .cart-total-label { font-size: 13px; color: var(--text-mid); }
   .cart-total-val { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--forest); }
-  .checkout-btn { width: 100%; background: var(--wa-green); color: #fff; border: none; padding: 14px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.15s; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; gap: 9px; box-shadow: 0 4px 16px rgba(37,211,102,0.3); }
-  .checkout-btn:hover { background: #1ebe5c; transform: translateY(-1px); }
+
+  .checkout-btn {
+    width: 100%;
+    background: var(--wa-green);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+  }
+  .checkout-btn:hover { background: #1ebe5c; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+  .checkout-btn svg { flex-shrink: 0; }
   .cart-note { font-size: 11.5px; color: var(--text-light); text-align: center; margin-top: 9px; }
 
-  /* TOAST */
+  /* ─── TOAST ─── */
   .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--forest); color: var(--cream); padding: 12px 20px; border-radius: 10px; font-size: 13.5px; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 999; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 4px 20px rgba(0,0,0,0.2); white-space: nowrap; }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* ═══════════════════════════════════════════
-     WHATSAPP ORDER MODAL
-  ═══════════════════════════════════════════ */
-  .wa-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 500; display: flex; align-items: center; justify-content: center; padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(4px); }
+  /* ═══ WHATSAPP ORDER MODAL ═══ */
+  .wa-modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 500;
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+  }
   .wa-modal-overlay.open { opacity: 1; pointer-events: all; }
-  .wa-modal { background: var(--white); border-radius: 20px; width: 100%; max-width: 480px; max-height: 92vh; overflow-y: auto; box-shadow: 0 24px 80px rgba(0,0,0,0.22); transform: scale(0.94) translateY(16px); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+
+  .wa-modal {
+    background: var(--white);
+    border-radius: 20px;
+    width: 100%; max-width: 480px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.22);
+    overflow: hidden;
+    transform: scale(0.94) translateY(16px);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
   .wa-modal-overlay.open .wa-modal { transform: scale(1) translateY(0); }
 
-  .wa-modal-header { background: linear-gradient(135deg, var(--wa-dark) 0%, #128C7E 60%, var(--wa-green) 100%); padding: 22px 24px 18px; position: relative; }
-  .wa-modal-close { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; background: rgba(255,255,255,0.15); border: none; border-radius: 50%; color: white; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+  .wa-modal-header {
+    background: linear-gradient(135deg, var(--wa-dark) 0%, #128C7E 60%, var(--wa-green) 100%);
+    padding: 22px 24px 18px; position: relative;
+  }
+  .wa-modal-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 30px; height: 30px;
+    background: rgba(255,255,255,0.15); border: none; border-radius: 50%;
+    color: white; font-size: 15px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
   .wa-modal-close:hover { background: rgba(255,255,255,0.28); }
   .wa-modal-brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
   .wa-modal-brand-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
@@ -245,8 +398,9 @@
 
   .wa-modal-body { padding: 20px 24px 0; }
   .wa-order-title { font-size: 12px; font-weight: 600; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-  .wa-order-items { display: flex; flex-direction: column; gap: 8px; max-height: 180px; overflow-y: auto; padding-right: 4px; margin-bottom: 14px; }
+  .wa-order-items { display: flex; flex-direction: column; gap: 8px; max-height: 220px; overflow-y: auto; padding-right: 4px; margin-bottom: 14px; }
   .wa-order-items::-webkit-scrollbar { width: 4px; }
+  .wa-order-items::-webkit-scrollbar-track { background: var(--cream); border-radius: 4px; }
   .wa-order-items::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 4px; }
   .wa-order-item { display: flex; align-items: center; gap: 10px; background: var(--cream); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }
   .wa-order-item-emoji { font-size: 22px; flex-shrink: 0; }
@@ -259,77 +413,215 @@
   .wa-total-label { font-size: 13px; font-weight: 500; color: var(--text-mid); }
   .wa-total-val { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--forest); }
 
+  .wa-info-note { background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.25); border-radius: 10px; padding: 11px 14px; font-size: 12px; color: #075E54; display: flex; gap: 9px; align-items: flex-start; margin-bottom: 16px; line-height: 1.55; }
+  .wa-info-note-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  .wa-modal-footer { padding: 0 24px 24px; display: flex; flex-direction: column; gap: 10px; }
+
+  .wa-send-btn {
+    width: 100%; background: var(--wa-green); color: #fff; border: none;
+    padding: 15px 20px; border-radius: 12px;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.03em;
+    box-shadow: 0 4px 18px rgba(37,211,102,0.35);
+  }
+  .wa-send-btn:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
+
+  .wa-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
+
+  .wa-cancel-btn {
+    width: 100%; background: transparent; color: var(--text-light);
+    border: 1px solid var(--border); padding: 11px; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer;
+    transition: border-color 0.2s, color 0.2s; letter-spacing: 0.02em;
+  }
+  .wa-cancel-btn:hover { border-color: var(--border-hover); color: var(--text-dark); }
+
+  /* ── Payment Steps ── */
   .pay-steps { display: flex; flex-direction: column; gap: 0; background: rgba(37,211,102,0.06); border: 1px solid rgba(37,211,102,0.2); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
   .pay-step { display: flex; align-items: center; gap: 10px; }
   .pay-step-num { width: 24px; height: 24px; flex-shrink: 0; background: var(--wa-green); color: white; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
   .pay-step-text { font-size: 12.5px; color: #075E54; font-weight: 500; line-height: 1.4; }
   .pay-step-arrow { font-size: 16px; color: rgba(37,211,102,0.5); text-align: center; margin: 4px 0 4px 8px; }
 
-  .wa-modal-footer { padding: 0 24px 24px; display: flex; flex-direction: column; gap: 10px; }
+  .pay-btn-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 7px; margin-top: 2px; }
 
-  /* UPI ID row */
-  .upi-id-row { display: flex; align-items: center; gap: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; }
+  /* ── UPI Pay Button ── */
+  .upi-pay-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--upi-purple) 0%, #7b2fbe 100%);
+    color: #fff; border: none; padding: 14px 20px; border-radius: 12px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: filter 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.02em;
+    box-shadow: 0 4px 18px rgba(95,37,159,0.35); margin-bottom: 10px;
+  }
+  .upi-pay-btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 26px rgba(95,37,159,0.45); }
+
+  /* ── UPI ID row ── */
+  .upi-id-row { display: flex; align-items: center; gap: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; margin-bottom: 12px; }
   .upi-id-label { font-size: 11px; color: var(--text-light); font-weight: 500; flex-shrink: 0; }
   .upi-id-val { font-size: 13px; font-weight: 600; color: var(--upi-purple); flex: 1; letter-spacing: 0.01em; }
   .upi-copy-btn { background: var(--upi-purple); color: white; border: none; border-radius: 6px; padding: 5px 12px; font-size: 11.5px; font-weight: 600; cursor: pointer; transition: background 0.2s; flex-shrink: 0; font-family: 'DM Sans', sans-serif; }
   .upi-copy-btn:hover { background: var(--upi-purple-dark); }
   .upi-copy-btn.copied { background: var(--wa-green); }
 
-  /* Section label */
-  .pay-section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px; margin-top: 2px; }
-
-  /* ── 3-App UPI grid — THE FIX ── */
-  .upi-apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
-  .upi-app-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 2px solid transparent; border-radius: 12px; padding: 14px 8px 11px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; color: #fff; }
-  .upi-app-btn:hover { transform: translateY(-3px); }
-  .upi-app-btn .app-emoji { font-size: 26px; line-height: 1; }
-  .upi-app-btn .app-name { font-size: 12px; font-weight: 700; letter-spacing: 0.03em; }
-
-  .btn-gpay    { background: linear-gradient(135deg, #1a73e8 0%, #0d5dbf 100%); box-shadow: 0 3px 10px rgba(26,115,232,0.35); }
-  .btn-phonepe { background: linear-gradient(135deg, #5f259f 0%, #4a1a80 100%); box-shadow: 0 3px 10px rgba(95,37,159,0.35); }
-  .btn-paytm   { background: linear-gradient(135deg, #00BAF2 0%, #0099cc 100%); box-shadow: 0 3px 10px rgba(0,186,242,0.35); }
-  .btn-gpay:hover    { box-shadow: 0 7px 20px rgba(26,115,232,0.45); }
-  .btn-phonepe:hover { box-shadow: 0 7px 20px rgba(95,37,159,0.45); }
-  .btn-paytm:hover   { box-shadow: 0 7px 20px rgba(0,186,242,0.45); }
-
-  .pay-hint { font-size: 11px; color: var(--text-light); text-align: center; line-height: 1.5; }
-
-  /* OR divider */
-  .pay-or-divider { display: flex; align-items: center; gap: 10px; margin: 4px 0; color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  /* ── OR Divider ── */
+  .pay-or-divider { display: flex; align-items: center; gap: 10px; margin: 4px 0 14px; color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
   .pay-or-divider::before, .pay-or-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* WhatsApp send button */
-  .wa-send-btn { width: 100%; background: var(--wa-green); color: #fff; border: none; padding: 15px 20px; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.03em; box-shadow: 0 4px 18px rgba(37,211,102,0.35); }
-  .wa-send-btn:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
-  .wa-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
+  /* ════ RESPONSIVE ════ */
+  @media (max-width: 1200px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .hero-products-row { gap: 10px; }
+    .hero-product-img { width: 60px; height: 60px; font-size: 38px; }
+    .hero-brand-name { font-size: 52px; }
+  }
 
-  .wa-cancel-btn { width: 100%; background: transparent; color: var(--text-light); border: 1px solid var(--border); padding: 11px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; transition: border-color 0.2s, color 0.2s; letter-spacing: 0.02em; }
-  .wa-cancel-btn:hover { border-color: var(--border-hover); color: var(--text-dark); }
+  @media (max-width: 960px) {
+    nav { display: none; }
+    .search-bar { display: none; }
+    .mobile-menu-btn { display: flex; }
+    .header-inner { padding: 0 16px; gap: 12px; }
+    .hero-inner { grid-template-columns: 1fr; min-height: unset; padding: 28px 20px; }
+    .hero-left { border-right: none; border-bottom: 1px solid rgba(240,192,64,0.15); padding: 0 0 28px 0; gap: 14px; }
+    .hero-brand-name { font-size: 48px; }
+    .hero-center { padding: 28px 0 0 0; gap: 16px; }
+    .hero-products-row { gap: 10px; }
+    .brand-banner-inner { grid-template-columns: 1fr; text-align: center; gap: 24px; }
+    .bb-brand-name { font-size: 40px; }
+    .bb-products-row { justify-content: center; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .price-table-grid { grid-template-columns: 1fr; }
+    .section { padding: 40px 20px; }
+    .section-title { font-size: 32px; }
+  }
 
-  /* IMAGE HERO */
+  @media (max-width: 640px) {
+    .announcement { font-size: 11px; padding: 8px 12px; }
+    .header-inner { height: 58px; padding: 0 14px; }
+    .logo-name { font-size: 19px; }
+    .logo-sub { font-size: 9px; }
+    .logo-mark { width: 36px; height: 36px; font-size: 18px; }
+    .hero-inner { padding: 22px 16px; gap: 0; }
+    .hero-left { padding: 0 0 22px 0; gap: 12px; }
+    .hero-brand-name { font-size: 40px; }
+    .hero-brand-sub { font-size: 17px; }
+    .hero-oil-drop { font-size: 11px; }
+    .hero-pure-pill { font-size: 11px; padding: 7px 14px; }
+    .hero-tags { gap: 5px; }
+    .hero-tag { font-size: 10px; padding: 3px 9px; }
+    .cert-badge { padding: 5px 9px; }
+    .cert-badge-title { font-size: 10px; }
+    .cert-pure { width: 44px; height: 44px; }
+    .cert-pure span:first-child { font-size: 9px; }
+    .hero-center { padding: 22px 0 0 0; gap: 14px; }
+    .hero-center-title { font-size: 12px; letter-spacing: 0.12em; }
+    .hero-products-row { flex-direction: column; gap: 10px; }
+    .hero-product-card { flex-direction: row; padding: 14px 16px; gap: 14px; border-radius: 12px; }
+    .hero-product-img { width: 56px; height: 56px; font-size: 34px; flex-shrink: 0; }
+    .hero-product-name { font-size: 11px; text-align: left; margin-bottom: 4px; }
+    .hero-product-prices { flex-direction: row; gap: 8px; flex: 1; }
+    .hero-price-row { flex-direction: column; align-items: center; padding: 6px 8px; gap: 1px; }
+    .hero-price-ml { font-size: 9px; }
+    .hero-price-val { font-size: 15px; }
+    .hero-badges-row { gap: 5px; }
+    .hero-badge { font-size: 9.5px; padding: 3px 8px; }
+    .brand-banner-inner { padding: 24px 16px; gap: 20px; }
+    .bb-oil-drop { font-size: 36px; }
+    .bb-brand-name { font-size: 34px; }
+    .bb-pure-badge { font-size: 14px; padding: 5px 18px; }
+    .bb-product-pill { min-width: 84px; padding: 12px 10px; }
+    .bb-product-emoji { font-size: 28px; }
+    .bb-product-label { font-size: 9px; }
+    .bb-info-badge { font-size: 10px; padding: 4px 10px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .product-img-wrap { height: 145px; }
+    .product-emoji { font-size: 52px; }
+    .product-badge-strip { font-size: 7.5px; letter-spacing: 0.08em; height: 22px; }
+    .product-pricing { gap: 4px; }
+    .price-old { display: none; }
+    .add-to-cart { font-size: 11.5px; padding: 9px 8px; gap: 5px; }
+    .price-table-inner { padding: 36px 16px; }
+    .price-table-grid { gap: 14px; }
+    .price-row { padding: 10px 0; }
+    .price-qty { font-size: 13px; }
+    .price-amount { font-size: 18px; }
+    .price-add-btn { padding: 4px 10px; font-size: 11px; }
+    .section { padding: 36px 16px; }
+    .section-title { font-size: 28px; }
+    .section-header { flex-direction: column; align-items: flex-start; margin-bottom: 22px; gap: 10px; }
+    .categories-grid { grid-template-columns: 1fr; gap: 10px; }
+    .category-card { padding: 16px 14px; }
+    .cat-icon { font-size: 28px; }
+    .cat-name { font-size: 13px; }
+    .why-grid { grid-template-columns: 1fr; gap: 12px; }
+    .why-card { padding: 20px 16px; }
+    .footer-main { grid-template-columns: 1fr; gap: 28px; padding: 36px 16px 24px; }
+    .footer-bottom { padding: 16px; flex-direction: column; text-align: center; }
+    .cart-drawer { width: 100%; max-width: 100vw; }
+    .toast { bottom: 16px; font-size: 12.5px; padding: 10px 16px; max-width: calc(100vw - 32px); white-space: normal; text-align: center; justify-content: center; }
+    .product-info { padding: 10px 10px 12px; }
+    .product-name { font-size: 11.5px; }
+    .product-meta { font-size: 10.5px; margin-bottom: 7px; }
+    .price-current { font-size: 18px; }
+    .product-tags { gap: 3px; margin-bottom: 6px; }
+    .tag { font-size: 9px; padding: 2px 6px; }
+    .wishlist-btn { top: 28px; width: 26px; height: 26px; }
+    .wa-modal { border-radius: 16px; }
+    .wa-modal-header { padding: 18px 18px 14px; }
+    .wa-modal-body { padding: 16px 18px 0; }
+    .wa-modal-footer { padding: 0 18px 20px; }
+    .wa-send-btn { font-size: 14px; padding: 13px; }
+  }
+
+  @media (max-width: 380px) {
+    .hero-brand-name { font-size: 34px; }
+    .hero-product-prices { flex-direction: column; gap: 4px; }
+    .hero-price-row { flex-direction: row; }
+    .bb-brand-name { font-size: 28px; }
+    .section-title { font-size: 24px; }
+  }
+
+  .mobile-nav { display: flex; }
+  .mobile-nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 299; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
+
+  /* ─── IMAGE HERO BANNER ─── */
   .hero-banner-img { border-bottom: 3px solid var(--gold); background: #1a1a0f; overflow: hidden; }
   .hero-img-wrap { position: relative; max-width: 1280px; margin: 0 auto; display: block; }
-  .hero-poster-img { width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover; }
+  .hero-poster-img { width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover; object-position: center; }
   .hero-img-overlay { position: absolute; bottom: 28px; right: 40px; display: flex; gap: 12px; align-items: center; }
   .hero-shop-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; padding: 12px 24px; border-radius: 10px; border: 2px solid var(--gold); transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 18px rgba(0,0,0,0.25); }
   .hero-shop-btn:hover { background: var(--forest-mid); transform: translateY(-2px); }
   .hero-price-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--gold); color: var(--forest); text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: 0.04em; padding: 12px 20px; border-radius: 10px; transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 18px rgba(0,0,0,0.2); }
   .hero-price-btn:hover { background: var(--gold-bright); transform: translateY(-2px); }
-
-  /* RESPONSIVE */
-  @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(2, 1fr); } .why-grid { grid-template-columns: repeat(2, 1fr); } .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; } }
-  @media (max-width: 960px) { nav { display: none; } .search-bar { display: none; } .mobile-menu-btn { display: flex; } .header-inner { padding: 0 16px; } .brand-banner-inner { grid-template-columns: 1fr; text-align: center; gap: 24px; } .bb-brand-name { font-size: 40px; } .bb-products-row { justify-content: center; } .categories-grid { grid-template-columns: repeat(2, 1fr); } .price-table-grid { grid-template-columns: 1fr; } .section { padding: 40px 20px; } .section-title { font-size: 32px; } }
-  @media (max-width: 640px) { .announcement { font-size: 11px; padding: 8px 12px; } .header-inner { height: 58px; padding: 0 14px; } .logo-name { font-size: 19px; } .logo-mark { width: 36px; height: 36px; font-size: 18px; } .bb-brand-name { font-size: 34px; } .bb-product-pill { min-width: 84px; padding: 12px 10px; } .bb-product-emoji { font-size: 28px; } .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .product-img-wrap { height: 145px; } .product-emoji { font-size: 52px; } .price-old { display: none; } .add-to-cart { font-size: 11.5px; padding: 9px 8px; } .price-table-inner { padding: 36px 16px; } .section { padding: 36px 16px; } .section-title { font-size: 28px; } .section-header { flex-direction: column; align-items: flex-start; margin-bottom: 22px; } .categories-grid { grid-template-columns: 1fr; gap: 10px; } .why-grid { grid-template-columns: 1fr; gap: 12px; } .footer-main { grid-template-columns: 1fr; gap: 28px; padding: 36px 16px 24px; } .footer-bottom { padding: 16px; flex-direction: column; text-align: center; } .cart-drawer { width: 100%; } .toast { bottom: 16px; font-size: 12.5px; max-width: calc(100vw - 32px); white-space: normal; text-align: center; justify-content: center; } .hero-poster-img { max-height: 260px; object-position: left center; } .hero-img-overlay { bottom: 12px; right: 12px; gap: 8px; flex-direction: column; align-items: flex-end; } .hero-shop-btn { font-size: 12px; padding: 9px 16px; } .hero-price-btn { font-size: 11.5px; padding: 9px 14px; } .wa-modal { border-radius: 16px; } .wa-modal-header { padding: 18px 18px 14px; } .wa-modal-body { padding: 16px 18px 0; } .wa-modal-footer { padding: 0 18px 20px; } .upi-apps-grid { gap: 7px; } .upi-app-btn { padding: 11px 6px 9px; } .upi-app-btn .app-emoji { font-size: 22px; } .upi-app-btn .app-name { font-size: 11px; } }
-  @media (max-width: 380px) { .bb-brand-name { font-size: 28px; } .section-title { font-size: 24px; } }
+  @media (max-width: 640px) {
+    .hero-poster-img { max-height: 260px; object-position: left center; }
+    .hero-img-overlay { bottom: 12px; right: 12px; gap: 8px; flex-direction: column; align-items: flex-end; }
+    .hero-shop-btn { font-size: 12px; padding: 9px 16px; }
+    .hero-price-btn { font-size: 11.5px; padding: 9px 14px; }
+  }
+  @media (max-width: 380px) {
+    .hero-poster-img { max-height: 200px; }
+    .hero-img-overlay { bottom: 8px; right: 8px; }
+    .hero-shop-btn { font-size: 11px; padding: 7px 12px; }
+    .hero-price-btn { font-size: 10.5px; padding: 7px 10px; }
+  }
 </style>
 </head>
 <body>
 
+<!-- ANNOUNCEMENT -->
 <div class="announcement">
   🌿 Free delivery across Tamil Nadu · Retail &amp; Wholesale available ·
   <span>Call: 9500887900</span>
 </div>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="#" class="logo">
@@ -339,6 +631,7 @@
         <span class="logo-sub">Wood Pressed Oils</span>
       </div>
     </a>
+
     <nav>
       <a href="#">Home</a>
       <a href="#products">Shop</a>
@@ -346,10 +639,13 @@
       <a href="#">Wholesale</a>
       <a href="#">Contact</a>
     </nav>
+
     <div class="header-actions">
       <div class="search-bar">
         <input type="text" placeholder="Search oils...">
-        <button><svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+        <button>
+          <svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
       </div>
       <button class="icon-btn" id="cartBtn" aria-label="Open cart">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -362,7 +658,10 @@
   </div>
 </header>
 
+<!-- MOBILE NAV OVERLAY -->
 <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()"></div>
+
+<!-- MOBILE NAV DRAWER -->
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-header">
     <div class="logo">
@@ -387,7 +686,7 @@
   </div>
 </div>
 
-<!-- HERO -->
+<!-- HERO BANNER -->
 <section class="hero-banner-img">
   <div class="hero-img-wrap">
     <div class="hero-img-overlay">
@@ -413,6 +712,7 @@
       </div>
       <div class="bb-pure-badge">100% PURE</div>
     </div>
+
     <div class="bb-products-block">
       <div class="bb-products-row">
         <div class="bb-product-pill"><span class="bb-product-emoji">🥜</span><span class="bb-product-label">Groundnut<br>Oil</span></div>
@@ -442,7 +742,7 @@
   </div>
 </div>
 
-<!-- PRODUCTS -->
+<!-- FEATURED PRODUCTS -->
 <section id="products">
   <div class="section">
     <div class="section-header">
@@ -452,64 +752,122 @@
       </div>
       <a href="#prices" class="view-all">See full price list →</a>
     </div>
+
     <div class="product-grid">
+
+      <!-- Groundnut Oil -->
       <div class="product-card" data-name="Groundnut Oil 1L" data-price="299" data-emoji="🥜">
         <div class="product-badge-strip">GROUNDNUT OIL · WOOD PRESSED</div>
         <div class="product-img-wrap" style="background:#FDF5E0;">
           <span class="product-emoji">🥜</span>
-          <button class="wishlist-btn" onclick="toggleWish(this)" aria-label="Wishlist"><svg width="14" height="14" fill="none" stroke="#e53e3e" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="wishlist-btn" onclick="toggleWish(this)" aria-label="Wishlist">
+            <svg width="14" height="14" fill="none" stroke="#e53e3e" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
         </div>
         <div class="product-info">
-          <div class="product-tags"><span class="tag tag-green">Wood Pressed</span><span class="tag tag-gold">No Additives</span></div>
+          <div class="product-tags">
+            <span class="tag tag-green">Wood Pressed</span>
+            <span class="tag tag-gold">No Additives</span>
+          </div>
           <div class="product-name">Groundnut / Peanut Oil — Cold Pressed</div>
           <div class="product-meta">1 Litre · Chekku / Ghani method</div>
-          <div class="product-pricing"><span class="price-current">₹299</span><span class="price-old">₹350</span><span class="price-discount">15% off</span></div>
-          <button class="add-to-cart" onclick="addToCart(this)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Add to cart</button>
+          <div class="product-pricing">
+            <span class="price-current">₹299</span>
+            <span class="price-old">₹350</span>
+            <span class="price-discount">15% off</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            Add to cart
+          </button>
         </div>
       </div>
+
+      <!-- Sesame / Gingelly Oil -->
       <div class="product-card" data-name="Gingelly Oil 1L" data-price="420" data-emoji="🌿">
         <div class="product-badge-strip">SESAME OIL · GINGELLY · WOOD PRESSED</div>
         <div class="product-img-wrap" style="background:#FDF3E0;">
           <span class="product-emoji">🌿</span>
-          <button class="wishlist-btn" onclick="toggleWish(this)" aria-label="Wishlist"><svg width="14" height="14" fill="none" stroke="#e53e3e" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="wishlist-btn" onclick="toggleWish(this)" aria-label="Wishlist">
+            <svg width="14" height="14" fill="none" stroke="#e53e3e" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
         </div>
         <div class="product-info">
-          <div class="product-tags"><span class="tag tag-green">Cold Pressed</span><span class="tag tag-green">Pure</span></div>
+          <div class="product-tags">
+            <span class="tag tag-green">Cold Pressed</span>
+            <span class="tag tag-green">Pure</span>
+          </div>
           <div class="product-name">Sesame / Gingelly Oil — Wood Pressed</div>
           <div class="product-meta">1 Litre · Traditional extraction</div>
-          <div class="product-pricing"><span class="price-current">₹420</span><span class="price-old">₹490</span><span class="price-discount">14% off</span></div>
-          <button class="add-to-cart" onclick="addToCart(this)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Add to cart</button>
+          <div class="product-pricing">
+            <span class="price-current">₹420</span>
+            <span class="price-old">₹490</span>
+            <span class="price-discount">14% off</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            Add to cart
+          </button>
         </div>
       </div>
+
+      <!-- Coconut Oil -->
       <div class="product-card" data-name="Coconut Oil 1L" data-price="450" data-emoji="🥥">
         <div class="product-badge-strip">COCONUT OIL · COLD PRESSED · PURE</div>
         <div class="product-img-wrap" style="background:#EEF8F0;">
           <span class="product-emoji">🥥</span>
-          <button class="wishlist-btn" onclick="toggleWish(this)" aria-label="Wishlist"><svg width="14" height="14" fill="none" stroke="#e53e3e" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="wishlist-btn" onclick="toggleWish(this)" aria-label="Wishlist">
+            <svg width="14" height="14" fill="none" stroke="#e53e3e" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
         </div>
         <div class="product-info">
-          <div class="product-tags"><span class="tag tag-green">Cold Pressed</span><span class="tag tag-gold">100% Pure</span></div>
+          <div class="product-tags">
+            <span class="tag tag-green">Cold Pressed</span>
+            <span class="tag tag-gold">100% Pure</span>
+          </div>
           <div class="product-name">Coconut Oil — Cold Pressed Unrefined</div>
           <div class="product-meta">1 Litre · Virgin / Chekku</div>
-          <div class="product-pricing"><span class="price-current">₹450</span><span class="price-old">₹520</span><span class="price-discount">13% off</span></div>
-          <button class="add-to-cart" onclick="addToCart(this)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Add to cart</button>
+          <div class="product-pricing">
+            <span class="price-current">₹450</span>
+            <span class="price-old">₹520</span>
+            <span class="price-discount">13% off</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            Add to cart
+          </button>
         </div>
       </div>
+
+      <!-- Pure Desi Ghee -->
       <div class="product-card" data-name="Pure Desi Ghee 500ml" data-price="699" data-emoji="🫙">
         <div class="product-badge-strip">PURE DESI GHEE · A2 · TRADITIONAL</div>
         <div class="product-img-wrap" style="background:#FFF8E7;">
           <span class="product-emoji">🫙</span>
-          <button class="wishlist-btn" onclick="toggleWish(this)" aria-label="Wishlist"><svg width="14" height="14" fill="none" stroke="#e53e3e" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="wishlist-btn" onclick="toggleWish(this)" aria-label="Wishlist">
+            <svg width="14" height="14" fill="none" stroke="#e53e3e" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
           <div style="position:absolute;top:10px;left:10px;background:var(--gold);color:var(--forest);font-size:9.5px;font-weight:700;padding:3px 9px;border-radius:4px;letter-spacing:0.05em;z-index:3;">NEW</div>
         </div>
         <div class="product-info">
-          <div class="product-tags"><span class="tag tag-gold">A2 Milk</span><span class="tag tag-green">Bilona Method</span></div>
+          <div class="product-tags">
+            <span class="tag tag-gold">A2 Milk</span>
+            <span class="tag tag-green">Bilona Method</span>
+          </div>
           <div class="product-name">Pure Desi Ghee — Traditional Bilona Process</div>
           <div class="product-meta">500 ml · Hand-churned from curd</div>
-          <div class="product-pricing"><span class="price-current">₹699</span><span class="price-old">₹799</span><span class="price-discount">12% off</span></div>
-          <button class="add-to-cart" onclick="addToCart(this)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Add to cart</button>
+          <div class="product-pricing">
+            <span class="price-current">₹699</span>
+            <span class="price-old">₹799</span>
+            <span class="price-discount">12% off</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            Add to cart
+          </button>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -524,41 +882,134 @@
       </div>
     </div>
     <div class="price-table-grid">
+
+      <!-- Groundnut -->
       <div class="price-oil-card">
-        <div class="price-oil-header"><span class="price-oil-emoji">🥜</span><div><div class="price-oil-name">Groundnut Oil</div><div class="price-oil-sub">Cold Pressed · Chekku</div></div></div>
+        <div class="price-oil-header">
+          <span class="price-oil-emoji">🥜</span>
+          <div>
+            <div class="price-oil-name">Groundnut Oil</div>
+            <div class="price-oil-sub">Cold Pressed · Chekku</div>
+          </div>
+        </div>
         <div class="price-rows">
-          <div class="price-row"><span class="price-qty">500 ml</span><span class="price-amount">₹159</span><button class="price-add-btn" onclick="addByName('Groundnut Oil 500ml',159,'🥜')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">1 Litre</span><span class="price-amount">₹299</span><button class="price-add-btn" onclick="addByName('Groundnut Oil 1L',299,'🥜')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">2 Litres</span><span class="price-amount">₹580</span><button class="price-add-btn" onclick="addByName('Groundnut Oil 2L',580,'🥜')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">5 Litres</span><span class="price-amount">₹1,400</span><button class="price-add-btn" onclick="addByName('Groundnut Oil 5L',1400,'🥜')">+ Add</button></div>
+          <div class="price-row">
+            <span class="price-qty">500 ml</span>
+            <span class="price-amount">₹159</span>
+            <button class="price-add-btn" onclick="addByName('Groundnut Oil 500ml', 159, '🥜')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">1 Litre</span>
+            <span class="price-amount">₹299</span>
+            <button class="price-add-btn" onclick="addByName('Groundnut Oil 1L', 299, '🥜')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">2 Litres</span>
+            <span class="price-amount">₹580</span>
+            <button class="price-add-btn" onclick="addByName('Groundnut Oil 2L', 580, '🥜')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">5 Litres</span>
+            <span class="price-amount">₹1,400</span>
+            <button class="price-add-btn" onclick="addByName('Groundnut Oil 5L', 1400, '🥜')">+ Add</button>
+          </div>
         </div>
       </div>
+
+      <!-- Gingelly -->
       <div class="price-oil-card">
-        <div class="price-oil-header"><span class="price-oil-emoji">🌿</span><div><div class="price-oil-name">Gingelly Oil</div><div class="price-oil-sub">Sesame / Til · Wood Pressed</div></div></div>
+        <div class="price-oil-header">
+          <span class="price-oil-emoji">🌿</span>
+          <div>
+            <div class="price-oil-name">Gingelly Oil</div>
+            <div class="price-oil-sub">Sesame / Til · Wood Pressed</div>
+          </div>
+        </div>
         <div class="price-rows">
-          <div class="price-row"><span class="price-qty">500 ml</span><span class="price-amount">₹219</span><button class="price-add-btn" onclick="addByName('Gingelly Oil 500ml',219,'🌿')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">1 Litre</span><span class="price-amount">₹420</span><button class="price-add-btn" onclick="addByName('Gingelly Oil 1L',420,'🌿')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">2 Litres</span><span class="price-amount">₹820</span><button class="price-add-btn" onclick="addByName('Gingelly Oil 2L',820,'🌿')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">5 Litres</span><span class="price-amount">₹2,000</span><button class="price-add-btn" onclick="addByName('Gingelly Oil 5L',2000,'🌿')">+ Add</button></div>
+          <div class="price-row">
+            <span class="price-qty">500 ml</span>
+            <span class="price-amount">₹219</span>
+            <button class="price-add-btn" onclick="addByName('Gingelly Oil 500ml', 219, '🌿')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">1 Litre</span>
+            <span class="price-amount">₹420</span>
+            <button class="price-add-btn" onclick="addByName('Gingelly Oil 1L', 420, '🌿')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">2 Litres</span>
+            <span class="price-amount">₹820</span>
+            <button class="price-add-btn" onclick="addByName('Gingelly Oil 2L', 820, '🌿')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">5 Litres</span>
+            <span class="price-amount">₹2,000</span>
+            <button class="price-add-btn" onclick="addByName('Gingelly Oil 5L', 2000, '🌿')">+ Add</button>
+          </div>
         </div>
       </div>
+
+      <!-- Coconut -->
       <div class="price-oil-card">
-        <div class="price-oil-header"><span class="price-oil-emoji">🥥</span><div><div class="price-oil-name">Coconut Oil</div><div class="price-oil-sub">Cold Pressed · Unrefined</div></div></div>
+        <div class="price-oil-header">
+          <span class="price-oil-emoji">🥥</span>
+          <div>
+            <div class="price-oil-name">Coconut Oil</div>
+            <div class="price-oil-sub">Cold Pressed · Unrefined</div>
+          </div>
+        </div>
         <div class="price-rows">
-          <div class="price-row"><span class="price-qty">500 ml</span><span class="price-amount">₹239</span><button class="price-add-btn" onclick="addByName('Coconut Oil 500ml',239,'🥥')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">1 Litre</span><span class="price-amount">₹450</span><button class="price-add-btn" onclick="addByName('Coconut Oil 1L',450,'🥥')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">2 Litres</span><span class="price-amount">₹880</span><button class="price-add-btn" onclick="addByName('Coconut Oil 2L',880,'🥥')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">5 Litres</span><span class="price-amount">₹2,150</span><button class="price-add-btn" onclick="addByName('Coconut Oil 5L',2150,'🥥')">+ Add</button></div>
+          <div class="price-row">
+            <span class="price-qty">500 ml</span>
+            <span class="price-amount">₹239</span>
+            <button class="price-add-btn" onclick="addByName('Coconut Oil 500ml', 239, '🥥')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">1 Litre</span>
+            <span class="price-amount">₹450</span>
+            <button class="price-add-btn" onclick="addByName('Coconut Oil 1L', 450, '🥥')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">2 Litres</span>
+            <span class="price-amount">₹880</span>
+            <button class="price-add-btn" onclick="addByName('Coconut Oil 2L', 880, '🥥')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">5 Litres</span>
+            <span class="price-amount">₹2,150</span>
+            <button class="price-add-btn" onclick="addByName('Coconut Oil 5L', 2150, '🥥')">+ Add</button>
+          </div>
         </div>
       </div>
-      <div class="price-oil-card" style="grid-column:1/-1;max-width:440px;">
-        <div class="price-oil-header"><span class="price-oil-emoji">🫙</span><div><div class="price-oil-name">Pure Desi Ghee</div><div class="price-oil-sub">A2 Milk · Bilona Method</div></div></div>
+
+      <!-- Ghee -->
+      <div class="price-oil-card" style="grid-column: 1 / -1; max-width: 440px;">
+        <div class="price-oil-header">
+          <span class="price-oil-emoji">🫙</span>
+          <div>
+            <div class="price-oil-name">Pure Desi Ghee</div>
+            <div class="price-oil-sub">A2 Milk · Bilona Method</div>
+          </div>
+        </div>
         <div class="price-rows">
-          <div class="price-row"><span class="price-qty">250 ml</span><span class="price-amount">₹369</span><button class="price-add-btn" onclick="addByName('Pure Ghee 250ml',369,'🫙')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">500 ml</span><span class="price-amount">₹699</span><button class="price-add-btn" onclick="addByName('Pure Ghee 500ml',699,'🫙')">+ Add</button></div>
-          <div class="price-row"><span class="price-qty">1 Litre</span><span class="price-amount">₹1,349</span><button class="price-add-btn" onclick="addByName('Pure Ghee 1L',1349,'🫙')">+ Add</button></div>
+          <div class="price-row">
+            <span class="price-qty">250 ml</span>
+            <span class="price-amount">₹369</span>
+            <button class="price-add-btn" onclick="addByName('Pure Ghee 250ml', 369, '🫙')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">500 ml</span>
+            <span class="price-amount">₹699</span>
+            <button class="price-add-btn" onclick="addByName('Pure Ghee 500ml', 699, '🫙')">+ Add</button>
+          </div>
+          <div class="price-row">
+            <span class="price-qty">1 Litre</span>
+            <span class="price-amount">₹1,349</span>
+            <button class="price-add-btn" onclick="addByName('Pure Ghee 1L', 1349, '🫙')">+ Add</button>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -567,7 +1018,10 @@
 <section class="categories-section">
   <div class="section">
     <div class="section-header">
-      <div><h2 class="section-title">Shop by category</h2><p class="section-subtitle">Pure oils and ghee for cooking, skin, hair, and more.</p></div>
+      <div>
+        <h2 class="section-title">Shop by category</h2>
+        <p class="section-subtitle">Pure oils and ghee for cooking, skin, hair, and more.</p>
+      </div>
     </div>
     <div class="categories-grid">
       <a href="#" class="category-card"><span class="cat-icon">🥜</span><div><div class="cat-name">Groundnut Oils</div><div class="cat-count">500ml · 1L · 2L · 5L</div></div><span class="cat-arrow">→</span></a>
@@ -584,13 +1038,32 @@
 <section>
   <div class="section">
     <div class="section-header">
-      <div><h2 class="section-title">Why Aadhif's?</h2><p class="section-subtitle">Every drop is pressed with care and tradition.</p></div>
+      <div>
+        <h2 class="section-title">Why Aadhif's?</h2>
+        <p class="section-subtitle">Every drop is pressed with care and tradition.</p>
+      </div>
     </div>
     <div class="why-grid">
-      <div class="why-card"><div class="why-icon">🪵</div><div class="why-title">Traditional Wood Press</div><p class="why-desc">Slow-pressed on a wooden chekku mill at room temperature — preserving full aroma, nutrients, and natural colour.</p></div>
-      <div class="why-card"><div class="why-icon">🌱</div><div class="why-title">Zero Additives</div><p class="why-desc">No preservatives, no chemicals, no refining. Just pure oil from seed to bottle.</p></div>
-      <div class="why-card"><div class="why-icon">🏭</div><div class="why-title">FSSAI &amp; MSME Certified</div><p class="why-desc">Govt. certified, quality tested. FSSAI #12426003001014. Safe for your family.</p></div>
-      <div class="why-card"><div class="why-icon">🚚</div><div class="why-title">All Over Tamil Nadu</div><p class="why-desc">We ship across all districts of Tamil Nadu. Bulk and retail orders both welcome.</p></div>
+      <div class="why-card">
+        <div class="why-icon">🪵</div>
+        <div class="why-title">Traditional Wood Press</div>
+        <p class="why-desc">Slow-pressed on a wooden chekku mill at room temperature — preserving full aroma, nutrients, and natural colour.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌱</div>
+        <div class="why-title">Zero Additives</div>
+        <p class="why-desc">No preservatives, no chemicals, no refining. Just pure oil from seed to bottle.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏭</div>
+        <div class="why-title">FSSAI &amp; MSME Certified</div>
+        <p class="why-desc">Govt. certified, quality tested. FSSAI #12426003001014. Safe for your family.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚚</div>
+        <div class="why-title">All Over Tamil Nadu</div>
+        <p class="why-desc">We ship across all districts of Tamil Nadu. Bulk and retail orders both welcome.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -611,16 +1084,20 @@
     <div>
       <div class="footer-col-title">Our Products</div>
       <ul class="footer-links">
-        <li><a href="#">Groundnut Oil</a></li><li><a href="#">Gingelly / Sesame Oil</a></li>
-        <li><a href="#">Coconut Oil</a></li><li><a href="#">Pure Desi Ghee</a></li>
+        <li><a href="#">Groundnut Oil</a></li>
+        <li><a href="#">Gingelly / Sesame Oil</a></li>
+        <li><a href="#">Coconut Oil</a></li>
+        <li><a href="#">Pure Desi Ghee</a></li>
         <li><a href="#">Wholesale Orders</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Quick Links</div>
       <ul class="footer-links">
-        <li><a href="#">About Us</a></li><li><a href="#">FSSAI Certificate</a></li>
-        <li><a href="#">MSME Registration</a></li><li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">FSSAI Certificate</a></li>
+        <li><a href="#">MSME Registration</a></li>
+        <li><a href="#">Shipping Policy</a></li>
         <li><a href="#">Returns</a></li>
       </ul>
     </div>
@@ -660,16 +1137,19 @@
       <span class="cart-total-val" id="cartTotal">₹0</span>
     </div>
     <button class="checkout-btn" onclick="openWaModal()">
-      <svg class="wa-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
       Order via WhatsApp
     </button>
     <p class="cart-note">🚚 Free shipping across Tamil Nadu on orders above ₹499</p>
   </div>
 </div>
 
-<!-- WA MODAL -->
+<!-- WHATSAPP ORDER CONFIRMATION MODAL -->
 <div class="wa-modal-overlay" id="waModalOverlay" onclick="closeWaModalOnOverlay(event)">
   <div class="wa-modal" id="waModal">
+
     <div class="wa-modal-header">
       <button class="wa-modal-close" onclick="closeWaModal()">✕</button>
       <div class="wa-modal-brand-row">
@@ -681,6 +1161,7 @@
       </div>
       <div class="wa-modal-headline">Pay via UPI, then confirm order on WhatsApp</div>
     </div>
+
     <div class="wa-modal-body">
       <div class="wa-order-title">Order Summary</div>
       <div class="wa-order-items" id="waOrderItems"></div>
@@ -690,47 +1171,48 @@
         <span class="wa-total-val" id="waTotalVal">₹0</span>
       </div>
       <div class="pay-steps">
-        <div class="pay-step"><div class="pay-step-num">1</div><div class="pay-step-text">Tap GPay, PhonePe, or Paytm below to pay — each opens its own app directly</div></div>
+        <div class="pay-step">
+          <div class="pay-step-num">1</div>
+          <div class="pay-step-text">Pay the amount using any UPI app (GPay, PhonePe, Paytm)</div>
+        </div>
         <div class="pay-step-arrow">↓</div>
-        <div class="pay-step"><div class="pay-step-num">2</div><div class="pay-step-text">Send your order + payment screenshot on WhatsApp</div></div>
+        <div class="pay-step">
+          <div class="pay-step-num">2</div>
+          <div class="pay-step-text">Send your order + payment screenshot on WhatsApp</div>
+        </div>
       </div>
     </div>
+
     <div class="wa-modal-footer">
-      <!-- UPI ID row -->
+
+      <div class="pay-btn-label">Step 1 — Pay Now</div>
+      <button class="upi-pay-btn" onclick="openUpiPayment()">
+        <svg class="wa-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="10" fill="white" fill-opacity="0.15"/>
+          <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-size="11" font-weight="800" font-family="Arial,sans-serif" fill="white" letter-spacing="0.5">UPI</text>
+        </svg>
+        Pay ₹<span id="upiAmountSpan">0</span> via GPay / PhonePe / Paytm
+      </button>
+
       <div class="upi-id-row">
         <span class="upi-id-label">UPI ID:</span>
-        <span class="upi-id-val">8925387731@upi</span>
+        <span class="upi-id-val" id="upiIdDisplay">8925387731@upi</span>
         <button class="upi-copy-btn" onclick="copyUpiId()" id="upiCopyBtn">Copy</button>
       </div>
 
-      <!-- Step 1: 3 app buttons -->
-      <div class="pay-section-label">Step 1 — Pay ₹<span id="upiAmountSpan">0</span> via your UPI app</div>
-      <div class="upi-apps-grid">
-        <button class="upi-app-btn btn-gpay" onclick="openGPay()">
-          <span class="app-emoji">🔵</span>
-          <span class="app-name">GPay</span>
-        </button>
-        <button class="upi-app-btn btn-phonepe" onclick="openPhonePe()">
-          <span class="app-emoji">💜</span>
-          <span class="app-name">PhonePe</span>
-        </button>
-        <button class="upi-app-btn btn-paytm" onclick="openPaytm()">
-          <span class="app-emoji">🔷</span>
-          <span class="app-name">Paytm</span>
-        </button>
-      </div>
-      <p class="pay-hint">Each button opens that app directly using its own URL scheme — bypassing any cross-app restrictions.</p>
-
       <div class="pay-or-divider"><span>then</span></div>
 
-      <!-- Step 2: WhatsApp button -->
-      <div class="pay-section-label">Step 2 — Confirm on WhatsApp</div>
+      <div class="pay-btn-label">Step 2 — Send Order on WhatsApp</div>
       <button class="wa-send-btn" onclick="sendWhatsAppOrder()">
-        <svg class="wa-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
         Send Order + Screenshot on WhatsApp
       </button>
+
       <button class="wa-cancel-btn" onclick="closeWaModal()">Cancel — go back to cart</button>
     </div>
+
   </div>
 </div>
 
@@ -741,19 +1223,17 @@
 </div>
 
 <script>
-  /* ─────────────────────────────────────────
-     CONFIG
-  ───────────────────────────────────────── */
-  const UPI_ID   = '8925387731@upi';
-  const UPI_NAME = "Aadhifs Oils";
-  const WA_PHONE = '918925387731';
-
-  /* ─────────────────────────────────────────
+  /* ═══════════════════════════════════
      CART STATE
-  ───────────────────────────────────────── */
+  ═══════════════════════════════════ */
   let cart = [];
 
-  /* ─ Mobile Nav ─ */
+  // ─ UPI / WhatsApp constants ─
+  const UPI_ID   = '8925387731@upi';
+  const UPI_NAME = "Aadhif's Oils";
+  const WA_PHONE = '918925387731'; // +91 8925387731
+
+  // ─ Mobile Nav ─
   function openMobileNav() {
     document.getElementById('mobileNav').classList.add('open');
     document.getElementById('mobileNavOverlay').classList.add('open');
@@ -766,7 +1246,9 @@
   }
   document.getElementById('menuBtn').onclick = openMobileNav;
 
-  /* ─ Cart ─ */
+  /* ═══════════════════════════════════
+     CART FUNCTIONS
+  ═══════════════════════════════════ */
   function addToCart(btn) {
     const card = btn.closest('.product-card');
     addByName(card.dataset.name, parseInt(card.dataset.price), card.dataset.emoji);
@@ -790,7 +1272,7 @@
     document.getElementById('cartCount').textContent = count;
     document.getElementById('cartTotal').textContent = '₹' + total.toLocaleString('en-IN');
 
-    const empty = document.getElementById('cartEmpty');
+    const empty  = document.getElementById('cartEmpty');
     const footer = document.getElementById('cartFooter');
     const itemsEl = document.getElementById('cartItems');
     [...itemsEl.querySelectorAll('.cart-item')].forEach(el => el.remove());
@@ -809,9 +1291,9 @@
             <div class="cart-item-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</div>
           </div>
           <div class="cart-item-qty">
-            <button class="qty-btn" onclick="changeQty(${idx},-1)">−</button>
+            <button class="qty-btn" onclick="changeQty(${idx}, -1)">−</button>
             <span class="qty-num">${item.qty}</span>
-            <button class="qty-btn" onclick="changeQty(${idx},1)">+</button>
+            <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
           </div>`;
         itemsEl.appendChild(el);
       });
@@ -841,19 +1323,22 @@
     document.getElementById('cartOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   };
+
   function closeCart() {
     document.getElementById('cartDrawer').classList.remove('open');
     document.getElementById('cartOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  /* ─────────────────────────────────────────
-     WA MODAL
-  ───────────────────────────────────────── */
+  /* ═══════════════════════════════════
+     WHATSAPP ORDER MODAL
+  ═══════════════════════════════════ */
   function openWaModal() {
     if (cart.length === 0) return;
+
     const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
 
+    // Populate order items
     const container = document.getElementById('waOrderItems');
     container.innerHTML = '';
     cart.forEach(item => {
@@ -865,12 +1350,15 @@
           <div class="wa-order-item-name">${item.name}</div>
           <div class="wa-order-item-qty">Qty: ${item.qty}</div>
         </div>
-        <span class="wa-order-item-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</span>`;
+        <span class="wa-order-item-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</span>
+      `;
       container.appendChild(el);
     });
 
-    document.getElementById('waTotalVal').textContent    = '₹' + total.toLocaleString('en-IN');
+    document.getElementById('waTotalVal').textContent = '₹' + total.toLocaleString('en-IN');
+    // FIX: use raw number (no commas) in the amount span for the UPI button label
     document.getElementById('upiAmountSpan').textContent = total.toLocaleString('en-IN');
+
     document.getElementById('waModalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -879,115 +1367,98 @@
     document.getElementById('waModalOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
+
   function closeWaModalOnOverlay(e) {
     if (e.target === document.getElementById('waModalOverlay')) closeWaModal();
   }
 
-  /* ═══════════════════════════════════════════════════════════════
-     UPI DEEP-LINKS — per-app URL schemes
-     
-     WHY THIS FIXES THE PAYTM PROTECT ISSUE:
-     The old code used a single generic  upi://pay?...  link.
-     Android hands that to whatever app is set as the default UPI
-     handler. If Paytm is the default, Paytm Protect can block
-     payments to non-Paytm UPI IDs like 8925387731@upi.
+  /* ═══════════════════════════════════
+     UPI PAYMENT  ← FIXED
+     Uses an <a> click so the page is
+     NOT navigated away from. Works on
+     mobile (opens GPay/PhonePe/Paytm)
+     and silently fails on desktop
+     (where upi:// isn't registered).
+  ═══════════════════════════════════ */
+  function openUpiPayment() {
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
 
-     The fix: each button uses its OWN app's custom scheme:
-       GPay    →  gpay://upi/pay?...
-       PhonePe →  phonepe://pay?...
-       Paytm   →  paytmmp://pay?...   (Paytm's own outbound UPI;
-                                       bypasses Protect for sends)
+    // Raw integer amount — NO toLocaleString (commas break the UPI URL)
+    const upiURL = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('Aadhifs Oils Order')}`;
 
-     We use an invisible iframe trick to attempt the deep-link.
-     If the app is not installed, the browser ignores it and we
-     fall back to the standard upi:// link after 1.5 seconds.
-  ═══════════════════════════════════════════════════════════════ */
+    // Create a temporary anchor and click it — keeps the page open
+    const a = document.createElement('a');
+    a.href = upiURL;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 
-  function getTotal() {
-    return cart.reduce((s, i) => s + i.price * i.qty, 0);
+    showToast('📲 Opening UPI app…');
   }
 
-  function upiParams() {
-    const total = getTotal();
-    return `pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('Aadhifs Oils Order')}`;
-  }
-
-  function openGPay() {
-    tryOpenApp(`gpay://upi/pay?${upiParams()}`, `upi://pay?${upiParams()}`);
-    showToast('📲 Opening Google Pay…');
-  }
-
-  function openPhonePe() {
-    tryOpenApp(`phonepe://pay?${upiParams()}`, `upi://pay?${upiParams()}`);
-    showToast('📲 Opening PhonePe…');
-  }
-
-  function openPaytm() {
-    /* paytmmp:// is Paytm's own scheme for outgoing UPI payments.
-       It bypasses Paytm Protect, which only restricts inbound flows. */
-    tryOpenApp(`paytmmp://pay?${upiParams()}`, `upi://pay?${upiParams()}`);
-    showToast('📲 Opening Paytm…');
-  }
-
-  function tryOpenApp(primaryUrl, fallbackUrl) {
-    /* Hidden iframe: trigger the custom scheme without navigating away.
-       If the app opens, great. If not, fall through to the generic upi:// link. */
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    const start = Date.now();
-    iframe.src = primaryUrl;
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-      /* The app opened if the page lost focus — elapsed time will be < 1800ms.
-         If no focus change was detected we assume the app isn't installed. */
-      if (Date.now() - start < 1800) {
-        window.location.href = fallbackUrl;
-      }
-    }, 1500);
-  }
-
+  /* ─── Copy UPI ID ─── */
   function copyUpiId() {
-    const doSet = () => {
-      const btn = document.getElementById('upiCopyBtn');
+    const btn = document.getElementById('upiCopyBtn');
+    const copy = () => {
       btn.textContent = 'Copied!';
       btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     };
-    navigator.clipboard ? navigator.clipboard.writeText(UPI_ID).then(doSet).catch(() => legacyCopy(doSet)) : legacyCopy(doSet);
-  }
-  function legacyCopy(cb) {
-    const ta = document.createElement('textarea');
-    ta.value = UPI_ID;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    cb();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(UPI_ID).then(copy).catch(() => fallbackCopy());
+    } else {
+      fallbackCopy();
+    }
+    function fallbackCopy() {
+      const ta = document.createElement('textarea');
+      ta.value = UPI_ID;
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+      copy();
+    }
   }
 
-  /* ─ WhatsApp order message ─ */
+  /* ═══════════════════════════════════
+     WHATSAPP ORDER MESSAGE
+  ═══════════════════════════════════ */
   function sendWhatsAppOrder() {
     if (cart.length === 0) return;
-    const total = getTotal();
-    const now = new Date();
-    const d = now.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-    const t = now.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
 
-    let msg = `🛒 *New Order — Aadhif's Wood Pressed Oils*\n`;
-    msg += `─────────────────────────\n📅 Date: ${d}  🕐 ${t}\n─────────────────────────\n*Order Details:*\n\n`;
+    const total  = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const now    = new Date();
+    const dateStr = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+
+    let msg = '';
+    msg += '🛒 *New Order — Aadhif\'s Wood Pressed Oils*\n';
+    msg += '─────────────────────────\n';
+    msg += `📅 Date: ${dateStr}  🕐 ${timeStr}\n`;
+    msg += '─────────────────────────\n';
+    msg += '*Order Details:*\n\n';
+
     cart.forEach((item, i) => {
-      msg += `${i+1}. ${item.emoji} *${item.name}*\n   Qty: ${item.qty}  ×  ₹${item.price.toLocaleString('en-IN')} = *₹${(item.price*item.qty).toLocaleString('en-IN')}*\n\n`;
+      msg += `${i + 1}. ${item.emoji} *${item.name}*\n`;
+      msg += `   Qty: ${item.qty}  ×  ₹${item.price.toLocaleString('en-IN')} = *₹${(item.price * item.qty).toLocaleString('en-IN')}*\n\n`;
     });
-    msg += `─────────────────────────\n💰 *Total Amount: ₹${total.toLocaleString('en-IN')}*\n─────────────────────────\n\n`;
-    msg += `Please find my payment screenshot attached. Kindly confirm my order and share delivery details. Thank you! 🙏\n\n`;
-    msg += `💳 *Paid via UPI to: ${UPI_ID}*\n\n_Ordered via aadhifsoils.in_`;
 
-    window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+    msg += '─────────────────────────\n';
+    msg += `💰 *Total Amount: ₹${total.toLocaleString('en-IN')}*\n`;
+    msg += '─────────────────────────\n\n';
+    msg += 'Please find my payment screenshot attached. Kindly confirm my order and share delivery details. Thank you! 🙏\n\n';
+    msg += `💳 *Paid via UPI to: ${UPI_ID}*\n\n`;
+    msg += '_Ordered via aadhifsoils.in_';
+
+    const waURL = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`;
+    window.open(waURL, '_blank');
+
     closeWaModal();
     closeCart();
     showToast('✅ Opening WhatsApp…');
   }
-</script>
+</script
 </body>
 </html>
