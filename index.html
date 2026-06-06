@@ -809,24 +809,46 @@
       <span class="cart-total-val" id="cartTotal">₹0</span>
     </div>
 
-    <!-- WhatsApp Pay Button -->
-    <button class="wa-checkout-btn" onclick="sendWhatsAppOrder()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    <!-- Step 1: UPI Pay Now -->
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:7px;">Step 1 — Pay Now</div>
+    <button class="wa-checkout-btn" onclick="payNow()" style="background:linear-gradient(135deg,#5F259F 0%,#7b2fbe 100%);box-shadow:0 4px 20px rgba(95,37,159,0.35);">
+      <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <rect width="48" height="48" rx="10" fill="white" fill-opacity="0.18"/>
+        <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-size="13" font-weight="800" font-family="Arial,sans-serif" fill="white" letter-spacing="0.5">UPI</text>
       </svg>
       <div class="wa-btn-content">
-        <div class="wa-btn-main">Pay via WhatsApp</div>
-        <div class="wa-btn-sub">Order details + UPI ID sent automatically</div>
+        <div class="wa-btn-main">Pay ₹<span id="upiAmtLabel">0</span> via GPay / PhonePe / Paytm</div>
+        <div class="wa-btn-sub">Opens your UPI app instantly</div>
       </div>
     </button>
 
-    <!-- How it works note -->
-    <div class="wa-pay-info">
-      <span class="wa-pay-info-icon">💡</span>
-      <div class="wa-pay-info-text">
-        WhatsApp will open with your order &amp; our UPI ID. 
-        <strong>Pay using WhatsApp Pay</strong> or any UPI app, then send the screenshot to confirm.
+    <!-- UPI ID copy row -->
+    <div style="display:flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--border);border-radius:9px;padding:9px 12px;margin:10px 0;">
+      <span style="font-size:11px;color:var(--text-light);font-weight:500;flex-shrink:0;">UPI ID:</span>
+      <span style="font-size:13px;font-weight:600;color:#5F259F;flex:1;letter-spacing:0.01em;" id="upiIdTxt">parveenakbar8115@okicici</span>
+      <button onclick="copyUpi()" id="copyUpiBtn" style="background:#5F259F;color:white;border:none;border-radius:6px;padding:5px 12px;font-size:11.5px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s;">Copy</button>
+    </div>
+
+    <!-- Divider -->
+    <div style="display:flex;align-items:center;gap:10px;margin:4px 0 10px;color:var(--text-light);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">
+      <div style="flex:1;height:1px;background:var(--border);"></div><span>then</span><div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+
+    <!-- Step 2: Confirm on WhatsApp -->
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:7px;">Step 2 — Confirm Order</div>
+    <button class="wa-checkout-btn" onclick="sendWhatsAppOrder()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      <div class="wa-btn-content">
+        <div class="wa-btn-main">Send Screenshot on WhatsApp</div>
+        <div class="wa-btn-sub">Attach payment proof to confirm order</div>
       </div>
+    </button>
+
+    <div class="wa-pay-info" style="margin-top:10px;">
+      <span class="wa-pay-info-icon">💡</span>
+      <div class="wa-pay-info-text">Pay via any UPI app → send screenshot on WhatsApp → we confirm &amp; ship!</div>
     </div>
   </div>
 </div>
@@ -840,7 +862,7 @@
 <script>
   /* ── CONFIG ── */
   const WA_PHONE  = '919500887900'; // +91 9500887900
-  const UPI_ID    = '8925387731@upi';
+  const UPI_ID    = 'parveenakbar8115@okicici';
   const UPI_NAME  = "Aadhif's Oils";
 
   /* ── CART STATE ── */
@@ -896,6 +918,8 @@
 
     document.getElementById('cartCount').textContent = count;
     document.getElementById('cartTotal').textContent = '₹' + total.toLocaleString('en-IN');
+    const upiLbl = document.getElementById('upiAmtLabel');
+    if (upiLbl) upiLbl.textContent = total.toLocaleString('en-IN');
 
     const empty   = document.getElementById('cartEmpty');
     const footer  = document.getElementById('cartFooter');
@@ -932,6 +956,41 @@
     cart[idx].qty += delta;
     if (cart[idx].qty <= 0) cart.splice(idx, 1);
     updateCart();
+  }
+
+  /* ── UPI PAY NOW — opens GPay / PhonePe / Paytm directly ── */
+  function payNow() {
+    if (cart.length === 0) return;
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    // upi:// deep link — opens any registered UPI app on the device
+    const upiURL = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent("Aadhifs Oils Order")}`;
+    const a = document.createElement('a');
+    a.href = upiURL;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showToast('📲 Opening UPI app…');
+  }
+
+  /* ── COPY UPI ID ── */
+  function copyUpi() {
+    const btn = document.getElementById('copyUpiBtn');
+    const done = () => {
+      btn.textContent = 'Copied!';
+      btn.style.background = '#25D366';
+      setTimeout(() => { btn.textContent = 'Copy'; btn.style.background = '#5F259F'; }, 2000);
+    };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(UPI_ID).then(done).catch(() => fallback());
+    } else { fallback(); }
+    function fallback() {
+      const ta = document.createElement('textarea');
+      ta.value = UPI_ID; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta); done();
+    }
   }
 
   function toggleWish(btn) {
