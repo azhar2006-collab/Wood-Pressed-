@@ -928,12 +928,9 @@
     showToast('📲 Opening PhonePe…');
   }
 function openGPay() {
-  const total = getTotal();
-
   const upiUrl =
-    `upi://pay?pa=azharvijay694-1@oksbi&pn=Azhar&am=${total}&cu=INR`;
+    "upi://pay?pa=azharvijay694-1@oksbi&pn=Azhar&am=299&cu=INR";
 
-  alert(upiUrl);   // show the link
   window.location.href = upiUrl;
 }
   function openPaytm() {
