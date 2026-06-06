@@ -25,9 +25,6 @@
     --border-hover: rgba(27,67,50,0.28);
     --wa-green: #25D366;
     --wa-dark: #075E54;
-    --upi-purple: #5F259F;
-    --upi-purple-dark: #4a1a80;
-    --gpay-blue: #1a73e8;
   }
 
   html { scroll-behavior: smooth; }
@@ -53,32 +50,13 @@
     top: 0;
     z-index: 100;
   }
-
   .header-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    height: 64px;
-    gap: 16px;
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 64px; gap: 16px;
   }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .logo-mark {
-    width: 40px; height: 40px;
-    background: var(--forest);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; font-size: 20px;
-  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+  .logo-mark { width: 40px; height: 40px; background: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
   .logo-text-block { display: flex; flex-direction: column; line-height: 1.15; }
   .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--forest); letter-spacing: 0.02em; }
   .logo-sub { font-size: 10px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
@@ -90,109 +68,70 @@
   nav a:hover::after { width: 100%; }
 
   .header-actions { display: flex; align-items: center; gap: 4px; }
-
-  .search-bar {
-    display: flex; align-items: center;
-    border: 1px solid var(--border); border-radius: 8px;
-    overflow: hidden; background: var(--cream);
-    transition: border-color 0.2s;
-  }
+  .search-bar { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--cream); transition: border-color 0.2s; }
   .search-bar:focus-within { border-color: var(--forest); }
   .search-bar input { border: none; background: transparent; padding: 8px 12px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: var(--text-dark); outline: none; width: 160px; }
-  .search-bar button { background: var(--forest); border: none; padding: 8px 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-  .search-bar button:hover { background: var(--forest-mid); }
+  .search-bar button { background: var(--forest); border: none; padding: 8px 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
   .icon-btn { width: 40px; height: 40px; border-radius: 8px; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-mid); transition: background 0.2s, color 0.2s; position: relative; }
   .icon-btn:hover { background: var(--cream-dark); color: var(--forest); }
-
   .cart-count { position: absolute; top: 4px; right: 4px; width: 16px; height: 16px; background: var(--gold); color: white; border-radius: 50%; font-size: 9.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; }
 
-  /* Mobile hamburger */
   .mobile-menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
-  .mobile-menu-btn span { width: 20px; height: 1.8px; background: var(--text-mid); border-radius: 2px; display: block; transition: transform 0.25s; }
+  .mobile-menu-btn span { width: 20px; height: 1.8px; background: var(--text-mid); border-radius: 2px; display: block; }
 
-  /* Mobile nav drawer */
-  .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 300; flex-direction: column; padding: 24px; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+  /* Mobile nav */
+  .mobile-nav { display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 300; flex-direction: column; padding: 24px; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
   .mobile-nav.open { transform: translateX(0); }
   .mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
   .mobile-nav-close { width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-mid); }
   .mobile-nav-links { display: flex; flex-direction: column; gap: 4px; }
-  .mobile-nav-links a { text-decoration: none; color: var(--text-dark); font-size: 18px; font-weight: 500; padding: 14px 0; border-bottom: 1px solid var(--border); display: block; transition: color 0.2s; }
-  .mobile-nav-links a:hover { color: var(--forest); }
+  .mobile-nav-links a { text-decoration: none; color: var(--text-dark); font-size: 18px; font-weight: 500; padding: 14px 0; border-bottom: 1px solid var(--border); display: block; }
   .mobile-nav-contact { margin-top: 32px; padding: 20px; background: var(--cream); border-radius: 12px; }
   .mobile-nav-contact p { font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
   .mobile-nav-contact a { display: block; font-size: 18px; font-weight: 600; color: var(--forest); text-decoration: none; }
+  .mobile-nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 299; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
 
-  /* ─── HERO BANNER ─── */
-  .hero-banner {
-    position: relative;
-    background: linear-gradient(135deg, #0a2318 0%, #0f3321 35%, #163d28 60%, #1a4a2e 100%);
-    overflow: hidden;
-    border-bottom: 3px solid var(--gold);
-  }
-  .hero-banner::before { content: ''; position: absolute; top: -20%; left: -10%; width: 60%; height: 140%; background: radial-gradient(ellipse, rgba(184,134,11,0.18) 0%, transparent 65%); pointer-events: none; }
-  .hero-banner::after { content: ''; position: absolute; top: -10%; right: -5%; width: 50%; height: 120%; background: radial-gradient(ellipse, rgba(64,145,108,0.15) 0%, transparent 65%); pointer-events: none; }
+  /* ─── HERO ─── */
+  .hero-banner { border-bottom: 3px solid var(--gold); background: linear-gradient(135deg, #0a2318 0%, #0f3321 35%, #163d28 60%, #1a4a2e 100%); overflow: hidden; position: relative; }
+  .hero-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1.6fr; gap: 0; align-items: stretch; position: relative; z-index: 1; min-height: 420px; }
 
-  .hero-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(240,192,64,0.08); pointer-events: none; }
-  .hero-ring-1 { width: 500px; height: 500px; top: -200px; left: -100px; }
-  .hero-ring-2 { width: 300px; height: 300px; top: -60px; left: 40px; border-color: rgba(240,192,64,0.12); }
-
-  .hero-inner {
-    max-width: 1280px; margin: 0 auto; padding: 0 40px;
-    display: grid; grid-template-columns: 1fr 1.6fr;
-    gap: 0; align-items: stretch; position: relative; z-index: 1; min-height: 420px;
-  }
-
-  /* Hero Left */
   .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 44px 48px 44px 0; border-right: 1px solid rgba(240,192,64,0.15); gap: 18px; }
-  .hero-cert-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .cert-badge { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(240,192,64,0.25); border-radius: 8px; padding: 7px 12px; }
-  .cert-badge-title { font-size: 11px; font-weight: 700; color: var(--gold-bright); letter-spacing: 0.08em; }
-  .cert-badge-sub { font-size: 9px; color: rgba(245,240,232,0.45); letter-spacing: 0.04em; margin-top: 1px; }
-  .cert-pure { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(184,134,11,0.1); }
-  .cert-pure span:first-child { font-size: 10px; font-weight: 700; color: var(--gold-bright); }
-  .cert-pure span:last-child { font-size: 8px; color: rgba(245,240,232,0.5); letter-spacing: 0.06em; }
   .hero-oil-drop { font-size: 13px; color: var(--gold-bright); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; display: flex; align-items: center; gap: 8px; }
   .hero-oil-drop::before, .hero-oil-drop::after { content: ''; height: 1px; width: 24px; background: var(--gold); opacity: 0.6; }
-  .hero-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 600; color: var(--cream); line-height: 0.95; letter-spacing: -0.01em; }
+  .hero-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 600; color: var(--cream); line-height: 0.95; }
   .hero-brand-name em { font-style: italic; color: var(--gold-bright); }
   .hero-brand-sub { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: rgba(245,240,232,0.65); letter-spacing: 0.05em; }
   .hero-pure-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--forest); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; padding: 8px 18px; border-radius: 100px; width: fit-content; }
   .hero-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-  .hero-tag { font-size: 11px; color: rgba(245,240,232,0.6); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); padding: 4px 11px; border-radius: 100px; display: flex; align-items: center; gap: 5px; }
+  .hero-tag { font-size: 11px; color: rgba(245,240,232,0.6); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); padding: 4px 11px; border-radius: 100px; }
 
-  /* Hero Center */
   .hero-center { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 44px 40px 44px 52px; gap: 20px; }
   .hero-center-title { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-bright); text-align: center; }
   .hero-products-row { display: flex; gap: 14px; width: 100%; }
-  .hero-product-card { flex: 1; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(240,192,64,0.2); border-radius: 16px; padding: 20px 14px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: border-color 0.25s, background 0.25s, transform 0.25s; cursor: pointer; position: relative; overflow: hidden; }
-  .hero-product-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-bright), transparent); opacity: 0; transition: opacity 0.25s; }
+  .hero-product-card { flex: 1; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(240,192,64,0.2); border-radius: 16px; padding: 20px 14px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: border-color 0.25s, background 0.25s, transform 0.25s; cursor: pointer; }
   .hero-product-card:hover { border-color: var(--gold-bright); background: rgba(255,255,255,0.09); transform: translateY(-5px); }
-  .hero-product-card:hover::before { opacity: 1; }
   .hero-product-img { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; }
   .hero-product-name { font-size: 11px; font-weight: 600; color: var(--cream); letter-spacing: 0.08em; text-transform: uppercase; text-align: center; line-height: 1.3; }
   .hero-product-prices { display: flex; flex-direction: column; gap: 5px; width: 100%; }
   .hero-price-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.07); border-radius: 8px; padding: 6px 10px; }
   .hero-price-ml { font-size: 10px; color: rgba(245,240,232,0.6); font-weight: 500; }
   .hero-price-val { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--gold-bright); }
-  .hero-badges-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-  .hero-badge { font-size: 10px; color: rgba(245,240,232,0.65); background: rgba(27,67,50,0.4); border: 1px solid rgba(64,145,108,0.25); padding: 4px 10px; border-radius: 100px; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
 
   /* ─── BRAND BANNER ─── */
-  .brand-banner { background: linear-gradient(135deg, #f8f3e2 0%, #f0e8c8 40%, #e8ddb0 100%); border-bottom: 3px solid var(--gold); position: relative; overflow: hidden; }
-  .brand-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 10% 50%, rgba(27,67,50,0.06) 0%, transparent 50%), radial-gradient(circle at 90% 20%, rgba(184,134,11,0.08) 0%, transparent 40%); pointer-events: none; }
-  .brand-banner-inner { max-width: 1280px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; position: relative; z-index: 1; }
+  .brand-banner { background: linear-gradient(135deg, #f8f3e2 0%, #f0e8c8 40%, #e8ddb0 100%); border-bottom: 3px solid var(--gold); }
+  .brand-banner-inner { max-width: 1280px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; }
   .bb-logo-block { text-align: center; }
-  .bb-oil-drop { font-size: 48px; display: block; margin-bottom: 6px; filter: drop-shadow(0 2px 8px rgba(184,134,11,0.3)); }
-  .bb-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; color: var(--forest); line-height: 1; margin-bottom: 2px; letter-spacing: -0.01em; }
+  .bb-oil-drop { font-size: 48px; display: block; margin-bottom: 6px; }
+  .bb-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; color: var(--forest); line-height: 1; margin-bottom: 2px; }
   .bb-brand-name em { font-style: italic; color: var(--gold); }
   .bb-tagline-row { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 6px 0 10px; }
   .bb-tagline-line { height: 1px; width: 40px; background: var(--gold); }
   .bb-tagline-text { font-size: 13px; color: var(--text-mid); letter-spacing: 0.06em; font-weight: 500; }
   .bb-pure-badge { display: inline-block; background: var(--forest); color: var(--gold-bright); font-size: 16px; font-weight: 700; letter-spacing: 0.1em; padding: 6px 22px; border-radius: 30px; border: 2px solid var(--gold); }
-  .bb-products-block { text-align: center; }
   .bb-products-row { display: flex; gap: 12px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
-  .bb-product-pill { background: var(--forest); border-radius: 12px; padding: 14px 14px; display: flex; flex-direction: column; align-items: center; gap: 7px; min-width: 100px; border: 2px solid rgba(240,192,64,0.3); transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+  .bb-product-pill { background: var(--forest); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; align-items: center; gap: 7px; min-width: 100px; border: 2px solid rgba(240,192,64,0.3); transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
   .bb-product-pill:hover { border-color: var(--gold-bright); transform: translateY(-3px); }
   .bb-product-emoji { font-size: 34px; }
   .bb-product-label { color: var(--cream); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; line-height: 1.2; text-align: center; }
@@ -210,26 +149,19 @@
   .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; gap: 16px; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 500; color: var(--text-dark); line-height: 1.1; }
   .section-subtitle { color: var(--text-light); font-size: 13.5px; margin-top: 6px; max-width: 380px; }
-  .view-all { color: var(--forest); font-size: 13px; text-decoration: none; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--forest); padding-bottom: 2px; transition: gap 0.2s; white-space: nowrap; flex-shrink: 0; }
-  .view-all:hover { gap: 10px; }
+  .view-all { color: var(--forest); font-size: 13px; text-decoration: none; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--forest); padding-bottom: 2px; white-space: nowrap; flex-shrink: 0; }
 
   /* ─── PRODUCT GRID ─── */
   .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-
   .product-card { background: var(--white); border-radius: 14px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s; cursor: pointer; position: relative; }
   .product-card:hover { box-shadow: 0 12px 40px rgba(27,67,50,0.11); border-color: var(--border-hover); transform: translateY(-3px); }
-
-  .product-badge-strip { position: absolute; top: 0; left: 0; right: 0; height: 26px; background: var(--forest); display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; padding: 0 10px; z-index: 2; white-space: nowrap; overflow: hidden; }
-
+  .product-badge-strip { position: absolute; top: 0; left: 0; right: 0; height: 26px; background: var(--forest); display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; z-index: 2; }
   .product-img-wrap { background: var(--cream); height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 26px; }
   .product-emoji { font-size: 72px; position: relative; z-index: 1; transition: transform 0.3s; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08)); }
   .product-card:hover .product-emoji { transform: scale(1.08) translateY(-4px); }
-
-  .wishlist-btn { position: absolute; top: 34px; right: 10px; width: 30px; height: 30px; background: white; border: 1px solid var(--border); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s, border-color 0.2s; z-index: 3; }
+  .wishlist-btn { position: absolute; top: 34px; right: 10px; width: 30px; height: 30px; background: white; border: 1px solid var(--border); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; z-index: 3; }
   .product-card:hover .wishlist-btn { opacity: 1; }
-  .wishlist-btn:hover { border-color: #e53e3e; }
   .wishlist-btn.active { opacity: 1; background: #fff5f5; border-color: #e53e3e; }
-
   .product-info { padding: 14px 14px 16px; }
   .product-tags { display: flex; gap: 5px; margin-bottom: 8px; flex-wrap: wrap; }
   .tag { font-size: 10px; padding: 3px 8px; border-radius: 100px; font-weight: 500; letter-spacing: 0.04em; }
@@ -276,8 +208,7 @@
 
   /* ─── WHY US ─── */
   .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .why-card { padding: 24px 18px; background: var(--white); border-radius: 14px; border: 1px solid var(--border); transition: box-shadow 0.2s; }
-  .why-card:hover { box-shadow: 0 8px 30px rgba(27,67,50,0.07); }
+  .why-card { padding: 24px 18px; background: var(--white); border-radius: 14px; border: 1px solid var(--border); }
   .why-icon { width: 44px; height: 44px; background: rgba(27,67,50,0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
   .why-title { font-size: 14px; font-weight: 500; color: var(--text-dark); margin-bottom: 7px; }
   .why-desc { font-size: 12.5px; color: var(--text-light); line-height: 1.65; }
@@ -307,7 +238,7 @@
   .cart-drawer.open { transform: translateX(0); }
   .cart-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; border-bottom: 1px solid var(--border); }
   .cart-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--text-dark); }
-  .close-btn { width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-mid); transition: background 0.2s; }
+  .close-btn { width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-mid); }
   .close-btn:hover { background: var(--cream-dark); }
   .cart-items { flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
   .cart-item { display: flex; gap: 12px; background: var(--cream); border-radius: 10px; padding: 12px; align-items: center; }
@@ -315,301 +246,122 @@
   .cart-item-name { font-size: 12.5px; font-weight: 500; color: var(--text-dark); margin-bottom: 3px; }
   .cart-item-price { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--forest); font-weight: 600; }
   .cart-item-qty { display: flex; align-items: center; gap: 7px; margin-left: auto; }
-  .qty-btn { width: 26px; height: 26px; background: var(--white); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); transition: border-color 0.15s; }
+  .qty-btn { width: 26px; height: 26px; background: var(--white); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); }
   .qty-btn:hover { border-color: var(--forest); }
   .qty-num { font-size: 14px; font-weight: 500; min-width: 18px; text-align: center; }
   .cart-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; color: var(--text-light); text-align: center; gap: 11px; }
   .cart-empty-icon { font-size: 48px; }
-  .cart-footer { padding: 16px 20px; border-top: 1px solid var(--border); background: var(--white); }
-  .cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-  .cart-total-label { font-size: 13px; color: var(--text-mid); }
-  .cart-total-val { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--forest); }
 
-  .checkout-btn {
+  /* ─── CART FOOTER ─── */
+  .cart-footer { padding: 16px 20px; border-top: 1px solid var(--border); background: var(--white); }
+  .cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding: 12px 14px; background: rgba(27,67,50,0.05); border-radius: 10px; border: 1px solid rgba(27,67,50,0.1); }
+  .cart-total-label { font-size: 13px; color: var(--text-mid); font-weight: 500; }
+  .cart-total-val { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--forest); }
+
+  /* WhatsApp Pay Button */
+  .wa-checkout-btn {
     width: 100%;
-    background: var(--wa-green);
+    background: linear-gradient(135deg, #075E54 0%, #128C7E 50%, #25D366 100%);
     color: #fff;
     border: none;
-    padding: 14px;
-    border-radius: 10px;
+    padding: 16px 20px;
+    border-radius: 12px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.03em;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+    gap: 10px;
+    transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    position: relative;
+    overflow: hidden;
   }
-  .checkout-btn:hover { background: #1ebe5c; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
-  .checkout-btn svg { flex-shrink: 0; }
-  .cart-note { font-size: 11.5px; color: var(--text-light); text-align: center; margin-top: 9px; }
+  .wa-checkout-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.5s;
+  }
+  .wa-checkout-btn:hover::before { left: 100%; }
+  .wa-checkout-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
+
+  .wa-btn-content { display: flex; flex-direction: column; align-items: flex-start; }
+  .wa-btn-main { font-size: 15px; font-weight: 700; }
+  .wa-btn-sub { font-size: 11px; opacity: 0.85; font-weight: 400; letter-spacing: 0.02em; }
+
+  .wa-pay-info { display: flex; align-items: center; gap: 8px; margin-top: 10px; background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.2); border-radius: 8px; padding: 9px 12px; }
+  .wa-pay-info-icon { font-size: 18px; flex-shrink: 0; }
+  .wa-pay-info-text { font-size: 11.5px; color: #075E54; line-height: 1.45; }
+  .wa-pay-info-text strong { font-weight: 600; }
 
   /* ─── TOAST ─── */
   .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--forest); color: var(--cream); padding: 12px 20px; border-radius: 10px; font-size: 13.5px; font-weight: 500; display: flex; align-items: center; gap: 8px; z-index: 999; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 4px 20px rgba(0,0,0,0.2); white-space: nowrap; }
   .toast.show { transform: translateX(-50%) translateY(0); }
-
-  /* ═══ WHATSAPP ORDER MODAL ═══ */
-  .wa-modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 500;
-    display: flex; align-items: center; justify-content: center;
-    padding: 16px;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.3s;
-    backdrop-filter: blur(4px);
-  }
-  .wa-modal-overlay.open { opacity: 1; pointer-events: all; }
-
-  .wa-modal {
-    background: var(--white);
-    border-radius: 20px;
-    width: 100%; max-width: 480px;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.22);
-    overflow: hidden;
-    transform: scale(0.94) translateY(16px);
-    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-  }
-  .wa-modal-overlay.open .wa-modal { transform: scale(1) translateY(0); }
-
-  .wa-modal-header {
-    background: linear-gradient(135deg, var(--wa-dark) 0%, #128C7E 60%, var(--wa-green) 100%);
-    padding: 22px 24px 18px; position: relative;
-  }
-  .wa-modal-close {
-    position: absolute; top: 14px; right: 14px;
-    width: 30px; height: 30px;
-    background: rgba(255,255,255,0.15); border: none; border-radius: 50%;
-    color: white; font-size: 15px; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-  }
-  .wa-modal-close:hover { background: rgba(255,255,255,0.28); }
-  .wa-modal-brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
-  .wa-modal-brand-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
-  .wa-modal-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #fff; }
-  .wa-modal-brand-sub { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; }
-  .wa-modal-headline { font-size: 13px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 7px; margin-top: 4px; }
-  .wa-modal-headline::before { content: ''; width: 6px; height: 6px; background: var(--wa-green); border-radius: 50%; box-shadow: 0 0 0 3px rgba(37,211,102,0.3); flex-shrink: 0; }
-
-  .wa-modal-body { padding: 20px 24px 0; }
-  .wa-order-title { font-size: 12px; font-weight: 600; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-  .wa-order-items { display: flex; flex-direction: column; gap: 8px; max-height: 220px; overflow-y: auto; padding-right: 4px; margin-bottom: 14px; }
-  .wa-order-items::-webkit-scrollbar { width: 4px; }
-  .wa-order-items::-webkit-scrollbar-track { background: var(--cream); border-radius: 4px; }
-  .wa-order-items::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 4px; }
-  .wa-order-item { display: flex; align-items: center; gap: 10px; background: var(--cream); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }
-  .wa-order-item-emoji { font-size: 22px; flex-shrink: 0; }
-  .wa-order-item-name { flex: 1; font-size: 12.5px; font-weight: 500; color: var(--text-dark); line-height: 1.3; }
-  .wa-order-item-qty { font-size: 11px; color: var(--text-light); margin-top: 1px; }
-  .wa-order-item-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--forest); flex-shrink: 0; }
-
-  .wa-divider { height: 1px; background: var(--border); margin: 0 0 14px; }
-  .wa-total-row { display: flex; justify-content: space-between; align-items: center; padding: 0 2px; margin-bottom: 16px; }
-  .wa-total-label { font-size: 13px; font-weight: 500; color: var(--text-mid); }
-  .wa-total-val { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--forest); }
-
-  .wa-info-note { background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.25); border-radius: 10px; padding: 11px 14px; font-size: 12px; color: #075E54; display: flex; gap: 9px; align-items: flex-start; margin-bottom: 16px; line-height: 1.55; }
-  .wa-info-note-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-  .wa-modal-footer { padding: 0 24px 24px; display: flex; flex-direction: column; gap: 10px; }
-
-  .wa-send-btn {
-    width: 100%; background: var(--wa-green); color: #fff; border: none;
-    padding: 15px 20px; border-radius: 12px;
-    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
-    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.03em;
-    box-shadow: 0 4px 18px rgba(37,211,102,0.35);
-  }
-  .wa-send-btn:hover { background: #1ebe5c; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
-
-  .wa-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
-
-  .wa-cancel-btn {
-    width: 100%; background: transparent; color: var(--text-light);
-    border: 1px solid var(--border); padding: 11px; border-radius: 10px;
-    font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer;
-    transition: border-color 0.2s, color 0.2s; letter-spacing: 0.02em;
-  }
-  .wa-cancel-btn:hover { border-color: var(--border-hover); color: var(--text-dark); }
-
-  /* ── Payment Steps ── */
-  .pay-steps { display: flex; flex-direction: column; gap: 0; background: rgba(37,211,102,0.06); border: 1px solid rgba(37,211,102,0.2); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
-  .pay-step { display: flex; align-items: center; gap: 10px; }
-  .pay-step-num { width: 24px; height: 24px; flex-shrink: 0; background: var(--wa-green); color: white; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-  .pay-step-text { font-size: 12.5px; color: #075E54; font-weight: 500; line-height: 1.4; }
-  .pay-step-arrow { font-size: 16px; color: rgba(37,211,102,0.5); text-align: center; margin: 4px 0 4px 8px; }
-
-  .pay-btn-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 7px; margin-top: 2px; }
-
-  /* ── UPI Pay Button ── */
-  .upi-pay-btn {
-    width: 100%;
-    background: linear-gradient(135deg, var(--upi-purple) 0%, #7b2fbe 100%);
-    color: #fff; border: none; padding: 14px 20px; border-radius: 12px;
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
-    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-    transition: filter 0.2s, transform 0.15s, box-shadow 0.2s; letter-spacing: 0.02em;
-    box-shadow: 0 4px 18px rgba(95,37,159,0.35); margin-bottom: 10px;
-  }
-  .upi-pay-btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 26px rgba(95,37,159,0.45); }
-
-  /* ── UPI ID row ── */
-  .upi-id-row { display: flex; align-items: center; gap: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; margin-bottom: 12px; }
-  .upi-id-label { font-size: 11px; color: var(--text-light); font-weight: 500; flex-shrink: 0; }
-  .upi-id-val { font-size: 13px; font-weight: 600; color: var(--upi-purple); flex: 1; letter-spacing: 0.01em; }
-  .upi-copy-btn { background: var(--upi-purple); color: white; border: none; border-radius: 6px; padding: 5px 12px; font-size: 11.5px; font-weight: 600; cursor: pointer; transition: background 0.2s; flex-shrink: 0; font-family: 'DM Sans', sans-serif; }
-  .upi-copy-btn:hover { background: var(--upi-purple-dark); }
-  .upi-copy-btn.copied { background: var(--wa-green); }
-
-  /* ── OR Divider ── */
-  .pay-or-divider { display: flex; align-items: center; gap: 10px; margin: 4px 0 14px; color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-  .pay-or-divider::before, .pay-or-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
   /* ════ RESPONSIVE ════ */
   @media (max-width: 1200px) {
     .product-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
-    .hero-products-row { gap: 10px; }
-    .hero-product-img { width: 60px; height: 60px; font-size: 38px; }
-    .hero-brand-name { font-size: 52px; }
   }
-
   @media (max-width: 960px) {
     nav { display: none; }
     .search-bar { display: none; }
     .mobile-menu-btn { display: flex; }
-    .header-inner { padding: 0 16px; gap: 12px; }
+    .header-inner { padding: 0 16px; }
     .hero-inner { grid-template-columns: 1fr; min-height: unset; padding: 28px 20px; }
     .hero-left { border-right: none; border-bottom: 1px solid rgba(240,192,64,0.15); padding: 0 0 28px 0; gap: 14px; }
     .hero-brand-name { font-size: 48px; }
-    .hero-center { padding: 28px 0 0 0; gap: 16px; }
-    .hero-products-row { gap: 10px; }
+    .hero-center { padding: 28px 0 0 0; }
     .brand-banner-inner { grid-template-columns: 1fr; text-align: center; gap: 24px; }
     .bb-brand-name { font-size: 40px; }
-    .bb-products-row { justify-content: center; }
     .categories-grid { grid-template-columns: repeat(2, 1fr); }
     .price-table-grid { grid-template-columns: 1fr; }
     .section { padding: 40px 20px; }
     .section-title { font-size: 32px; }
   }
-
   @media (max-width: 640px) {
     .announcement { font-size: 11px; padding: 8px 12px; }
     .header-inner { height: 58px; padding: 0 14px; }
     .logo-name { font-size: 19px; }
-    .logo-sub { font-size: 9px; }
-    .logo-mark { width: 36px; height: 36px; font-size: 18px; }
-    .hero-inner { padding: 22px 16px; gap: 0; }
-    .hero-left { padding: 0 0 22px 0; gap: 12px; }
+    .hero-inner { padding: 22px 16px; }
     .hero-brand-name { font-size: 40px; }
     .hero-brand-sub { font-size: 17px; }
-    .hero-oil-drop { font-size: 11px; }
-    .hero-pure-pill { font-size: 11px; padding: 7px 14px; }
-    .hero-tags { gap: 5px; }
-    .hero-tag { font-size: 10px; padding: 3px 9px; }
-    .cert-badge { padding: 5px 9px; }
-    .cert-badge-title { font-size: 10px; }
-    .cert-pure { width: 44px; height: 44px; }
-    .cert-pure span:first-child { font-size: 9px; }
-    .hero-center { padding: 22px 0 0 0; gap: 14px; }
-    .hero-center-title { font-size: 12px; letter-spacing: 0.12em; }
     .hero-products-row { flex-direction: column; gap: 10px; }
     .hero-product-card { flex-direction: row; padding: 14px 16px; gap: 14px; border-radius: 12px; }
     .hero-product-img { width: 56px; height: 56px; font-size: 34px; flex-shrink: 0; }
-    .hero-product-name { font-size: 11px; text-align: left; margin-bottom: 4px; }
+    .hero-product-name { font-size: 11px; text-align: left; }
     .hero-product-prices { flex-direction: row; gap: 8px; flex: 1; }
-    .hero-price-row { flex-direction: column; align-items: center; padding: 6px 8px; gap: 1px; }
+    .hero-price-row { flex-direction: column; align-items: center; padding: 6px 8px; }
     .hero-price-ml { font-size: 9px; }
     .hero-price-val { font-size: 15px; }
-    .hero-badges-row { gap: 5px; }
-    .hero-badge { font-size: 9.5px; padding: 3px 8px; }
     .brand-banner-inner { padding: 24px 16px; gap: 20px; }
-    .bb-oil-drop { font-size: 36px; }
     .bb-brand-name { font-size: 34px; }
-    .bb-pure-badge { font-size: 14px; padding: 5px 18px; }
     .bb-product-pill { min-width: 84px; padding: 12px 10px; }
     .bb-product-emoji { font-size: 28px; }
-    .bb-product-label { font-size: 9px; }
-    .bb-info-badge { font-size: 10px; padding: 4px 10px; }
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .product-img-wrap { height: 145px; }
     .product-emoji { font-size: 52px; }
-    .product-badge-strip { font-size: 7.5px; letter-spacing: 0.08em; height: 22px; }
-    .product-pricing { gap: 4px; }
-    .price-old { display: none; }
-    .add-to-cart { font-size: 11.5px; padding: 9px 8px; gap: 5px; }
-    .price-table-inner { padding: 36px 16px; }
-    .price-table-grid { gap: 14px; }
-    .price-row { padding: 10px 0; }
-    .price-qty { font-size: 13px; }
-    .price-amount { font-size: 18px; }
-    .price-add-btn { padding: 4px 10px; font-size: 11px; }
+    .add-to-cart { font-size: 11.5px; padding: 9px 8px; }
     .section { padding: 36px 16px; }
     .section-title { font-size: 28px; }
     .section-header { flex-direction: column; align-items: flex-start; margin-bottom: 22px; gap: 10px; }
     .categories-grid { grid-template-columns: 1fr; gap: 10px; }
-    .category-card { padding: 16px 14px; }
-    .cat-icon { font-size: 28px; }
-    .cat-name { font-size: 13px; }
     .why-grid { grid-template-columns: 1fr; gap: 12px; }
-    .why-card { padding: 20px 16px; }
     .footer-main { grid-template-columns: 1fr; gap: 28px; padding: 36px 16px 24px; }
     .footer-bottom { padding: 16px; flex-direction: column; text-align: center; }
     .cart-drawer { width: 100%; max-width: 100vw; }
     .toast { bottom: 16px; font-size: 12.5px; padding: 10px 16px; max-width: calc(100vw - 32px); white-space: normal; text-align: center; justify-content: center; }
     .product-info { padding: 10px 10px 12px; }
     .product-name { font-size: 11.5px; }
-    .product-meta { font-size: 10.5px; margin-bottom: 7px; }
+    .price-old { display: none; }
     .price-current { font-size: 18px; }
-    .product-tags { gap: 3px; margin-bottom: 6px; }
-    .tag { font-size: 9px; padding: 2px 6px; }
-    .wishlist-btn { top: 28px; width: 26px; height: 26px; }
-    .wa-modal { border-radius: 16px; }
-    .wa-modal-header { padding: 18px 18px 14px; }
-    .wa-modal-body { padding: 16px 18px 0; }
-    .wa-modal-footer { padding: 0 18px 20px; }
-    .wa-send-btn { font-size: 14px; padding: 13px; }
-  }
-
-  @media (max-width: 380px) {
-    .hero-brand-name { font-size: 34px; }
-    .hero-product-prices { flex-direction: column; gap: 4px; }
-    .hero-price-row { flex-direction: row; }
-    .bb-brand-name { font-size: 28px; }
-    .section-title { font-size: 24px; }
-  }
-
-  .mobile-nav { display: flex; }
-  .mobile-nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 299; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
-  .mobile-nav-overlay.open { opacity: 1; pointer-events: all; }
-
-  /* ─── IMAGE HERO BANNER ─── */
-  .hero-banner-img { border-bottom: 3px solid var(--gold); background: #1a1a0f; overflow: hidden; }
-  .hero-img-wrap { position: relative; max-width: 1280px; margin: 0 auto; display: block; }
-  .hero-poster-img { width: 100%; height: auto; display: block; max-height: 520px; object-fit: cover; object-position: center; }
-  .hero-img-overlay { position: absolute; bottom: 28px; right: 40px; display: flex; gap: 12px; align-items: center; }
-  .hero-shop-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; padding: 12px 24px; border-radius: 10px; border: 2px solid var(--gold); transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 18px rgba(0,0,0,0.25); }
-  .hero-shop-btn:hover { background: var(--forest-mid); transform: translateY(-2px); }
-  .hero-price-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--gold); color: var(--forest); text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: 0.04em; padding: 12px 20px; border-radius: 10px; transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 18px rgba(0,0,0,0.2); }
-  .hero-price-btn:hover { background: var(--gold-bright); transform: translateY(-2px); }
-  @media (max-width: 640px) {
-    .hero-poster-img { max-height: 260px; object-position: left center; }
-    .hero-img-overlay { bottom: 12px; right: 12px; gap: 8px; flex-direction: column; align-items: flex-end; }
-    .hero-shop-btn { font-size: 12px; padding: 9px 16px; }
-    .hero-price-btn { font-size: 11.5px; padding: 9px 14px; }
-  }
-  @media (max-width: 380px) {
-    .hero-poster-img { max-height: 200px; }
-    .hero-img-overlay { bottom: 8px; right: 8px; }
-    .hero-shop-btn { font-size: 11px; padding: 7px 12px; }
-    .hero-price-btn { font-size: 10.5px; padding: 7px 10px; }
   }
 </style>
 </head>
@@ -618,7 +370,7 @@
 <!-- ANNOUNCEMENT -->
 <div class="announcement">
   🌿 Free delivery across Tamil Nadu · Retail &amp; Wholesale available ·
-  <span>Call: 9500887900</span>
+  <span>Call / WhatsApp: 9500887900</span>
 </div>
 
 <!-- HEADER -->
@@ -631,7 +383,6 @@
         <span class="logo-sub">Wood Pressed Oils</span>
       </div>
     </a>
-
     <nav>
       <a href="#">Home</a>
       <a href="#products">Shop</a>
@@ -639,7 +390,6 @@
       <a href="#">Wholesale</a>
       <a href="#">Contact</a>
     </nav>
-
     <div class="header-actions">
       <div class="search-bar">
         <input type="text" placeholder="Search oils...">
@@ -658,10 +408,8 @@
   </div>
 </header>
 
-<!-- MOBILE NAV OVERLAY -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()"></div>
-
-<!-- MOBILE NAV DRAWER -->
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-header">
     <div class="logo">
@@ -686,15 +434,54 @@
   </div>
 </div>
 
-<!-- HERO BANNER -->
-<section class="hero-banner-img">
-  <div class="hero-img-wrap">
-    <div class="hero-img-overlay">
-      <a href="#products" class="hero-shop-btn">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        Shop Now
-      </a>
-      <a href="#prices" class="hero-price-btn">View Price List →</a>
+<!-- HERO -->
+<section class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-oil-drop">100% Pure · Coimbatore</div>
+      <div class="hero-brand-name"><em>Aadhif's</em><br>Wood<br>Pressed</div>
+      <div class="hero-brand-sub">Traditional Oils &amp; Ghee</div>
+      <div class="hero-pure-pill">✅ FSSAI Certified · No Additives</div>
+      <div class="hero-tags">
+        <span class="hero-tag">🪵 Chekku Method</span>
+        <span class="hero-tag">🌱 Zero Chemicals</span>
+        <span class="hero-tag">🚚 Ships All TN</span>
+        <span class="hero-tag">🛒 Wholesale Available</span>
+      </div>
+    </div>
+    <div class="hero-center">
+      <div class="hero-center-title">Our Pure Oils</div>
+      <div class="hero-products-row">
+        <div class="hero-product-card" onclick="location.href='#products'">
+          <div class="hero-product-img">🥜</div>
+          <div class="hero-product-name">Groundnut Oil</div>
+          <div class="hero-product-prices">
+            <div class="hero-price-row"><span class="hero-price-ml">500ml</span><span class="hero-price-val">₹159</span></div>
+            <div class="hero-price-row"><span class="hero-price-ml">1 Litre</span><span class="hero-price-val">₹299</span></div>
+          </div>
+        </div>
+        <div class="hero-product-card" onclick="location.href='#products'">
+          <div class="hero-product-img">🌿</div>
+          <div class="hero-product-name">Gingelly Oil</div>
+          <div class="hero-product-prices">
+            <div class="hero-price-row"><span class="hero-price-ml">500ml</span><span class="hero-price-val">₹219</span></div>
+            <div class="hero-price-row"><span class="hero-price-ml">1 Litre</span><span class="hero-price-val">₹420</span></div>
+          </div>
+        </div>
+        <div class="hero-product-card" onclick="location.href='#products'">
+          <div class="hero-product-img">🥥</div>
+          <div class="hero-product-name">Coconut Oil</div>
+          <div class="hero-product-prices">
+            <div class="hero-price-row"><span class="hero-price-ml">500ml</span><span class="hero-price-val">₹239</span></div>
+            <div class="hero-price-row"><span class="hero-price-ml">1 Litre</span><span class="hero-price-val">₹450</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+        <span style="font-size:11px;color:rgba(245,240,232,0.55);background:rgba(27,67,50,0.4);border:1px solid rgba(64,145,108,0.25);padding:4px 10px;border-radius:100px;">✅ 100% Veg</span>
+        <span style="font-size:11px;color:rgba(245,240,232,0.55);background:rgba(27,67,50,0.4);border:1px solid rgba(64,145,108,0.25);padding:4px 10px;border-radius:100px;">🏭 FSSAI Certified</span>
+        <span style="font-size:11px;color:rgba(245,240,232,0.55);background:rgba(27,67,50,0.4);border:1px solid rgba(64,145,108,0.25);padding:4px 10px;border-radius:100px;">🏛️ MSME Registered</span>
+      </div>
     </div>
   </div>
 </section>
@@ -712,8 +499,7 @@
       </div>
       <div class="bb-pure-badge">100% PURE</div>
     </div>
-
-    <div class="bb-products-block">
+    <div style="text-align:center;">
       <div class="bb-products-row">
         <div class="bb-product-pill"><span class="bb-product-emoji">🥜</span><span class="bb-product-label">Groundnut<br>Oil</span></div>
         <div class="bb-product-pill"><span class="bb-product-emoji">🌿</span><span class="bb-product-label">Sesame<br>Oil</span></div>
@@ -752,10 +538,8 @@
       </div>
       <a href="#prices" class="view-all">See full price list →</a>
     </div>
-
     <div class="product-grid">
 
-      <!-- Groundnut Oil -->
       <div class="product-card" data-name="Groundnut Oil 1L" data-price="299" data-emoji="🥜">
         <div class="product-badge-strip">GROUNDNUT OIL · WOOD PRESSED</div>
         <div class="product-img-wrap" style="background:#FDF5E0;">
@@ -783,7 +567,6 @@
         </div>
       </div>
 
-      <!-- Sesame / Gingelly Oil -->
       <div class="product-card" data-name="Gingelly Oil 1L" data-price="420" data-emoji="🌿">
         <div class="product-badge-strip">SESAME OIL · GINGELLY · WOOD PRESSED</div>
         <div class="product-img-wrap" style="background:#FDF3E0;">
@@ -811,7 +594,6 @@
         </div>
       </div>
 
-      <!-- Coconut Oil -->
       <div class="product-card" data-name="Coconut Oil 1L" data-price="450" data-emoji="🥥">
         <div class="product-badge-strip">COCONUT OIL · COLD PRESSED · PURE</div>
         <div class="product-img-wrap" style="background:#EEF8F0;">
@@ -839,7 +621,6 @@
         </div>
       </div>
 
-      <!-- Pure Desi Ghee -->
       <div class="product-card" data-name="Pure Desi Ghee 500ml" data-price="699" data-emoji="🫙">
         <div class="product-badge-strip">PURE DESI GHEE · A2 · TRADITIONAL</div>
         <div class="product-img-wrap" style="background:#FFF8E7;">
@@ -882,134 +663,41 @@
       </div>
     </div>
     <div class="price-table-grid">
-
-      <!-- Groundnut -->
       <div class="price-oil-card">
-        <div class="price-oil-header">
-          <span class="price-oil-emoji">🥜</span>
-          <div>
-            <div class="price-oil-name">Groundnut Oil</div>
-            <div class="price-oil-sub">Cold Pressed · Chekku</div>
-          </div>
-        </div>
+        <div class="price-oil-header"><span class="price-oil-emoji">🥜</span><div><div class="price-oil-name">Groundnut Oil</div><div class="price-oil-sub">Cold Pressed · Chekku</div></div></div>
         <div class="price-rows">
-          <div class="price-row">
-            <span class="price-qty">500 ml</span>
-            <span class="price-amount">₹159</span>
-            <button class="price-add-btn" onclick="addByName('Groundnut Oil 500ml', 159, '🥜')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">1 Litre</span>
-            <span class="price-amount">₹299</span>
-            <button class="price-add-btn" onclick="addByName('Groundnut Oil 1L', 299, '🥜')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">2 Litres</span>
-            <span class="price-amount">₹580</span>
-            <button class="price-add-btn" onclick="addByName('Groundnut Oil 2L', 580, '🥜')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">5 Litres</span>
-            <span class="price-amount">₹1,400</span>
-            <button class="price-add-btn" onclick="addByName('Groundnut Oil 5L', 1400, '🥜')">+ Add</button>
-          </div>
+          <div class="price-row"><span class="price-qty">500 ml</span><span class="price-amount">₹159</span><button class="price-add-btn" onclick="addByName('Groundnut Oil 500ml', 159, '🥜')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">1 Litre</span><span class="price-amount">₹299</span><button class="price-add-btn" onclick="addByName('Groundnut Oil 1L', 299, '🥜')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">2 Litres</span><span class="price-amount">₹580</span><button class="price-add-btn" onclick="addByName('Groundnut Oil 2L', 580, '🥜')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">5 Litres</span><span class="price-amount">₹1,400</span><button class="price-add-btn" onclick="addByName('Groundnut Oil 5L', 1400, '🥜')">+ Add</button></div>
         </div>
       </div>
-
-      <!-- Gingelly -->
       <div class="price-oil-card">
-        <div class="price-oil-header">
-          <span class="price-oil-emoji">🌿</span>
-          <div>
-            <div class="price-oil-name">Gingelly Oil</div>
-            <div class="price-oil-sub">Sesame / Til · Wood Pressed</div>
-          </div>
-        </div>
+        <div class="price-oil-header"><span class="price-oil-emoji">🌿</span><div><div class="price-oil-name">Gingelly Oil</div><div class="price-oil-sub">Sesame / Til · Wood Pressed</div></div></div>
         <div class="price-rows">
-          <div class="price-row">
-            <span class="price-qty">500 ml</span>
-            <span class="price-amount">₹219</span>
-            <button class="price-add-btn" onclick="addByName('Gingelly Oil 500ml', 219, '🌿')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">1 Litre</span>
-            <span class="price-amount">₹420</span>
-            <button class="price-add-btn" onclick="addByName('Gingelly Oil 1L', 420, '🌿')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">2 Litres</span>
-            <span class="price-amount">₹820</span>
-            <button class="price-add-btn" onclick="addByName('Gingelly Oil 2L', 820, '🌿')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">5 Litres</span>
-            <span class="price-amount">₹2,000</span>
-            <button class="price-add-btn" onclick="addByName('Gingelly Oil 5L', 2000, '🌿')">+ Add</button>
-          </div>
+          <div class="price-row"><span class="price-qty">500 ml</span><span class="price-amount">₹219</span><button class="price-add-btn" onclick="addByName('Gingelly Oil 500ml', 219, '🌿')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">1 Litre</span><span class="price-amount">₹420</span><button class="price-add-btn" onclick="addByName('Gingelly Oil 1L', 420, '🌿')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">2 Litres</span><span class="price-amount">₹820</span><button class="price-add-btn" onclick="addByName('Gingelly Oil 2L', 820, '🌿')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">5 Litres</span><span class="price-amount">₹2,000</span><button class="price-add-btn" onclick="addByName('Gingelly Oil 5L', 2000, '🌿')">+ Add</button></div>
         </div>
       </div>
-
-      <!-- Coconut -->
       <div class="price-oil-card">
-        <div class="price-oil-header">
-          <span class="price-oil-emoji">🥥</span>
-          <div>
-            <div class="price-oil-name">Coconut Oil</div>
-            <div class="price-oil-sub">Cold Pressed · Unrefined</div>
-          </div>
-        </div>
+        <div class="price-oil-header"><span class="price-oil-emoji">🥥</span><div><div class="price-oil-name">Coconut Oil</div><div class="price-oil-sub">Cold Pressed · Unrefined</div></div></div>
         <div class="price-rows">
-          <div class="price-row">
-            <span class="price-qty">500 ml</span>
-            <span class="price-amount">₹239</span>
-            <button class="price-add-btn" onclick="addByName('Coconut Oil 500ml', 239, '🥥')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">1 Litre</span>
-            <span class="price-amount">₹450</span>
-            <button class="price-add-btn" onclick="addByName('Coconut Oil 1L', 450, '🥥')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">2 Litres</span>
-            <span class="price-amount">₹880</span>
-            <button class="price-add-btn" onclick="addByName('Coconut Oil 2L', 880, '🥥')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">5 Litres</span>
-            <span class="price-amount">₹2,150</span>
-            <button class="price-add-btn" onclick="addByName('Coconut Oil 5L', 2150, '🥥')">+ Add</button>
-          </div>
+          <div class="price-row"><span class="price-qty">500 ml</span><span class="price-amount">₹239</span><button class="price-add-btn" onclick="addByName('Coconut Oil 500ml', 239, '🥥')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">1 Litre</span><span class="price-amount">₹450</span><button class="price-add-btn" onclick="addByName('Coconut Oil 1L', 450, '🥥')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">2 Litres</span><span class="price-amount">₹880</span><button class="price-add-btn" onclick="addByName('Coconut Oil 2L', 880, '🥥')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">5 Litres</span><span class="price-amount">₹2,150</span><button class="price-add-btn" onclick="addByName('Coconut Oil 5L', 2150, '🥥')">+ Add</button></div>
         </div>
       </div>
-
-      <!-- Ghee -->
-      <div class="price-oil-card" style="grid-column: 1 / -1; max-width: 440px;">
-        <div class="price-oil-header">
-          <span class="price-oil-emoji">🫙</span>
-          <div>
-            <div class="price-oil-name">Pure Desi Ghee</div>
-            <div class="price-oil-sub">A2 Milk · Bilona Method</div>
-          </div>
-        </div>
+      <div class="price-oil-card" style="grid-column:1/-1;max-width:440px;">
+        <div class="price-oil-header"><span class="price-oil-emoji">🫙</span><div><div class="price-oil-name">Pure Desi Ghee</div><div class="price-oil-sub">A2 Milk · Bilona Method</div></div></div>
         <div class="price-rows">
-          <div class="price-row">
-            <span class="price-qty">250 ml</span>
-            <span class="price-amount">₹369</span>
-            <button class="price-add-btn" onclick="addByName('Pure Ghee 250ml', 369, '🫙')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">500 ml</span>
-            <span class="price-amount">₹699</span>
-            <button class="price-add-btn" onclick="addByName('Pure Ghee 500ml', 699, '🫙')">+ Add</button>
-          </div>
-          <div class="price-row">
-            <span class="price-qty">1 Litre</span>
-            <span class="price-amount">₹1,349</span>
-            <button class="price-add-btn" onclick="addByName('Pure Ghee 1L', 1349, '🫙')">+ Add</button>
-          </div>
+          <div class="price-row"><span class="price-qty">250 ml</span><span class="price-amount">₹369</span><button class="price-add-btn" onclick="addByName('Pure Ghee 250ml', 369, '🫙')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">500 ml</span><span class="price-amount">₹699</span><button class="price-add-btn" onclick="addByName('Pure Ghee 500ml', 699, '🫙')">+ Add</button></div>
+          <div class="price-row"><span class="price-qty">1 Litre</span><span class="price-amount">₹1,349</span><button class="price-add-btn" onclick="addByName('Pure Ghee 1L', 1349, '🫙')">+ Add</button></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1044,26 +732,10 @@
       </div>
     </div>
     <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">🪵</div>
-        <div class="why-title">Traditional Wood Press</div>
-        <p class="why-desc">Slow-pressed on a wooden chekku mill at room temperature — preserving full aroma, nutrients, and natural colour.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🌱</div>
-        <div class="why-title">Zero Additives</div>
-        <p class="why-desc">No preservatives, no chemicals, no refining. Just pure oil from seed to bottle.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🏭</div>
-        <div class="why-title">FSSAI &amp; MSME Certified</div>
-        <p class="why-desc">Govt. certified, quality tested. FSSAI #12426003001014. Safe for your family.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🚚</div>
-        <div class="why-title">All Over Tamil Nadu</div>
-        <p class="why-desc">We ship across all districts of Tamil Nadu. Bulk and retail orders both welcome.</p>
-      </div>
+      <div class="why-card"><div class="why-icon">🪵</div><div class="why-title">Traditional Wood Press</div><p class="why-desc">Slow-pressed on a wooden chekku mill at room temperature — preserving full aroma, nutrients, and natural colour.</p></div>
+      <div class="why-card"><div class="why-icon">🌱</div><div class="why-title">Zero Additives</div><p class="why-desc">No preservatives, no chemicals, no refining. Just pure oil from seed to bottle.</p></div>
+      <div class="why-card"><div class="why-icon">🏭</div><div class="why-title">FSSAI &amp; MSME Certified</div><p class="why-desc">Govt. certified, quality tested. FSSAI #12426003001014. Safe for your family.</p></div>
+      <div class="why-card"><div class="why-icon">🚚</div><div class="why-title">All Over Tamil Nadu</div><p class="why-desc">We ship across all districts of Tamil Nadu. Bulk and retail orders both welcome.</p></div>
     </div>
   </div>
 </section>
@@ -1105,8 +777,8 @@
       <div class="footer-col-title">Contact</div>
       <div class="footer-contact-block">
         <div class="footer-contact-item">📞 <span><strong>9500887900</strong></span></div>
-        <div class="footer-contact-item">✉️ <span>aadhifshomemade<br>@gmail.com</span></div>
-        <div class="footer-contact-item">📍 <span>Velandipalayam,<br>Coimbatore 641025</span></div>
+        <div class="footer-contact-item">✉️ <span>aadhifshomemade@gmail.com</span></div>
+        <div class="footer-contact-item">📍 <span>Velandipalayam, Coimbatore 641025</span></div>
         <div class="footer-contact-item">🕐 <span>Mon–Sat: 9am – 7pm</span></div>
       </div>
     </div>
@@ -1133,86 +805,29 @@
   </div>
   <div class="cart-footer" id="cartFooter" style="display:none;">
     <div class="cart-total-row">
-      <span class="cart-total-label">Total</span>
+      <span class="cart-total-label">Total to Pay</span>
       <span class="cart-total-val" id="cartTotal">₹0</span>
     </div>
-    <button class="checkout-btn" onclick="openWaModal()">
-      <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- WhatsApp Pay Button -->
+    <button class="wa-checkout-btn" onclick="sendWhatsAppOrder()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
       </svg>
-      Order via WhatsApp
+      <div class="wa-btn-content">
+        <div class="wa-btn-main">Pay via WhatsApp</div>
+        <div class="wa-btn-sub">Order details + UPI ID sent automatically</div>
+      </div>
     </button>
-    <p class="cart-note">🚚 Free shipping across Tamil Nadu on orders above ₹499</p>
-  </div>
-</div>
 
-<!-- WHATSAPP ORDER CONFIRMATION MODAL -->
-<div class="wa-modal-overlay" id="waModalOverlay" onclick="closeWaModalOnOverlay(event)">
-  <div class="wa-modal" id="waModal">
-
-    <div class="wa-modal-header">
-      <button class="wa-modal-close" onclick="closeWaModal()">✕</button>
-      <div class="wa-modal-brand-row">
-        <div class="wa-modal-brand-icon">💧</div>
-        <div>
-          <div class="wa-modal-brand-name">Aadhif's</div>
-          <div class="wa-modal-brand-sub">WOOD PRESSED OILS · COIMBATORE</div>
-        </div>
-      </div>
-      <div class="wa-modal-headline">Pay via UPI, then confirm order on WhatsApp</div>
-    </div>
-
-    <div class="wa-modal-body">
-      <div class="wa-order-title">Order Summary</div>
-      <div class="wa-order-items" id="waOrderItems"></div>
-      <div class="wa-divider"></div>
-      <div class="wa-total-row">
-        <span class="wa-total-label">Total Amount</span>
-        <span class="wa-total-val" id="waTotalVal">₹0</span>
-      </div>
-      <div class="pay-steps">
-        <div class="pay-step">
-          <div class="pay-step-num">1</div>
-          <div class="pay-step-text">Pay the amount using any UPI app (GPay, PhonePe, Paytm)</div>
-        </div>
-        <div class="pay-step-arrow">↓</div>
-        <div class="pay-step">
-          <div class="pay-step-num">2</div>
-          <div class="pay-step-text">Send your order + payment screenshot on WhatsApp</div>
-        </div>
+    <!-- How it works note -->
+    <div class="wa-pay-info">
+      <span class="wa-pay-info-icon">💡</span>
+      <div class="wa-pay-info-text">
+        WhatsApp will open with your order &amp; our UPI ID. 
+        <strong>Pay using WhatsApp Pay</strong> or any UPI app, then send the screenshot to confirm.
       </div>
     </div>
-
-    <div class="wa-modal-footer">
-
-      <div class="pay-btn-label">Step 1 — Pay Now</div>
-      <button class="upi-pay-btn" onclick="openUpiPayment()">
-        <svg class="wa-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="48" height="48" rx="10" fill="white" fill-opacity="0.15"/>
-          <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-size="11" font-weight="800" font-family="Arial,sans-serif" fill="white" letter-spacing="0.5">UPI</text>
-        </svg>
-        Pay ₹<span id="upiAmountSpan">0</span> via GPay / PhonePe / Paytm
-      </button>
-
-      <div class="upi-id-row">
-        <span class="upi-id-label">UPI ID:</span>
-        <span class="upi-id-val" id="upiIdDisplay">8925387731@upi</span>
-        <button class="upi-copy-btn" onclick="copyUpiId()" id="upiCopyBtn">Copy</button>
-      </div>
-
-      <div class="pay-or-divider"><span>then</span></div>
-
-      <div class="pay-btn-label">Step 2 — Send Order on WhatsApp</div>
-      <button class="wa-send-btn" onclick="sendWhatsAppOrder()">
-        <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-        Send Order + Screenshot on WhatsApp
-      </button>
-
-      <button class="wa-cancel-btn" onclick="closeWaModal()">Cancel — go back to cart</button>
-    </div>
-
   </div>
 </div>
 
@@ -1223,32 +838,39 @@
 </div>
 
 <script>
-  /* ═══════════════════════════════════
-     CART STATE
-  ═══════════════════════════════════ */
+  /* ── CONFIG ── */
+  const WA_PHONE  = '919500887900'; // +91 9500887900
+  const UPI_ID    = '8925387731@upi';
+  const UPI_NAME  = "Aadhif's Oils";
+
+  /* ── CART STATE ── */
   let cart = [];
 
-  // ─ UPI / WhatsApp constants ─
-  const UPI_ID   = '8925387731@upi';
-  const UPI_NAME = "Aadhif's Oils";
-  const WA_PHONE = '918925387731'; // +91 8925387731
-
-  // ─ Mobile Nav ─
-  function openMobileNav() {
+  /* ── MOBILE NAV ── */
+  document.getElementById('menuBtn').onclick = () => {
     document.getElementById('mobileNav').classList.add('open');
     document.getElementById('mobileNavOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
-  }
+  };
   function closeMobileNav() {
     document.getElementById('mobileNav').classList.remove('open');
     document.getElementById('mobileNavOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.getElementById('menuBtn').onclick = openMobileNav;
 
-  /* ═══════════════════════════════════
-     CART FUNCTIONS
-  ═══════════════════════════════════ */
+  /* ── CART OPEN / CLOSE ── */
+  document.getElementById('cartBtn').onclick = () => {
+    document.getElementById('cartDrawer').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  function closeCart() {
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── ADD TO CART (product card button) ── */
   function addToCart(btn) {
     const card = btn.closest('.product-card');
     addByName(card.dataset.name, parseInt(card.dataset.price), card.dataset.emoji);
@@ -1258,6 +880,7 @@
     setTimeout(() => { btn.style.background = ''; btn.innerHTML = orig; }, 1500);
   }
 
+  /* ── ADD BY NAME (price table) ── */
   function addByName(name, price, emoji) {
     const existing = cart.find(i => i.name === name);
     if (existing) existing.qty++;
@@ -1266,21 +889,26 @@
     showToast(name + ' added!');
   }
 
+  /* ── UPDATE CART UI ── */
   function updateCart() {
     const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
     const count = cart.reduce((s, i) => s + i.qty, 0);
+
     document.getElementById('cartCount').textContent = count;
     document.getElementById('cartTotal').textContent = '₹' + total.toLocaleString('en-IN');
 
-    const empty  = document.getElementById('cartEmpty');
-    const footer = document.getElementById('cartFooter');
+    const empty   = document.getElementById('cartEmpty');
+    const footer  = document.getElementById('cartFooter');
     const itemsEl = document.getElementById('cartItems');
+
     [...itemsEl.querySelectorAll('.cart-item')].forEach(el => el.remove());
 
     if (cart.length === 0) {
-      empty.style.display = 'flex'; footer.style.display = 'none';
+      empty.style.display = 'flex';
+      footer.style.display = 'none';
     } else {
-      empty.style.display = 'none'; footer.style.display = 'block';
+      empty.style.display = 'none';
+      footer.style.display = 'block';
       cart.forEach((item, idx) => {
         const el = document.createElement('div');
         el.className = 'cart-item';
@@ -1311,6 +939,7 @@
     btn.querySelector('svg').setAttribute('fill', btn.classList.contains('active') ? '#e53e3e' : 'none');
   }
 
+  /* ── TOAST ── */
   function showToast(msg) {
     const t = document.getElementById('toast');
     document.getElementById('toastMsg').textContent = msg;
@@ -1318,113 +947,12 @@
     setTimeout(() => t.classList.remove('show'), 2500);
   }
 
-  document.getElementById('cartBtn').onclick = () => {
-    document.getElementById('cartDrawer').classList.add('open');
-    document.getElementById('cartOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  function closeCart() {
-    document.getElementById('cartDrawer').classList.remove('open');
-    document.getElementById('cartOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  /* ═══════════════════════════════════
-     WHATSAPP ORDER MODAL
-  ═══════════════════════════════════ */
-  function openWaModal() {
-    if (cart.length === 0) return;
-
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-
-    // Populate order items
-    const container = document.getElementById('waOrderItems');
-    container.innerHTML = '';
-    cart.forEach(item => {
-      const el = document.createElement('div');
-      el.className = 'wa-order-item';
-      el.innerHTML = `
-        <span class="wa-order-item-emoji">${item.emoji}</span>
-        <div>
-          <div class="wa-order-item-name">${item.name}</div>
-          <div class="wa-order-item-qty">Qty: ${item.qty}</div>
-        </div>
-        <span class="wa-order-item-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</span>
-      `;
-      container.appendChild(el);
-    });
-
-    document.getElementById('waTotalVal').textContent = '₹' + total.toLocaleString('en-IN');
-    // FIX: use raw number (no commas) in the amount span for the UPI button label
-    document.getElementById('upiAmountSpan').textContent = total.toLocaleString('en-IN');
-
-    document.getElementById('waModalOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeWaModal() {
-    document.getElementById('waModalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closeWaModalOnOverlay(e) {
-    if (e.target === document.getElementById('waModalOverlay')) closeWaModal();
-  }
-
-  /* ═══════════════════════════════════
-     UPI PAYMENT  ← FIXED
-     Uses an <a> click so the page is
-     NOT navigated away from. Works on
-     mobile (opens GPay/PhonePe/Paytm)
-     and silently fails on desktop
-     (where upi:// isn't registered).
-  ═══════════════════════════════════ */
-  function openUpiPayment() {
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-
-    // Raw integer amount — NO toLocaleString (commas break the UPI URL)
-    const upiURL = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('Aadhifs Oils Order')}`;
-
-    // Create a temporary anchor and click it — keeps the page open
-    const a = document.createElement('a');
-    a.href = upiURL;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    showToast('📲 Opening UPI app…');
-  }
-
-  /* ─── Copy UPI ID ─── */
-  function copyUpiId() {
-    const btn = document.getElementById('upiCopyBtn');
-    const copy = () => {
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(UPI_ID).then(copy).catch(() => fallbackCopy());
-    } else {
-      fallbackCopy();
-    }
-    function fallbackCopy() {
-      const ta = document.createElement('textarea');
-      ta.value = UPI_ID;
-      ta.style.position = 'fixed'; ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.focus(); ta.select();
-      try { document.execCommand('copy'); } catch(e) {}
-      document.body.removeChild(ta);
-      copy();
-    }
-  }
-
-  /* ═══════════════════════════════════
-     WHATSAPP ORDER MESSAGE
-  ═══════════════════════════════════ */
+  /* ══════════════════════════════════════════════
+     WHATSAPP PAY — sends order + UPI details
+     Opens WA chat with full order summary and
+     your UPI ID so customer pays via WhatsApp Pay
+     or any UPI app, then sends screenshot.
+  ══════════════════════════════════════════════ */
   function sendWhatsAppOrder() {
     if (cart.length === 0) return;
 
@@ -1434,31 +962,34 @@
     const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
 
     let msg = '';
-    msg += '🛒 *New Order — Aadhif\'s Wood Pressed Oils*\n';
-    msg += '─────────────────────────\n';
-    msg += `📅 Date: ${dateStr}  🕐 ${timeStr}\n`;
-    msg += '─────────────────────────\n';
-    msg += '*Order Details:*\n\n';
+    msg += `🛒 *New Order — Aadhif's Wood Pressed Oils*\n`;
+    msg += `📅 ${dateStr}  🕐 ${timeStr}\n`;
+    msg += `━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    msg += `*Order Items:*\n`;
 
     cart.forEach((item, i) => {
       msg += `${i + 1}. ${item.emoji} *${item.name}*\n`;
-      msg += `   Qty: ${item.qty}  ×  ₹${item.price.toLocaleString('en-IN')} = *₹${(item.price * item.qty).toLocaleString('en-IN')}*\n\n`;
+      msg += `   Qty: ${item.qty}  ×  ₹${item.price.toLocaleString('en-IN')} = *₹${(item.price * item.qty).toLocaleString('en-IN')}*\n`;
     });
 
-    msg += '─────────────────────────\n';
+    msg += `\n━━━━━━━━━━━━━━━━━━━━━\n`;
     msg += `💰 *Total Amount: ₹${total.toLocaleString('en-IN')}*\n`;
-    msg += '─────────────────────────\n\n';
-    msg += 'Please find my payment screenshot attached. Kindly confirm my order and share delivery details. Thank you! 🙏\n\n';
-    msg += `💳 *Paid via UPI to: ${UPI_ID}*\n\n`;
-    msg += '_Ordered via aadhifsoils.in_';
+    msg += `━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    msg += `💳 *Pay ₹${total.toLocaleString('en-IN')} via WhatsApp Pay or UPI:*\n`;
+    msg += `📲 UPI ID: *${UPI_ID}*\n\n`;
+    msg += `👉 Please use *WhatsApp Pay* (tap the 💸 icon in this chat) or pay via GPay / PhonePe / Paytm to the UPI ID above.\n\n`;
+    msg += `📸 After payment, please reply with your *payment screenshot* to confirm the order.\n\n`;
+    msg += `🚚 We'll share delivery details once payment is confirmed.\n`;
+    msg += `Thank you! 🙏\n\n`;
+    msg += `_Aadhif's Wood Pressed Oils, Coimbatore_\n`;
+    msg += `_FSSAI: 12426003001014_`;
 
     const waURL = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`;
     window.open(waURL, '_blank');
 
-    closeWaModal();
     closeCart();
     showToast('✅ Opening WhatsApp…');
   }
-</script
+</script>
 </body>
 </html>
