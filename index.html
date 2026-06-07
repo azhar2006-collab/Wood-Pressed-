@@ -902,64 +902,96 @@
      If the app is not installed, the browser ignores it and we
      fall back to the standard upi:// link after 1.5 seconds.
   ═══════════════════════════════════════════════════════════════ */
-
-  function getTotal() {
-    return cart.reduce((s, i) => s + i.price * i.qty, 0);
-  }
-
-  function upiParams() {
-    const total = getTotal();
-    return `pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('Aadhifs Oils Order')}`;
-  }
-
- function openGPay() {
-  const total = getTotal();
-
-  const upiUrl =
-    `upi://pay?pa=${encodeURIComponent(UPI_ID)}` +
-    `&pn=${encodeURIComponent(UPI_NAME)}` +
-    `&am=${total}` +
-    `&cu=INR`;
-
-  window.location.href = upiUrl;
+function getTotal() {
+  return cart.reduce((s, i) => s + i.price * i.qty, 0);
 }
-  function openPhonePe() {
-    tryOpenApp(`phonepe://pay?${upiParams()}`, `upi://pay?${upiParams()}`);
-    showToast('📲 Opening PhonePe…');
-  }
+ 
+function buildUpiUrl() {
+  const total = getTotal();
+  return 'upi://pay?' +
+    'pa=' + encodeURIComponent(UPI_ID) +
+    '&pn=' + encodeURIComponent(UPI_NAME) +
+    '&am=' + total +
+    '&cu=INR' +
+    '&tn=' + encodeURIComponent('Aadhifs Oils Order');
+}
+ 
+/*
+ * openGPay — GPay uses gpay://upi/pay? scheme on Android.
+ * Falls back to standard upi:// if GPay isn't installed.
+ */
 function openGPay() {
   const total = getTotal();
-
-  const upiUrl =
-    `upi://pay?pa=azharvijay694-1@oksbi&pn=Azhar&am=${total}&cu=INR`;
-
-  alert(upiUrl);   // show the link
-  window.location.href = upiUrl;
+  if (total === 0) return;
+  const gpayUrl = 'gpay://upi/pay?' +
+    'pa=' + encodeURIComponent(UPI_ID) +
+    '&pn=' + encodeURIComponent(UPI_NAME) +
+    '&am=' + total +
+    '&cu=INR' +
+    '&tn=' + encodeURIComponent('Aadhifs Oils Order');
+  showToast('Opening GPay...');
+  launchWithFallback(gpayUrl, buildUpiUrl());
 }
-  function openPaytm() {
-    /* paytmmp:// is Paytm's own scheme for outgoing UPI payments.
-       It bypasses Paytm Protect, which only restricts inbound flows. */
-    tryOpenApp(`paytmmp://pay?${upiParams()}`, `upi://pay?${upiParams()}`);
-    showToast('📲 Opening Paytm…');
-  }
-
-  function tryOpenApp(primaryUrl, fallbackUrl) {
-    /* Hidden iframe: trigger the custom scheme without navigating away.
-       If the app opens, great. If not, fall through to the generic upi:// link. */
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    const start = Date.now();
-    iframe.src = primaryUrl;
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-      /* The app opened if the page lost focus — elapsed time will be < 1800ms.
-         If no focus change was detected we assume the app isn't installed. */
-      if (Date.now() - start < 1800) {
-        window.location.href = fallbackUrl;
-      }
-    }, 1500);
-  }
+ 
+/*
+ * openPhonePe — PhonePe uses phonepe:// scheme.
+ */
+function openPhonePe() {
+  const total = getTotal();
+  if (total === 0) return;
+  const phonepeUrl = 'phonepe://pay?' +
+    'pa=' + encodeURIComponent(UPI_ID) +
+    '&pn=' + encodeURIComponent(UPI_NAME) +
+    '&am=' + total +
+    '&cu=INR' +
+    '&tn=' + encodeURIComponent('Aadhifs Oils Order');
+  showToast('Opening PhonePe...');
+  launchWithFallback(phonepeUrl, buildUpiUrl());
+}
+ 
+/*
+ * openPaytm — PAYTM PROTECT FIX
+ * Paytm Protect blocks generic upi:// payments routed INTO Paytm
+ * from other apps. Using paytmmp:// (Paytm's own outbound scheme)
+ * forces Paytm's native send flow, which bypasses Protect entirely.
+ */
+function openPaytm() {
+  const total = getTotal();
+  if (total === 0) return;
+  const paytmUrl = 'paytmmp://pay?' +
+    'pa=' + encodeURIComponent(UPI_ID) +
+    '&pn=' + encodeURIComponent(UPI_NAME) +
+    '&am=' + total +
+    '&cu=INR' +
+    '&tn=' + encodeURIComponent('Aadhifs Oils Order');
+  showToast('Opening Paytm...');
+  launchWithFallback(paytmUrl, buildUpiUrl());
+}
+ 
+/*
+ * launchWithFallback
+ * Tries the app-specific URL. If the app opens, the page hides
+ * (visibilitychange fires). If no app opens within 1.8s, falls
+ * back to the standard upi:// intent which shows a system picker.
+ */
+function launchWithFallback(primaryUrl, fallbackUrl) {
+  let appOpened = false;
+  function onHide() { appOpened = true; }
+  document.addEventListener('visibilitychange', onHide, { once: true });
+  const a = document.createElement('a');
+  a.href = primaryUrl;
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => {
+    document.removeEventListener('visibilitychange', onHide);
+    if (!appOpened) {
+      window.location.href = fallbackUrl;
+    }
+  }, 1800);
+}
+ 
 
   function copyUpiId() {
     const doSet = () => {
